@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=7 format=3 uid="uid://djc01df5y0h4a"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
+[ext_resource type="PackedScene" uid="uid://nnpf1u6bswph" path="res://Scenes/ui_bar.tscn" id="2_knvlw"]
 [ext_resource type="Texture2D" uid="uid://caqtdrdwiaett" path="res://Assets/UI Assets/options icon.png" id="3_0jm1g"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
@@ -31,9 +32,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 474.0
-offset_top = 216.0
+offset_top = 157.0
 offset_right = 1494.0
-offset_bottom = 736.0
+offset_bottom = 677.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
@@ -49,9 +50,16 @@ mesh = SubResource("PrismMesh_kglyt")
 
 [node name="PlayHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
 z_index = -2
-position = Vector2(621.5, 301)
+position = Vector2(621.5, 242)
 scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
+
+[node name="PlayBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
+offset_left = 556.0
+offset_top = 319.0
+offset_right = 621.0
+offset_bottom = 336.0
+scale = Vector2(2, 2)
 
 [node name="Options" type="Button" parent="MainMenuController/Buttons"]
 z_index = -1
@@ -62,9 +70,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 474.0
-offset_top = 368.0
+offset_top = 341.0
 offset_right = 1494.0
-offset_bottom = 888.0
+offset_bottom = 861.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
@@ -75,9 +83,17 @@ icon_alignment = 1
 [node name="OptionsHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
 visible = false
 z_index = -2
-position = Vector2(621.5, 454)
+position = Vector2(621.5, 427)
 scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
+
+[node name="OptionsBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
+visible = false
+offset_left = 557.0
+offset_top = 500.0
+offset_right = 622.0
+offset_bottom = 517.0
+scale = Vector2(2, 2)
 
 [node name="ExitButton" type="Button" parent="MainMenuController/Buttons"]
 z_index = -1
@@ -104,3 +120,11 @@ z_index = -2
 position = Vector2(621.5, 607)
 scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
+
+[node name="ExitBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
+visible = false
+offset_left = 556.0
+offset_top = 676.0
+offset_right = 621.0
+offset_bottom = 693.0
+scale = Vector2(2, 2)

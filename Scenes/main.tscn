@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=20 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="2_s5w2w"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="4_ov8yf"]
 [ext_resource type="PackedScene" uid="uid://mitdgrjd8nwd" path="res://Scenes/ship.tscn" id="4_qmoeh"]
 [ext_resource type="PackedScene" uid="uid://2yx1xf6ijjac" path="res://Scenes/small_bullet.tscn" id="5_035m2"]
+[ext_resource type="PackedScene" uid="uid://nnpf1u6bswph" path="res://Scenes/ui_bar.tscn" id="5_rowb4"]
 [ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/big_bullet.tscn" id="6_tmdik"]
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/perf_big_bullet.tscn" id="8_1jt8y"]
@@ -76,6 +77,14 @@ position = Vector2(1222, 325)
 scale = Vector2(270.625, 144)
 mesh = SubResource("BoxMesh_3av85")
 
+[node name="QuitBar" parent="UIController/PausePanel" instance=ExtResource("5_rowb4")]
+visible = false
+offset_left = 1149.0
+offset_top = 400.0
+offset_right = 1213.0
+offset_bottom = 440.0
+scale = Vector2(2, 2)
+
 [node name="ExitButton" type="Button" parent="UIController/PausePanel"]
 layout_mode = 0
 offset_left = 1401.0
@@ -93,6 +102,14 @@ z_index = -1
 position = Vector2(1528, 324)
 scale = Vector2(270.625, 144)
 mesh = SubResource("BoxMesh_3av85")
+
+[node name="ExitBar" parent="UIController/PausePanel" instance=ExtResource("5_rowb4")]
+visible = false
+offset_left = 1463.0
+offset_top = 399.0
+offset_right = 1527.0
+offset_bottom = 439.0
+scale = Vector2(2, 2)
 
 [node name="PauseCounter" type="Control" parent="UIController"]
 layout_mode = 1
