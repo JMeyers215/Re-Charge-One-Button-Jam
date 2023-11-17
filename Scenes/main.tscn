@@ -8,4 +8,4 @@ script = ExtResource("1_hfepg")
 
 [node name="Squid" parent="." instance=ExtResource("1_mkjhi")]
 position = Vector2(640, 360)
-scale = Vector2(10, 10)
+scale = Vector2(8, 8)

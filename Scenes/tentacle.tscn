@@ -13,16 +13,14 @@ scale = Vector2(11, 2)
 script = ExtResource("1_1hd8r")
 
 [node name="SmallTentacle" type="Node2D" parent="."]
+modulate = Color(0.847059, 0.32549, 0.333333, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="SmallTentacle"]
 mesh = SubResource("BoxMesh_2b71e")
 
-[node name="SmallCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0.0113636, 0)
-shape = SubResource("RectangleShape2D_cskv8")
-
 [node name="LargeTentacle" type="Node2D" parent="."]
 visible = false
+modulate = Color(0.847059, 0.32549, 0.333333, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="LargeTentacle"]
 position = Vector2(1.38636, 0)
@@ -36,6 +34,7 @@ shape = SubResource("RectangleShape2D_cskv8")
 
 [node name="MediumTentacle" type="Node2D" parent="."]
 visible = false
+modulate = Color(0.847059, 0.32549, 0.333333, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="MediumTentacle"]
 position = Vector2(0.295455, 0)

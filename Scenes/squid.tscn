@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp3ptl2tfsabl"]
+[gd_scene load_steps=5 format=3 uid="uid://dp3ptl2tfsabl"]
 
 [ext_resource type="Script" path="res://Scripts/squid.gd" id="1_40ml4"]
 [ext_resource type="PackedScene" uid="uid://dyvb0uf478jwr" path="res://Scenes/tentacle.tscn" id="2_1oqsb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_1n2j5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtdmi"]
+radius = 7.0
 
 [node name="Squid" type="Node2D" node_paths=PackedStringArray("tentacle_counter")]
 script = ExtResource("1_40ml4")
@@ -56,4 +59,14 @@ tentacle_id = 8
 wait_time = 0.5
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rtdmi")
+
+[node name="SlapTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="Tentacle_Counter" to="." method="_on_tentacle_counter_timeout"]
+[connection signal="timeout" from="SlapTimer" to="." method="_on_slap_timer_timeout"]
