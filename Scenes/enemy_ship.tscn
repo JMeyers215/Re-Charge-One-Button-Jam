@@ -30,5 +30,5 @@ texture = ExtResource("1_cwam6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_01k2d")
-frame_progress = 0.00487389
+frame_progress = 0.0854376
 speed_scale = 2.0

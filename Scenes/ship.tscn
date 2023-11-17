@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://mitdgrjd8nwd"]
+[gd_scene load_steps=8 format=3 uid="uid://mitdgrjd8nwd"]
 
 [ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/SpaceShip.png" id="1_q1geo"]
+[ext_resource type="Script" path="res://Scripts/ship.gd" id="1_qn0sq"]
 [ext_resource type="Texture2D" uid="uid://dfwc7r8e0oqvl" path="res://Assets/SpaceShipPropellant1.png" id="2_vq5du"]
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/SpaceShipPropellant4.png" id="5_udsu8"]
 
@@ -31,6 +32,7 @@ animations = [{
 }]
 
 [node name="Ship" type="Node2D"]
+script = ExtResource("1_qn0sq")
 
 [node name="SpaceShip" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
@@ -39,5 +41,5 @@ texture = ExtResource("1_q1geo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, 0)
 sprite_frames = SubResource("SpriteFrames_wf0qt")
-frame_progress = 0.351784
+frame_progress = 0.162412
 speed_scale = 2.5
