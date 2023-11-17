@@ -1,3 +1,106 @@
-[gd_scene format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=6 format=3 uid="uid://djc01df5y0h4a"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
+[ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
+[ext_resource type="Texture2D" uid="uid://caqtdrdwiaett" path="res://Assets/UI Assets/options icon.png" id="3_0jm1g"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kf6oh"]
 
 [node name="Menu" type="Node2D"]
+
+[node name="MainMenuController" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_801on")
+
+[node name="Buttons" type="Control" parent="MainMenuController"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="MainMenuController/Buttons"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 474.0
+offset_top = 216.0
+offset_right = 1494.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon_alignment = 1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MainMenuController/Buttons/Play"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(524, 260)
+rotation = 4.71239
+scale = Vector2(440.5, 444.5)
+mesh = SubResource("PrismMesh_kglyt")
+
+[node name="PlayHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
+z_index = -2
+position = Vector2(621.5, 301)
+scale = Vector2(269, 144)
+mesh = SubResource("BoxMesh_kf6oh")
+
+[node name="Options" type="Button" parent="MainMenuController/Buttons"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 474.0
+offset_top = 368.0
+offset_right = 1494.0
+offset_bottom = 888.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("3_0jm1g")
+icon_alignment = 1
+
+[node name="OptionsHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
+visible = false
+z_index = -2
+position = Vector2(621.5, 454)
+scale = Vector2(269, 144)
+mesh = SubResource("BoxMesh_kf6oh")
+
+[node name="ExitButton" type="Button" parent="MainMenuController/Buttons"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 474.0
+offset_top = 521.0
+offset_right = 1494.0
+offset_bottom = 1041.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("2_3b3e0")
+icon_alignment = 1
+
+[node name="ExitHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
+visible = false
+z_index = -2
+position = Vector2(621.5, 607)
+scale = Vector2(269, 144)
+mesh = SubResource("BoxMesh_kf6oh")

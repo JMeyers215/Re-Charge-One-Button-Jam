@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=19 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
+[ext_resource type="Script" path="res://Scripts/UIController.gd" id="2_s5w2w"]
+[ext_resource type="Texture2D" uid="uid://bweqlg54ocpum" path="res://Assets/UI Assets/quitbutton.png" id="3_57pow"]
 [ext_resource type="PackedScene" uid="uid://bfgx0vsffd4lc" path="res://Scenes/pause_symbol.tscn" id="3_dnsx3"]
 [ext_resource type="Texture2D" uid="uid://dv3pfaa0g3vt5" path="res://Assets/Character Assets/ButtonImage.png" id="4_e4wl0"]
+[ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="4_ov8yf"]
 [ext_resource type="PackedScene" uid="uid://mitdgrjd8nwd" path="res://Scenes/ship.tscn" id="4_qmoeh"]
 [ext_resource type="PackedScene" uid="uid://2yx1xf6ijjac" path="res://Scenes/small_bullet.tscn" id="5_035m2"]
 [ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/big_bullet.tscn" id="6_tmdik"]
@@ -15,20 +18,20 @@
 texture = SubResource("CanvasTexture_drykd")
 modulate_color = Color(1, 1, 1, 0.537255)
 
-[sub_resource type="LabelSettings" id="LabelSettings_h2jrs"]
-font_size = 86
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_3av85"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_kyxw8"]
-font_size = 116
+[sub_resource type="LabelSettings" id="LabelSettings_i44qq"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_r3was"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_i44qq"]
+[sub_resource type="LabelSettings" id="LabelSettings_n7inj"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_n7inj"]
+[sub_resource type="LabelSettings" id="LabelSettings_vkjfk"]
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
@@ -39,50 +42,57 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_s5w2w")
 metadata/_edit_use_anchors_ = true
 
 [node name="PausePanel" type="Panel" parent="UIController"]
 visible = false
 z_index = 4
 layout_mode = 1
-offset_left = -720.0
+offset_left = -740.0
 offset_top = 119.0
-offset_right = 2101.0
+offset_right = 2081.0
 offset_bottom = 558.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_vpjbb")
 
-[node name="Label2" type="Label" parent="UIController/PausePanel"]
-layout_mode = 0
-offset_left = 1492.0
-offset_top = 279.0
-offset_right = 1640.0
-offset_bottom = 397.0
-text = "X 3"
-label_settings = SubResource("LabelSettings_h2jrs")
-
-[node name="ButtonImage" type="Sprite2D" parent="UIController/PausePanel"]
-modulate = Color(1, 0, 0.423529, 1)
-position = Vector2(1403, 343)
-texture = ExtResource("4_e4wl0")
-
-[node name="Label" type="Label" parent="UIController/PausePanel"]
-layout_mode = 0
-offset_left = 1263.0
-offset_top = 254.0
-offset_right = 1303.0
-offset_bottom = 412.0
-text = ":"
-label_settings = SubResource("LabelSettings_kyxw8")
-
-[node name="PlaySymbol" type="MeshInstance2D" parent="UIController/PausePanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(1178, 348)
-rotation = 4.71239
-scale = Vector2(150, 150)
-mesh = SubResource("PrismMesh_r3was")
-
 [node name="PauseSymbol" parent="UIController/PausePanel" instance=ExtResource("3_dnsx3")]
 position = Vector2(1333, 99)
+
+[node name="QuitButton" type="Button" parent="UIController/PausePanel"]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 260.0
+offset_right = 2114.0
+offset_bottom = 780.0
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("3_57pow")
+icon_alignment = 1
+
+[node name="QuitHover" type="MeshInstance2D" parent="UIController/PausePanel"]
+visible = false
+z_index = -1
+position = Vector2(1222, 325)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_3av85")
+
+[node name="ExitButton" type="Button" parent="UIController/PausePanel"]
+layout_mode = 0
+offset_left = 1401.0
+offset_top = 260.0
+offset_right = 2421.0
+offset_bottom = 780.0
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("4_ov8yf")
+icon_alignment = 1
+
+[node name="ExitHover" type="MeshInstance2D" parent="UIController/PausePanel"]
+visible = false
+z_index = -1
+position = Vector2(1528, 324)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_3av85")
 
 [node name="PauseCounter" type="Control" parent="UIController"]
 layout_mode = 1
@@ -96,40 +106,49 @@ offset_bottom = 50.0
 grow_horizontal = 0
 
 [node name="PauseSymbol" parent="UIController/PauseCounter" instance=ExtResource("3_dnsx3")]
-position = Vector2(60, 13)
+position = Vector2(25, 13)
 scale = Vector2(0.25, 0.25)
 
 [node name="ButtonImage" type="Sprite2D" parent="UIController/PauseCounter"]
-position = Vector2(111, 13)
-scale = Vector2(0.25, 0.25)
+position = Vector2(99, 13)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_e4wl0")
 
 [node name="PauseCount" type="Label" parent="UIController/PauseCounter"]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 1.0
-offset_right = 175.0
-offset_bottom = 37.0
+offset_left = 131.0
+offset_top = -1.0
+offset_right = 171.0
+offset_bottom = 35.0
 text = "X 0"
 label_settings = SubResource("LabelSettings_i44qq")
 
 [node name="PlaySymbol" type="MeshInstance2D" parent="UIController/PauseCounter"]
 visible = false
 modulate = Color(0, 0, 0, 1)
-position = Vector2(69, 13)
+position = Vector2(32, 13)
 rotation = 4.71239
 scale = Vector2(40, 40)
 mesh = SubResource("PrismMesh_r3was")
 
 [node name="Label" type="Label" parent="UIController/PauseCounter"]
 layout_mode = 0
-offset_left = 146.0
-offset_top = 1.0
-offset_right = 186.0
-offset_bottom = 24.0
+offset_left = 149.0
+offset_top = -1.0
+offset_right = 189.0
+offset_bottom = 27.0
 text = ":3"
 label_settings = SubResource("LabelSettings_n7inj")
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UIController/PauseCounter"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = -6.0
+offset_right = 96.0
+offset_bottom = 29.0
+text = ":"
+label_settings = SubResource("LabelSettings_vkjfk")
 
 [node name="PauseTimer" type="Timer" parent="UIController"]
 wait_time = 0.3
