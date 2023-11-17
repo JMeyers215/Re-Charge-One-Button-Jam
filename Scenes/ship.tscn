@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mitdgrjd8nwd"]
+[gd_scene load_steps=10 format=3 uid="uid://mitdgrjd8nwd"]
 
 [ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/Character Assets/SpaceShip.png" id="1_q1geo"]
 [ext_resource type="Script" path="res://Scripts/ship.gd" id="1_qn0sq"]
@@ -32,6 +32,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgyem"]
+size = Vector2(18, 16)
+
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_qn0sq")
 
@@ -52,3 +55,20 @@ offset_right = 49.0
 offset_bottom = 24.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_lgyem")
+
+[node name="PerfectSmall" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="PerfectLarge" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="PerfectSmall" to="." method="_on_perfect_small_timeout"]
+[connection signal="timeout" from="PerfectLarge" to="." method="_on_perfect_large_timeout"]

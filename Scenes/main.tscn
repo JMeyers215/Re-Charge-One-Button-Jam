@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=16 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="PackedScene" uid="uid://bfgx0vsffd4lc" path="res://Scenes/pause_symbol.tscn" id="3_dnsx3"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://mitdgrjd8nwd" path="res://Scenes/ship.tscn" id="4_qmoeh"]
 [ext_resource type="PackedScene" uid="uid://2yx1xf6ijjac" path="res://Scenes/small_bullet.tscn" id="5_035m2"]
 [ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/big_bullet.tscn" id="6_tmdik"]
+[ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/perf_small_bullet.tscn" id="7_r11nv"]
+[ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/perf_big_bullet.tscn" id="8_1jt8y"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -41,10 +43,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PausePanel" type="Panel" parent="UIController"]
 visible = false
+z_index = 4
 layout_mode = 1
-offset_left = -784.0
+offset_left = -720.0
 offset_top = 119.0
-offset_right = 2037.0
+offset_right = 2101.0
 offset_bottom = 558.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_vpjbb")
 
@@ -136,6 +139,8 @@ position = Vector2(84, 72)
 scale = Vector2(3, 3)
 small_bullet_scene = ExtResource("5_035m2")
 big_bullet_scene = ExtResource("6_tmdik")
+perf_small_bullet_scene = ExtResource("7_r11nv")
+perf_big_bullet_scene = ExtResource("8_1jt8y")
 ship_speed = 1.5
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]

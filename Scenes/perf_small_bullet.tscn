@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://meupnn5yoa3"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_ojb6f"]
+[ext_resource type="Texture2D" uid="uid://bknc6frnrfcud" path="res://Assets/Character Assets/perfectsmallbullet.png" id="1_tnbkv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jyqe"]
+size = Vector2(13, 8)
+
+[node name="PerfSmallBullet" type="RigidBody2D" groups=["Bullet"]]
+script = ExtResource("1_ojb6f")
+bullet_speed = 1000
+bullet_size = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnbkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_3jyqe")

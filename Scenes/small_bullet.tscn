@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd8ut"]
 size = Vector2(13, 8)
 
-[node name="SmallBullet" type="RigidBody2D"]
+[node name="SmallBullet" type="RigidBody2D" groups=["Bullet"]]
 gravity_scale = 0.0
 script = ExtResource("1_xramo")
 bullet_speed = 1000

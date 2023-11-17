@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqw6l"]
 size = Vector2(16, 10)
 
-[node name="BigBullet" type="RigidBody2D"]
+[node name="BigBullet" type="RigidBody2D" groups=["Bullet"]]
 gravity_scale = 0.0
 script = ExtResource("1_xkuxs")
-bullet_speed = 750
+bullet_speed = 500
 bullet_size = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
