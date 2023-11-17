@@ -1,26 +1,43 @@
 extends Node2D
 
-var unpause_counter : int = 1
-var pause_counter : int = 1
+var unpause_counter : int = 0
+var pause_counter : int = 0
 @export var paused : bool = false
 
 func _input(event):
-	if Input.is_action_pressed("one_button") && paused == false:
-		pause_counter += 1
-		if pause_counter == 30:
-			paused = true
-			$Squid.tentacle_counter.paused = true
-	elif Input.is_action_just_released("one_button") && paused == false:
-		pause_counter = 1
+	if Input.is_action_just_pressed("one_button") && paused == false:
+		pause_counter +=1
+		$UIController/PauseCounter/PauseCount.text = str("x ",pause_counter)
+		
+		$UIController/PauseTimer.start()
+	
+	if Input.is_action_just_pressed("one_button") && paused == true:
+		unpause_counter +=1
+		$UIController/PauseCounter/PauseCount.text = str("x ",unpause_counter)
+		
+		$UIController/PauseTimer.start()
 
-	if Input.is_action_pressed("one_button") && paused == true:
-		unpause_counter += 1
-		if unpause_counter == 50:
-			paused = false
-			$Squid.tentacle_counter.paused = false
-	elif Input.is_action_just_released("one_button") && paused == true:
-		unpause_counter = 1
-
+	if pause_counter == 3:
+		paused = true
+		pause_counter = 0
+		$UIController/PauseCounter/PauseSymbol.visible = false
+		$UIController/PauseCounter/PlaySymbol.visible = true
+	
+	if unpause_counter == 3:
+		paused = false
+		unpause_counter = 0
+		$UIController/PauseCounter/PauseSymbol.visible = true
+		$UIController/PauseCounter/PlaySymbol.visible = false
 func _physics_process(delta):
-	pass
+	if paused == true:
+		$UIController/PausePanel.visible = true
+	elif paused == false:
+		$UIController/PausePanel.visible = false
 
+func _on_pause_timer_timeout() -> void:
+	pause_counter = 0
+	unpause_counter= 0
+	if paused == true:
+		$UIController/PauseCounter/PauseCount.text = str("x ",unpause_counter)
+	elif paused == false:
+		$UIController/PauseCounter/PauseCount.text = str("x ",pause_counter)

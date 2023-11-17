@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://mitdgrjd8nwd"]
+
+[ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/SpaceShip.png" id="1_q1geo"]
+[ext_resource type="Texture2D" uid="uid://dfwc7r8e0oqvl" path="res://Assets/SpaceShipPropellant1.png" id="2_vq5du"]
+[ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/SpaceShipPropellant4.png" id="5_udsu8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2flj"]
+load_path = "res://.godot/imported/SpaceShipPropellant3.png-e42a1063d9f10d56e1ea92326ca6faf3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uc2xf"]
+load_path = "res://.godot/imported/SpaceShipPropellant2.png-f710d01054a3032e0bab0f0b8cb3c464.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wf0qt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_udsu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vq5du")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_e2flj")
+}, {
+"duration": 1.5,
+"texture": SubResource("CompressedTexture2D_uc2xf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ship" type="Node2D"]
+
+[node name="SpaceShip" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_q1geo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-15, 0)
+sprite_frames = SubResource("SpriteFrames_wf0qt")
+frame_progress = 0.351784
+speed_scale = 2.5

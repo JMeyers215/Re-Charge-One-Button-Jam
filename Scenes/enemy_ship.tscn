@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://chgtvp3v07a54"]
+
+[ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/EvilShip.png" id="1_cwam6"]
+[ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/EvilPropellant1.png" id="2_tmnv7"]
+[ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/EvilPropellant2.png" id="3_axxhr"]
+[ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/EvilPropellant3.png" id="4_m0pi2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01k2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tmnv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_axxhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m0pi2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyShip" type="Node2D"]
+
+[node name="EvilShip" type="Sprite2D" parent="."]
+texture = ExtResource("1_cwam6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 0)
+sprite_frames = SubResource("SpriteFrames_01k2d")
+frame_progress = 0.00487389
+speed_scale = 2.0

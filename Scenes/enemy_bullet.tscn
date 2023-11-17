@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb6eeb5442fp7"]
+
+[ext_resource type="Texture2D" uid="uid://cpy44r58m0i6q" path="res://Assets/evilbullet.png" id="1_wktxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpjay"]
+size = Vector2(14, 4)
+
+[node name="EnemyBullet" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wktxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hpjay")
