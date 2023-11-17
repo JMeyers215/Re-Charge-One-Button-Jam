@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp3ptl2tfsabl"]
+
+[ext_resource type="Script" path="res://Scripts/squid.gd" id="1_40ml4"]
+[ext_resource type="PackedScene" uid="uid://dyvb0uf478jwr" path="res://Scenes/tentacle.tscn" id="2_1oqsb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1n2j5"]
+
+[node name="Squid" type="Node2D" node_paths=PackedStringArray("tentacle_counter")]
+script = ExtResource("1_40ml4")
+tentacle_counter = NodePath("Tentacle_Counter")
+
+[node name="Head" type="MeshInstance2D" parent="."]
+modulate = Color(0.847059, 0.32549, 0.333333, 1)
+scale = Vector2(10, 10)
+mesh = SubResource("SphereMesh_1n2j5")
+
+[node name="Tentacle1" parent="." instance=ExtResource("2_1oqsb")]
+tentacle_id = 1
+
+[node name="Tentacle2" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(5, 5)
+rotation = 0.785398
+tentacle_id = 2
+
+[node name="Tentacle3" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(0, 6)
+rotation = 1.5708
+tentacle_id = 3
+
+[node name="Tentacle4" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(-5, 5)
+rotation = 2.35619
+tentacle_id = 4
+
+[node name="Tentacle5" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(-6, 0)
+rotation = 3.14159
+tentacle_id = 5
+
+[node name="Tentacle6" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(-5, -5)
+rotation = -2.35619
+tentacle_id = 6
+
+[node name="Tentacle7" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(0, -6)
+rotation = 4.71239
+tentacle_id = 7
+
+[node name="Tentacle8" parent="." instance=ExtResource("2_1oqsb")]
+position = Vector2(5, -5)
+rotation = 5.49779
+tentacle_id = 8
+
+[node name="Tentacle_Counter" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Tentacle_Counter" to="." method="_on_tentacle_counter_timeout"]
