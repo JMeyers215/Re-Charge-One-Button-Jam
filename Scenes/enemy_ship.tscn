@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://chgtvp3v07a54"]
+[gd_scene load_steps=7 format=3 uid="uid://chgtvp3v07a54"]
 
-[ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/EvilShip.png" id="1_cwam6"]
-[ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/EvilPropellant1.png" id="2_tmnv7"]
-[ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/EvilPropellant2.png" id="3_axxhr"]
-[ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/EvilPropellant3.png" id="4_m0pi2"]
+[ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="1_cwam6"]
+[ext_resource type="Script" path="res://Scripts/enemy_ship.gd" id="1_ro72j"]
+[ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="2_tmnv7"]
+[ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="3_axxhr"]
+[ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="4_m0pi2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01k2d"]
 animations = [{
@@ -23,6 +24,7 @@ animations = [{
 }]
 
 [node name="EnemyShip" type="Node2D"]
+script = ExtResource("1_ro72j")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("1_cwam6")
@@ -30,5 +32,5 @@ texture = ExtResource("1_cwam6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_01k2d")
-frame_progress = 0.0854376
+frame_progress = 0.862811
 speed_scale = 2.0

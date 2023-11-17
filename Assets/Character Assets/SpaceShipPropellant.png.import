@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv3pfaa0g3vt5"
-path="res://.godot/imported/ButtonImage.png-0712b95cd2428df38ffe21026516d56c.ctex"
+uid="uid://da425tf60jki5"
+path="res://.godot/imported/SpaceShipPropellant.png-9e0b9b347d21b79a7a7fe08d715d9100.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ButtonImage.png"
-dest_files=["res://.godot/imported/ButtonImage.png-0712b95cd2428df38ffe21026516d56c.ctex"]
+source_file="res://Assets/Character Assets/SpaceShipPropellant.png"
+dest_files=["res://.godot/imported/SpaceShipPropellant.png-9e0b9b347d21b79a7a7fe08d715d9100.ctex"]
 
 [params]
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=14 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="PackedScene" uid="uid://bfgx0vsffd4lc" path="res://Scenes/pause_symbol.tscn" id="3_dnsx3"]
-[ext_resource type="Texture2D" uid="uid://dv3pfaa0g3vt5" path="res://Assets/ButtonImage.png" id="4_e4wl0"]
+[ext_resource type="Texture2D" uid="uid://dv3pfaa0g3vt5" path="res://Assets/Character Assets/ButtonImage.png" id="4_e4wl0"]
+[ext_resource type="PackedScene" uid="uid://mitdgrjd8nwd" path="res://Scenes/ship.tscn" id="4_qmoeh"]
+[ext_resource type="PackedScene" uid="uid://2yx1xf6ijjac" path="res://Scenes/small_bullet.tscn" id="5_035m2"]
+[ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/big_bullet.tscn" id="6_tmdik"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -127,5 +130,12 @@ horizontal_alignment = 1
 
 [node name="PauseTimer" type="Timer" parent="UIController"]
 wait_time = 0.3
+
+[node name="Ship" parent="." instance=ExtResource("4_qmoeh")]
+position = Vector2(84, 72)
+scale = Vector2(3, 3)
+small_bullet_scene = ExtResource("5_035m2")
+big_bullet_scene = ExtResource("6_tmdik")
+ship_speed = 1.5
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]

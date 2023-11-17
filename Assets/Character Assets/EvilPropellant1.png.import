@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddbs0yfv2qiil"
-path="res://.godot/imported/EvilPropellant3.png-bbafa43c7dcf05970b54fa920518e47b.ctex"
+uid="uid://het0orge6o5e"
+path="res://.godot/imported/EvilPropellant1.png-d98143a14211bfedb4ea2d27b960f482.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EvilPropellant3.png"
-dest_files=["res://.godot/imported/EvilPropellant3.png-bbafa43c7dcf05970b54fa920518e47b.ctex"]
+source_file="res://Assets/Character Assets/EvilPropellant1.png"
+dest_files=["res://.godot/imported/EvilPropellant1.png-d98143a14211bfedb4ea2d27b960f482.ctex"]
 
 [params]
 

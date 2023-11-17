@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce31gd5ba1bxg"
-path="res://.godot/imported/EvilShip.png-c7bf488fae848223bcf249c37373a38c.ctex"
+uid="uid://bknbpjk7he665"
+path="res://.godot/imported/ProgressBarUnder.png-c432dbfe711204ec1556298c61f96ddb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EvilShip.png"
-dest_files=["res://.godot/imported/EvilShip.png-c7bf488fae848223bcf249c37373a38c.ctex"]
+source_file="res://Assets/UI Assets/ProgressBarUnder.png"
+dest_files=["res://.godot/imported/ProgressBarUnder.png-c432dbfe711204ec1556298c61f96ddb.ctex"]
 
 [params]
 

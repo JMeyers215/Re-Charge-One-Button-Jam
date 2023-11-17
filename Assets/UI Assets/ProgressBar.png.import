@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di8luudourao5"
-path="res://.godot/imported/SpaceShip.png-e84acf70e6f0e4f429e8a3a7af8ef036.ctex"
+uid="uid://wprdye822eb0"
+path="res://.godot/imported/ProgressBar.png-0d2ac4f2a6505d50dbf2a58b7d6e8cc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpaceShip.png"
-dest_files=["res://.godot/imported/SpaceShip.png-e84acf70e6f0e4f429e8a3a7af8ef036.ctex"]
+source_file="res://Assets/UI Assets/ProgressBar.png"
+dest_files=["res://.godot/imported/ProgressBar.png-0d2ac4f2a6505d50dbf2a58b7d6e8cc7.ctex"]
 
 [params]
 

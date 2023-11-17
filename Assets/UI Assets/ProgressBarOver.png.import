@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2gwceqnefqoo"
-path="res://.godot/imported/EvilPropellant2.png-7cd86b4ad2115867f4b4b8fd0e2c7293.ctex"
+uid="uid://cxpui76jqrtbg"
+path="res://.godot/imported/ProgressBarOver.png-53291f15e962bb978876c9cd7e7f101e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EvilPropellant2.png"
-dest_files=["res://.godot/imported/EvilPropellant2.png-7cd86b4ad2115867f4b4b8fd0e2c7293.ctex"]
+source_file="res://Assets/UI Assets/ProgressBarOver.png"
+dest_files=["res://.godot/imported/ProgressBarOver.png-53291f15e962bb978876c9cd7e7f101e.ctex"]
 
 [params]
 

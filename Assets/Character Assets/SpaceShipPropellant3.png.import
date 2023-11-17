@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpy44r58m0i6q"
-path="res://.godot/imported/evilbullet.png-e8b1f10673dd0a0e1e58253edeb4c90d.ctex"
+uid="uid://db0l3y2fgo3q"
+path="res://.godot/imported/SpaceShipPropellant3.png-046ad75bebe1adee4b36cd3076775923.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/evilbullet.png"
-dest_files=["res://.godot/imported/evilbullet.png-e8b1f10673dd0a0e1e58253edeb4c90d.ctex"]
+source_file="res://Assets/Character Assets/SpaceShipPropellant3.png"
+dest_files=["res://.godot/imported/SpaceShipPropellant3.png-046ad75bebe1adee4b36cd3076775923.ctex"]
 
 [params]
 

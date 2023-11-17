@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4jlown0godjj"
-path="res://.godot/imported/SpaceShipPropellant4.png-475650d9d329e28c8f336074409c30f7.ctex"
+uid="uid://ce31gd5ba1bxg"
+path="res://.godot/imported/EvilShip.png-5f8ef10c6a18a99f16ec03e985045ec8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpaceShipPropellant4.png"
-dest_files=["res://.godot/imported/SpaceShipPropellant4.png-475650d9d329e28c8f336074409c30f7.ctex"]
+source_file="res://Assets/Character Assets/EvilShip.png"
+dest_files=["res://.godot/imported/EvilShip.png-5f8ef10c6a18a99f16ec03e985045ec8.ctex"]
 
 [params]
 
