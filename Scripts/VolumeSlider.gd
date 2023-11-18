@@ -12,3 +12,4 @@ func _on_value_changed(value: float) -> void:
 		bus_index,
 		linear_to_db(value)
 	)
+	print(value,bus_name)

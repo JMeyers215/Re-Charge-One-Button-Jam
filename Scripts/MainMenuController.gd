@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		$Buttons/ExitBar.value = 0
 		$Options/Keybind/KeybindBar.value = 0
 		$Options/QuitBar.value = 0
+		$"../OptionSelectNoise".play() 
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("one_button"):
@@ -67,8 +68,9 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_pressed("one_button"):
 				music_volume += 0.01
 				if music_volume > 1:
-					music_volume =0
+					music_volume = 0
 				$Options/VolumeControls/MusicSlider.value = music_volume
+				$Options/VolumeControls/MusicSlider._on_value_changed(music_volume)
 				Global.music_option = music_volume
 		elif id_select == 2:
 			if Input.is_action_pressed("one_button"):
@@ -76,6 +78,7 @@ func _physics_process(delta: float) -> void:
 				if sound_volume > 1:
 					sound_volume = 0
 				$Options/VolumeControls/AudioSlider.value = sound_volume
+				$Options/VolumeControls/AudioSlider._on_value_changed(sound_volume)
 				Global.sound_option = sound_volume
 		elif select_counter == 30 && id_select == 3:
 			pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=22 format=3 uid="uid://djc01df5y0h4a"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://db0l3y2fgo3q" path="res://Assets/Character Assets/SpaceShipPropellant3.png" id="14_oq0nd"]
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="15_dnudt"]
 [ext_resource type="Texture2D" uid="uid://bjmae01mtlfg6" path="res://icon.svg" id="16_nku4e"]
+[ext_resource type="AudioStream" uid="uid://dbgkqvs2jtqdb" path="res://Sounds/OptionSelect.wav" id="17_lsoii"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
 
@@ -310,6 +311,11 @@ offset_top = 608.0
 offset_right = 1273.0
 offset_bottom = 712.0
 
+[node name="Icon" type="Sprite2D" parent="GodotCredit"]
+position = Vector2(123, 90)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_nku4e")
+
 [node name="Label" type="Label" parent="GodotCredit"]
 layout_mode = 0
 offset_left = 22.0
@@ -318,7 +324,6 @@ offset_right = 109.0
 offset_bottom = 145.0
 text = "Made with"
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1252, 698)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("16_nku4e")
+[node name="OptionSelectNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_lsoii")
+bus = &"Sound"
