@@ -79,6 +79,7 @@ mesh = SubResource("BoxMesh_3av85")
 
 [node name="QuitBar" parent="UIController/PausePanel" instance=ExtResource("5_rowb4")]
 visible = false
+layout_mode = 0
 offset_left = 1149.0
 offset_top = 400.0
 offset_right = 1213.0
@@ -105,6 +106,7 @@ mesh = SubResource("BoxMesh_3av85")
 
 [node name="ExitBar" parent="UIController/PausePanel" instance=ExtResource("5_rowb4")]
 visible = false
+layout_mode = 0
 offset_left = 1463.0
 offset_top = 399.0
 offset_right = 1527.0
