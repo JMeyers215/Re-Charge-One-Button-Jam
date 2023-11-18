@@ -1,13 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=21 format=3 uid="uid://djc01df5y0h4a"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
 [ext_resource type="PackedScene" uid="uid://nnpf1u6bswph" path="res://Scenes/ui_bar.tscn" id="2_knvlw"]
 [ext_resource type="Texture2D" uid="uid://caqtdrdwiaett" path="res://Assets/UI Assets/options icon.png" id="3_0jm1g"]
+[ext_resource type="Texture2D" uid="uid://bweqlg54ocpum" path="res://Assets/UI Assets/quitbutton.png" id="5_8w86k"]
+[ext_resource type="Texture2D" uid="uid://km866komc01f" path="res://Assets/UI Assets/MusicOption.png" id="5_54nla"]
+[ext_resource type="PackedScene" uid="uid://djej7ju5hnfj5" path="res://Scenes/volume_slider.tscn" id="6_mnts0"]
+[ext_resource type="Texture2D" uid="uid://bughicd0oanuf" path="res://Assets/UI Assets/SoundOption.png" id="7_goluv"]
+[ext_resource type="Texture2D" uid="uid://dv3pfaa0g3vt5" path="res://Assets/UI Assets/ButtonImage.png" id="8_ekhkp"]
+[ext_resource type="Texture2D" uid="uid://cg1jo640r2g1b" path="res://Assets/UI Assets/Title.png" id="10_c2cod"]
+[ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/Character Assets/SpaceShip.png" id="11_umkhm"]
+[ext_resource type="Texture2D" uid="uid://dfwc7r8e0oqvl" path="res://Assets/Character Assets/SpaceShipPropellant1.png" id="12_8x7jv"]
+[ext_resource type="Texture2D" uid="uid://dbqqoy8sgal4x" path="res://Assets/Character Assets/SpaceShipPropellant2.png" id="13_0yvl6"]
+[ext_resource type="Texture2D" uid="uid://db0l3y2fgo3q" path="res://Assets/Character Assets/SpaceShipPropellant3.png" id="14_oq0nd"]
+[ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="15_dnudt"]
+[ext_resource type="Texture2D" uid="uid://bjmae01mtlfg6" path="res://icon.svg" id="16_nku4e"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kf6oh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_43a3f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkbap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_8x7jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0yvl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oq0nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dnudt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Node2D"]
 
@@ -55,6 +89,7 @@ scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
 
 [node name="PlayBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
+layout_mode = 0
 offset_left = 556.0
 offset_top = 319.0
 offset_right = 621.0
@@ -89,6 +124,7 @@ mesh = SubResource("BoxMesh_kf6oh")
 
 [node name="OptionsBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
 visible = false
+layout_mode = 0
 offset_left = 557.0
 offset_top = 500.0
 offset_right = 622.0
@@ -123,8 +159,166 @@ mesh = SubResource("BoxMesh_kf6oh")
 
 [node name="ExitBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
 visible = false
+layout_mode = 0
 offset_left = 556.0
 offset_top = 676.0
 offset_right = 621.0
 offset_bottom = 693.0
 scale = Vector2(2, 2)
+
+[node name="Options" type="Control" parent="MainMenuController"]
+visible = false
+anchors_preset = 0
+offset_left = -31.0
+offset_right = 9.0
+offset_bottom = 40.0
+
+[node name="VolumeControls" type="Control" parent="MainMenuController/Options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicOption" type="Sprite2D" parent="MainMenuController/Options/VolumeControls"]
+position = Vector2(644, 71)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_54nla")
+
+[node name="MusicSlider" parent="MainMenuController/Options/VolumeControls" instance=ExtResource("6_mnts0")]
+offset_left = 544.0
+offset_top = 105.0
+offset_right = 757.0
+offset_bottom = 175.0
+bus_name = "Music"
+
+[node name="MusicHover" type="MeshInstance2D" parent="MainMenuController/Options/VolumeControls"]
+visible = false
+z_index = -1
+position = Vector2(653, 85)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_43a3f")
+
+[node name="SoundOption" type="Sprite2D" parent="MainMenuController/Options/VolumeControls"]
+position = Vector2(648, 233)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("7_goluv")
+
+[node name="AudioSlider" parent="MainMenuController/Options/VolumeControls" instance=ExtResource("6_mnts0")]
+offset_left = 543.0
+offset_top = 270.0
+offset_right = 756.0
+offset_bottom = 340.0
+bus_name = "Sound"
+
+[node name="SoundHover" type="MeshInstance2D" parent="MainMenuController/Options/VolumeControls"]
+visible = false
+z_index = -1
+position = Vector2(654, 247)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_43a3f")
+
+[node name="Keybind" type="Control" parent="MainMenuController/Options"]
+anchors_preset = 0
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 52.0
+
+[node name="KeybindBar" parent="MainMenuController/Options/Keybind" instance=ExtResource("2_knvlw")]
+visible = false
+offset_left = 590.0
+offset_top = 487.0
+offset_right = 655.0
+offset_bottom = 504.0
+scale = Vector2(2, 2)
+
+[node name="KeybindButton" type="Button" parent="MainMenuController/Options/Keybind"]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 349.0
+offset_right = 951.0
+offset_bottom = 569.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("8_ekhkp")
+icon_alignment = 1
+
+[node name="KeybindHover" type="MeshInstance2D" parent="MainMenuController/Options/Keybind"]
+visible = false
+z_index = -1
+position = Vector2(654, 415)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_43a3f")
+
+[node name="QuitButton" type="Button" parent="MainMenuController/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 507.0
+offset_top = 520.0
+offset_right = 1527.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("5_8w86k")
+icon_alignment = 1
+
+[node name="QuitHover" type="MeshInstance2D" parent="MainMenuController/Options"]
+visible = false
+z_index = -1
+position = Vector2(654, 604)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_43a3f")
+
+[node name="QuitBar" parent="MainMenuController/Options" instance=ExtResource("2_knvlw")]
+visible = false
+offset_left = 588.312
+offset_top = 678.0
+offset_right = 652.312
+offset_bottom = 718.0
+scale = Vector2(2, 2)
+
+[node name="TitleElements" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Sprite2D" parent="TitleElements"]
+position = Vector2(638, 82)
+scale = Vector2(2, 2)
+texture = ExtResource("10_c2cod")
+
+[node name="SpaceShip" type="Sprite2D" parent="TitleElements"]
+position = Vector2(1123, 83)
+scale = Vector2(6, 6)
+texture = ExtResource("11_umkhm")
+
+[node name="TitleAnimation" type="AnimatedSprite2D" parent="TitleElements"]
+position = Vector2(158, 82)
+scale = Vector2(5.9375, 5.9375)
+sprite_frames = SubResource("SpriteFrames_gkbap")
+speed_scale = 2.0
+
+[node name="GodotCredit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1129.0
+offset_top = 608.0
+offset_right = 1273.0
+offset_bottom = 712.0
+
+[node name="Label" type="Label" parent="GodotCredit"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 80.0
+offset_right = 109.0
+offset_bottom = 145.0
+text = "Made with"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1252, 698)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_nku4e")
