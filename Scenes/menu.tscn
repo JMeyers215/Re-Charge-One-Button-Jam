@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=28 format=3 uid="uid://djc01df5y0h4a"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="15_dnudt"]
 [ext_resource type="Texture2D" uid="uid://bjmae01mtlfg6" path="res://icon.svg" id="16_nku4e"]
 [ext_resource type="AudioStream" uid="uid://dbgkqvs2jtqdb" path="res://Sounds/OptionSelect.wav" id="17_lsoii"]
+[ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="18_1wwxb"]
+[ext_resource type="Texture2D" uid="uid://dwofe7g88f8qr" path="res://Assets/EnvironmentAssets/cloud.png" id="18_b8xop"]
+[ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/moving_cloud.tscn" id="19_e06rw"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
 
@@ -51,6 +54,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v14t6"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Node2D"]
 
@@ -92,6 +98,7 @@ scale = Vector2(440.5, 444.5)
 mesh = SubResource("PrismMesh_kglyt")
 
 [node name="PlayHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -2
 position = Vector2(621.5, 240)
 scale = Vector2(269, 144)
@@ -126,8 +133,9 @@ icon_alignment = 1
 
 [node name="OptionsHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -2
-position = Vector2(621.5, 427)
+position = Vector2(621.5, 424)
 scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
 
@@ -161,8 +169,9 @@ icon_alignment = 1
 
 [node name="ExitHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -2
-position = Vector2(621.5, 607)
+position = Vector2(621.5, 605)
 scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
 
@@ -202,6 +211,7 @@ bus_name = "Music"
 
 [node name="MusicHover" type="MeshInstance2D" parent="MainMenuController/Options/VolumeControls"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -1
 position = Vector2(653, 85)
 scale = Vector2(270.625, 144)
@@ -222,6 +232,7 @@ bus_name = "Sound"
 
 [node name="SoundHover" type="MeshInstance2D" parent="MainMenuController/Options/VolumeControls"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -1
 position = Vector2(654, 247)
 scale = Vector2(270.625, 144)
@@ -254,6 +265,7 @@ icon_alignment = 1
 
 [node name="KeybindHover" type="MeshInstance2D" parent="MainMenuController/Options/Keybind"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -1
 position = Vector2(654, 415)
 scale = Vector2(270.625, 144)
@@ -279,6 +291,7 @@ icon_alignment = 1
 
 [node name="QuitHover" type="MeshInstance2D" parent="MainMenuController/Options"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -1
 position = Vector2(654, 604)
 scale = Vector2(270.625, 144)
@@ -374,6 +387,7 @@ offset_top = 80.0
 offset_right = 109.0
 offset_bottom = 145.0
 text = "Made with"
+label_settings = SubResource("LabelSettings_v14t6")
 
 [node name="OptionSelectNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_lsoii")
@@ -383,4 +397,222 @@ bus = &"Sound"
 wait_time = 0.5
 one_shot = true
 
+[node name="Environment" type="Node2D" parent="."]
+script = ExtResource("18_1wwxb")
+movingcloud = ExtResource("19_e06rw")
+
+[node name="Clouds" type="Node2D" parent="Environment"]
+z_index = -3
+
+[node name="Cloud2" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(47, 691)
+scale = Vector2(6.1759, 6.17383)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1128.5, 655)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud3" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(966, 706)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud4" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(835, 625)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud5" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(985, 634)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud6" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(641, 733)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud7" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(508, 640)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud8" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(332, 715)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud9" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(257, 632)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud10" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(94, 611)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud11" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(-1.99998, 742)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud12" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(358, 755)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud13" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(708, 747)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud14" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1026, 755)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud15" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1276, 739)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud16" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1423, 662)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud17" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1514, 758)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud18" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(-221, 737)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud19" type="Sprite2D" parent="Environment/Clouds"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(-218, 668)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Environment Assets2" type="Node2D" parent="Environment/Clouds"]
+position = Vector2(1623, 21)
+
+[node name="Cloud2" type="Sprite2D" parent="Environment/Clouds/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(71.5, 699)
+scale = Vector2(6.1759, 6.17383)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud10" type="Sprite2D" parent="Environment/Clouds/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(118.5, 619)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud11" type="Sprite2D" parent="Environment/Clouds/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(22.5, 750)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud18" type="Sprite2D" parent="Environment/Clouds/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(-221, 737)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud19" type="Sprite2D" parent="Environment/Clouds/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(-218, 668)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Environment Assets3" type="Node2D" parent="Environment/Clouds"]
+position = Vector2(-3177, -40)
+
+[node name="Environment Assets2" type="Node2D" parent="Environment/Clouds/Environment Assets3"]
+position = Vector2(1623, 21)
+
+[node name="Cloud15" type="Sprite2D" parent="Environment/Clouds/Environment Assets3/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1276, 739)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud16" type="Sprite2D" parent="Environment/Clouds/Environment Assets3/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1423, 662)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="Cloud17" type="Sprite2D" parent="Environment/Clouds/Environment Assets3/Environment Assets2"]
+modulate = Color(1, 1, 1, 0.576471)
+z_index = -4
+position = Vector2(1574, 772)
+scale = Vector2(6.26563, 6.1875)
+texture = ExtResource("18_b8xop")
+
+[node name="CloudTimer" type="Timer" parent="Environment"]
+wait_time = 5.0
+autostart = true
+
+[node name="MovingCloud" parent="." instance=ExtResource("19_e06rw")]
+position = Vector2(-192.5, 342)
+scale = Vector2(7.29688, 6.8125)
+
+[node name="MovingCloud2" parent="." instance=ExtResource("19_e06rw")]
+position = Vector2(1358, 95)
+scale = Vector2(7.73438, 6.65625)
+
 [connection signal="timeout" from="KeybindTimer" to="MainMenuController" method="_on_keybind_timer_timeout"]
+[connection signal="timeout" from="Environment/CloudTimer" to="Environment" method="_on_cloud_timer_timeout"]
