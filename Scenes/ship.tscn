@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgyem"]
-size = Vector2(18, 16)
+size = Vector2(16, 14)
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_qn0sq")
@@ -70,5 +70,7 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="PerfectSmall" to="." method="_on_perfect_small_timeout"]
 [connection signal="timeout" from="PerfectLarge" to="." method="_on_perfect_large_timeout"]

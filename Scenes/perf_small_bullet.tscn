@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bknc6frnrfcud" path="res://Assets/Character Assets/perfectsmallbullet.png" id="1_tnbkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jyqe"]
-size = Vector2(13, 8)
+size = Vector2(10, 8)
 
-[node name="PerfSmallBullet" type="RigidBody2D" groups=["Bullet"]]
+[node name="PerfSmallBullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("1_ojb6f")
 bullet_speed = 1000
 bullet_size = 2
@@ -15,5 +15,7 @@ bullet_size = 2
 texture = ExtResource("1_tnbkv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_3jyqe")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

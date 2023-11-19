@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://djyvyyc0llaoi" path="res://Assets/Character Assets/Bullet.png" id="2_02ic3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqw6l"]
-size = Vector2(16, 10)
+size = Vector2(13, 10)
 
-[node name="BigBullet" type="RigidBody2D" groups=["Bullet"]]
-gravity_scale = 0.0
+[node name="BigBullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("1_xkuxs")
 bullet_speed = 500
 bullet_size = 4
@@ -16,6 +15,7 @@ bullet_size = 4
 texture = ExtResource("2_02ic3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_pqw6l")
 
-[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

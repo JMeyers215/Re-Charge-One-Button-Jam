@@ -4,10 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_xramo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd8ut"]
-size = Vector2(13, 8)
+size = Vector2(10, 8)
 
-[node name="SmallBullet" type="RigidBody2D" groups=["Bullet"]]
-gravity_scale = 0.0
+[node name="SmallBullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("1_xramo")
 bullet_speed = 1000
 bullet_size = 2
@@ -16,5 +15,7 @@ bullet_size = 2
 texture = ExtResource("1_ni5bm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_pd8ut")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

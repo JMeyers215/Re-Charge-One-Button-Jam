@@ -67,22 +67,22 @@ func _input(event: InputEvent) -> void:
 
 func fire_big_bullet(big_b):
 	owner.add_child(big_b)
-	big_b.position = $".".global_position + Vector2(50,0)
+	big_b.position = $".".global_position + Vector2(75,0)
 	print("big shot")
 
 func fire_small_bullet(small_b):
 	owner.add_child(small_b)
-	small_b.position = $".".global_position + Vector2(50,0)
+	small_b.position = $".".global_position + Vector2(75,0)
 	print("small shot")
 
 func fire_perfect_small(perf_small):
 	owner.add_child(perf_small)
-	perf_small.position = $".".global_position + Vector2(50,0)
+	perf_small.position = $".".global_position + Vector2(75,0)
 	print("perfect small")
 
 func fire_perfect_big(perf_big):
 	owner.add_child(perf_big)
-	perf_big.position = $".".global_position + Vector2(50,0)
+	perf_big.position = $".".global_position + Vector2(75,0)
 	print("perfect big")
 
 func _on_perfect_large_timeout() -> void:
@@ -90,3 +90,7 @@ func _on_perfect_large_timeout() -> void:
 
 func _on_perfect_small_timeout() -> void:
 	$ChargeBar.texture_over = normal_texture
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Bullet"):
+		print("hit")

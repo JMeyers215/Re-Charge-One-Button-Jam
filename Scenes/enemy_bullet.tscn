@@ -6,15 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpjay"]
 size = Vector2(14, 4)
 
-[node name="EnemyBullet" type="RigidBody2D"]
+[node name="EnemyBullet" type="Area2D" groups=["Bullet"]]
 scale = Vector2(0.33, 0.33)
-gravity_scale = 0.0
 script = ExtResource("1_131b7")
 bullet_speed = -100
 bullet_size = 2
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hpjay")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wktxg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hpjay")
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

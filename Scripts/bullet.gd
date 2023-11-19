@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 class_name Bullet
 
@@ -17,3 +17,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Bullet") || area.is_in_group("Enemy"):
+		print("bullet hit")
+		queue_free()
