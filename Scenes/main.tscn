@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=24 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="2_s5w2w"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/perf_big_bullet.tscn" id="8_1jt8y"]
 [ext_resource type="PackedScene" uid="uid://chgtvp3v07a54" path="res://Scenes/enemy_ship.tscn" id="13_dkyx5"]
+[ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="14_ixdbg"]
+[ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/moving_cloud.tscn" id="15_s4cyi"]
+[ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/cloud_environment.tscn" id="16_rgn0d"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -73,6 +76,7 @@ icon_alignment = 1
 
 [node name="QuitHover" type="MeshInstance2D" parent="UIController/PausePanel"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -1
 position = Vector2(1222, 325)
 scale = Vector2(270.625, 144)
@@ -100,6 +104,7 @@ icon_alignment = 1
 
 [node name="ExitHover" type="MeshInstance2D" parent="UIController/PausePanel"]
 visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
 z_index = -1
 position = Vector2(1528, 324)
 scale = Vector2(270.625, 144)
@@ -173,6 +178,12 @@ label_settings = SubResource("LabelSettings_vkjfk")
 [node name="PauseTimer" type="Timer" parent="UIController"]
 wait_time = 0.3
 
+[node name="EnemyManager" type="Node2D" parent="."]
+
+[node name="EnemyShip" parent="EnemyManager" instance=ExtResource("13_dkyx5")]
+position = Vector2(1047, 277)
+scale = Vector2(3, 3)
+
 [node name="Ship" parent="." instance=ExtResource("4_qmoeh")]
 position = Vector2(84, 72)
 scale = Vector2(3, 3)
@@ -182,8 +193,15 @@ perf_small_bullet_scene = ExtResource("7_r11nv")
 perf_big_bullet_scene = ExtResource("8_1jt8y")
 ship_speed = 1.5
 
-[node name="EnemyShip" parent="." instance=ExtResource("13_dkyx5")]
-position = Vector2(1047, 277)
-scale = Vector2(3, 3)
+[node name="EnvironmentSpawner" type="Node2D" parent="."]
+script = ExtResource("14_ixdbg")
+movingcloud = ExtResource("15_s4cyi")
+
+[node name="CloudTimer" type="Timer" parent="EnvironmentSpawner"]
+wait_time = 5.0
+autostart = true
+
+[node name="CloudEnvironment" parent="." instance=ExtResource("16_rgn0d")]
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
+[connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]

@@ -17,11 +17,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	translate(Vector2(speed * delta,0))
-	if global_position.x < -600 || global_position.x > 1850:
+	if global_position.x < -450|| global_position.x > 1700:
 		queue_free()
 
 func randomize_speed():
-	speed = randi_range(10, 30)
+	speed = randi_range(15, 30)
 
 func randomize_size():
 	size = randi_range(4,10)

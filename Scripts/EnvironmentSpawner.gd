@@ -21,7 +21,7 @@ func _on_cloud_timer_timeout() -> void:
 			side = "Right"
 		
 		if side == "Right":
-			movingcloud.position = Vector2(1700, randi_range(0,720))
+			movingcloud.position = Vector2(1600, randi_range(0,720))
 			movingcloud.speed = -movingcloud.speed
 		elif side == "Left":
-			movingcloud.position = Vector2(-500, randi_range(0,720))
+			movingcloud.position = Vector2(-400, randi_range(0,720))

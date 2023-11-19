@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c46jcjjtg1s8r"]
+
+[ext_resource type="Texture2D" uid="uid://dwofe7g88f8qr" path="res://Assets/EnvironmentAssets/cloud.png" id="1_ifxah"]
+[ext_resource type="Script" path="res://Scripts/EnvCloud.gd" id="2_buapb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(624, 339)
+texture = ExtResource("1_ifxah")
+script = ExtResource("2_buapb")

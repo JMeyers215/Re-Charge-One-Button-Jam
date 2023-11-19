@@ -1,0 +1,217 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfjy35f48i3yw"]
+
+[ext_resource type="Texture2D" uid="uid://dwofe7g88f8qr" path="res://Assets/EnvironmentAssets/cloud.png" id="1_al3y2"]
+[ext_resource type="Script" path="res://Scripts/EnvCloud.gd" id="2_ky1i2"]
+
+[node name="CloudEnvironment" type="Node2D"]
+z_index = -6
+
+[node name="EnvCloud" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(186, 701)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(71, 682)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-5.00003, 708)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(286, 676)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(348, 723)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(474, 685)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud7" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(530, 711)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud8" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(642, 680)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud9" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(624, 717)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud10" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(416, 702)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud11" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-15, 704)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud12" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(811, 702)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud13" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1155, 713)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud14" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1045, 677)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud15" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(992, 715)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud16" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(941, 687)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud17" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(875, 666)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud18" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(715, 669)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud19" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(174, 740)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud20" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(339, 674)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud21" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(550, 671)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud22" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(149, 708)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud23" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1168, 683)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud24" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1264, 703)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud25" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1325, 676)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud26" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1332, 729)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud27" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-114, 664)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud28" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1436, 695)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud29" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-170, 717)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
+
+[node name="EnvCloud30" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(816, 740)
+scale = Vector2(3.74219, 4.20313)
+texture = ExtResource("1_al3y2")
+script = ExtResource("2_ky1i2")
