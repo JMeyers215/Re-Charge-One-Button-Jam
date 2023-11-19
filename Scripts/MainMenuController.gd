@@ -5,6 +5,9 @@ var id_select : int = 1
 var options_open : bool = false
 var music_volume : float = 0.5
 var sound_volume : float = 0.5
+var remapping : bool = false
+var key_ready : bool = false
+var new_key : InputEvent
 
 func _ready() -> void:
 	$"../TitleElements/TitleAnimation".play()
@@ -19,6 +22,9 @@ func _input(event: InputEvent) -> void:
 		$Options/Keybind/KeybindBar.value = 0
 		$Options/QuitBar.value = 0
 		$"../OptionSelectNoise".play() 
+	
+	if remapping == true && key_ready == true:
+		set_keybind(event)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("one_button"):
@@ -81,7 +87,12 @@ func _physics_process(delta: float) -> void:
 				$Options/VolumeControls/AudioSlider._on_value_changed(sound_volume)
 				Global.sound_option = sound_volume
 		elif select_counter == 30 && id_select == 3:
-			pass
+			remapping = true
+			$"../KeybindTimer".start()
+			InputMap.action_erase_events("one_button")
+			$Options.visible = false
+			$Buttons.visible = false
+			$Rebind.visible = true
 		elif select_counter == 30 && id_select == 4:
 			options_open = false
 			$Options.visible = false
@@ -104,4 +115,17 @@ func _physics_process(delta: float) -> void:
 			$Options/QuitHover.visible = true
 			$Options/QuitBar.visible = true
 
+func set_keybind(event):
+	var new_key = event
+	if event is InputEventKey && event.pressed:
+		InputMap.action_add_event("one_button",new_key)
+		$"../CurrentKey/KeyCode".text = str(": ", new_key.as_text())
+		$Options.visible = true
+		$Rebind.visible = false
+		remapping = false
+		key_ready = false
+		select_counter = 0
+
+func _on_keybind_timer_timeout() -> void:
+	key_ready = true
 

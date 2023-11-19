@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://chgtvp3v07a54"]
+[gd_scene load_steps=9 format=3 uid="uid://chgtvp3v07a54"]
 
 [ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="1_cwam6"]
 [ext_resource type="Script" path="res://Scripts/enemy_ship.gd" id="1_ro72j"]
+[ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/enemy_bullet.tscn" id="2_kgica"]
 [ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="2_tmnv7"]
 [ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="3_axxhr"]
 [ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="4_m0pi2"]
@@ -24,10 +25,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm23s"]
-size = Vector2(20, 14)
+size = Vector2(5.66667, 5.33333)
 
-[node name="EnemyShip" type="RigidBody2D" groups=["Enemy"]]
+[node name="EnemyShip" type="Node2D" groups=["Enemy"]]
 script = ExtResource("1_ro72j")
+enemy_bullet_scene = ExtResource("2_kgica")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("1_cwam6")
@@ -35,8 +37,18 @@ texture = ExtResource("1_cwam6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_01k2d")
-frame_progress = 0.19353
+frame_progress = 0.0961981
 speed_scale = 1.5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Bullet" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.166667, -3.97364e-08)
 shape = SubResource("RectangleShape2D_pm23s")
+
+[connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]

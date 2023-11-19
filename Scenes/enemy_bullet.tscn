@@ -7,8 +7,11 @@
 size = Vector2(14, 4)
 
 [node name="EnemyBullet" type="RigidBody2D"]
+scale = Vector2(0.33, 0.33)
+gravity_scale = 0.0
 script = ExtResource("1_131b7")
-bullet_speed = -1
+bullet_speed = -100
+bullet_size = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wktxg")

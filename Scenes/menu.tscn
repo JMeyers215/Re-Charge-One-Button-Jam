@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=24 format=3 uid="uid://djc01df5y0h4a"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
@@ -23,6 +23,14 @@
 [sub_resource type="BoxMesh" id="BoxMesh_kf6oh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_43a3f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qik5k"]
+font_size = 146
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_py1qf"]
+font_size = 46
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gkbap"]
 animations = [{
@@ -67,9 +75,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 474.0
-offset_top = 157.0
+offset_top = 155.0
 offset_right = 1494.0
-offset_bottom = 677.0
+offset_bottom = 675.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
@@ -85,16 +93,16 @@ mesh = SubResource("PrismMesh_kglyt")
 
 [node name="PlayHover" type="MeshInstance2D" parent="MainMenuController/Buttons"]
 z_index = -2
-position = Vector2(621.5, 242)
+position = Vector2(621.5, 240)
 scale = Vector2(269, 144)
 mesh = SubResource("BoxMesh_kf6oh")
 
 [node name="PlayBar" parent="MainMenuController/Buttons" instance=ExtResource("2_knvlw")]
 layout_mode = 0
 offset_left = 556.0
-offset_top = 319.0
+offset_top = 317.0
 offset_right = 621.0
-offset_bottom = 336.0
+offset_bottom = 334.0
 scale = Vector2(2, 2)
 
 [node name="Options" type="Button" parent="MainMenuController/Buttons"]
@@ -106,9 +114,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 474.0
-offset_top = 341.0
+offset_top = 339.0
 offset_right = 1494.0
-offset_bottom = 861.0
+offset_bottom = 859.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
@@ -141,9 +149,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 474.0
-offset_top = 521.0
+offset_top = 519.0
 offset_right = 1494.0
-offset_bottom = 1041.0
+offset_bottom = 1039.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
@@ -185,6 +193,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_54nla")
 
 [node name="MusicSlider" parent="MainMenuController/Options/VolumeControls" instance=ExtResource("6_mnts0")]
+layout_mode = 0
 offset_left = 544.0
 offset_top = 105.0
 offset_right = 757.0
@@ -204,6 +213,7 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("7_goluv")
 
 [node name="AudioSlider" parent="MainMenuController/Options/VolumeControls" instance=ExtResource("6_mnts0")]
+layout_mode = 0
 offset_left = 543.0
 offset_top = 270.0
 offset_right = 756.0
@@ -225,6 +235,7 @@ offset_bottom = 52.0
 
 [node name="KeybindBar" parent="MainMenuController/Options/Keybind" instance=ExtResource("2_knvlw")]
 visible = false
+layout_mode = 0
 offset_left = 590.0
 offset_top = 487.0
 offset_right = 655.0
@@ -275,11 +286,51 @@ mesh = SubResource("BoxMesh_43a3f")
 
 [node name="QuitBar" parent="MainMenuController/Options" instance=ExtResource("2_knvlw")]
 visible = false
+layout_mode = 0
 offset_left = 588.312
 offset_top = 678.0
 offset_right = 652.312
 offset_bottom = 718.0
 scale = Vector2(2, 2)
+
+[node name="Rebind" type="Control" parent="MainMenuController"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonImage" type="Sprite2D" parent="MainMenuController/Rebind"]
+position = Vector2(556, 381)
+texture = ExtResource("8_ekhkp")
+
+[node name="Label" type="Label" parent="MainMenuController/Rebind"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 272.0
+offset_right = 775.0
+offset_bottom = 567.0
+text = "?"
+label_settings = SubResource("LabelSettings_qik5k")
+
+[node name="CurrentKey" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CurrentButton" type="Sprite2D" parent="CurrentKey"]
+position = Vector2(52, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ekhkp")
+
+[node name="KeyCode" type="Label" parent="CurrentKey"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 649.0
+offset_right = 275.0
+offset_bottom = 713.0
+text = ": Space"
+label_settings = SubResource("LabelSettings_py1qf")
 
 [node name="TitleElements" type="Control" parent="."]
 layout_mode = 3
@@ -306,9 +357,9 @@ speed_scale = 2.0
 [node name="GodotCredit" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1129.0
+offset_left = 1132.0
 offset_top = 608.0
-offset_right = 1273.0
+offset_right = 1276.0
 offset_bottom = 712.0
 
 [node name="Icon" type="Sprite2D" parent="GodotCredit"]
@@ -327,3 +378,9 @@ text = "Made with"
 [node name="OptionSelectNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_lsoii")
 bus = &"Sound"
+
+[node name="KeybindTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="KeybindTimer" to="MainMenuController" method="_on_keybind_timer_timeout"]
