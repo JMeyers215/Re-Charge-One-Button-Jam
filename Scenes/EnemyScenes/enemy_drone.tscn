@@ -45,7 +45,6 @@ speed_scale = 1.5
 
 [node name="Bullet" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(3, 3)

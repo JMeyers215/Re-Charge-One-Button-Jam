@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=28 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="2_s5w2w"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/PlayerScenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/PlayerScenes/perf_big_bullet.tscn" id="8_1jt8y"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/EnemyManager.gd" id="8_7ds3b"]
-[ext_resource type="PackedScene" uid="uid://dhtamieex0ugw" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="13_dkyx5"]
+[ext_resource type="PackedScene" uid="uid://dkuw76bg4at2b" path="res://Scenes/EnemyScenes/enemy_elite.tscn" id="10_syvvu"]
+[ext_resource type="PackedScene" uid="uid://bndbfjftpedfq" path="res://Scenes/EnemyScenes/enemy_boss.tscn" id="11_rkcv6"]
+[ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="13_dkyx5"]
 [ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="15_s4cyi"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="16_rgn0d"]
@@ -186,9 +188,15 @@ wait_time = 0.3
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("8_7ds3b")
 
-[node name="EnemyShip" parent="EnemyManager" instance=ExtResource("13_dkyx5")]
-position = Vector2(1203, 229)
+[node name="EnemyDrone" parent="EnemyManager" instance=ExtResource("13_dkyx5")]
+position = Vector2(1848, 1142)
 scale = Vector2(3, 3)
+
+[node name="EnemyElite" parent="EnemyManager" instance=ExtResource("10_syvvu")]
+position = Vector2(1846, 1227)
+
+[node name="EnemyBoss" parent="EnemyManager" instance=ExtResource("11_rkcv6")]
+position = Vector2(1900, 1230)
 
 [node name="Ship" parent="." instance=ExtResource("4_qmoeh")]
 position = Vector2(84, 72)

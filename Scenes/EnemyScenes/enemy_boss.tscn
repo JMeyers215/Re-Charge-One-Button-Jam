@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://bndbfjftpedfq"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_ship.gd" id="1_xsrtu"]
+[ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_xrh7s"]
+[ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="3_4x1ak"]
+[ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="4_8xhwd"]
+[ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="5_3bysu"]
+[ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="6_tfbfc"]
+[ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_0jnkj"]
+[ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="8_b5ew3"]
+[ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_orsv3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01k2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8xhwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3bysu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tfbfc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm23s"]
+size = Vector2(5.66667, 5.33333)
+
+[node name="EnemyBoss" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_xsrtu")
+enemy_bullet_scene = ExtResource("2_xrh7s")
+
+[node name="EvilShip" type="Sprite2D" parent="."]
+texture = ExtResource("3_4x1ak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 0)
+sprite_frames = SubResource("SpriteFrames_01k2d")
+frame_progress = 0.432842
+speed_scale = 1.5
+
+[node name="Bullet" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.166667, -3.97364e-08)
+shape = SubResource("RectangleShape2D_pm23s")
+
+[node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0jnkj")
+volume_db = -1.0
+bus = &"Sound"
+
+[node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b5ew3")
+bus = &"Sound"
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_orsv3")
+bus = &"Sound"
+
+[connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

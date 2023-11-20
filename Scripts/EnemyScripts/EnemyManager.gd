@@ -1,11 +1,13 @@
 extends Node2D
 
-var drone : Enemy
-var elite : Enemy
-var boss : Enemy
+@export var drone : Enemy 
+@export var elite : Enemy
+@export var boss : Enemy
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	drone = get_node("EnemyDrone")
+	elite = get_node("EnemyElite")
+	boss = get_node("EnemyBoss")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
