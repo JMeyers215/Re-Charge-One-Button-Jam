@@ -14,7 +14,7 @@ config/name="Re-Charge (One Button Jam)"
 run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-config/icon="res://Assets/Character Assets/SpaceShip.png"
+config/icon="res://Logos/Logo 180x180.png"
 
 [autoload]
 
