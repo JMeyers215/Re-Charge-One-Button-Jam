@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bndbfjftpedfq"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_ship.gd" id="1_xsrtu"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_drone.gd" id="1_xsrtu"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_xrh7s"]
 [ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="3_4x1ak"]
 [ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="4_8xhwd"]

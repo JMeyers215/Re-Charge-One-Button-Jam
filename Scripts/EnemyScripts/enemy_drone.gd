@@ -1,7 +1,8 @@
-class_name Enemy
-
 extends Node2D
 
+class_name Drone
+
+@export var ship_sprite : Sprite2D
 @export var enemy_speed : int = 25    
 @export var fire_rate : float = 1
 @export var enemy_bullet_scene : PackedScene
@@ -10,7 +11,7 @@ var fire_ready : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimatedSprite2D.play()
+	$Propellant.play()
 	$Bullet.wait_time /= fire_rate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

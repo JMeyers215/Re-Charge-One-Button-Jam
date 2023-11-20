@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dt0dth5btcaop"]
 
 [ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="1_cwam6"]
-[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_ship.gd" id="1_ro72j"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_drone.gd" id="1_ro72j"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_kgica"]
 [ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="2_tmnv7"]
 [ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="3_axxhr"]
@@ -37,7 +37,7 @@ enemy_bullet_scene = ExtResource("2_kgica")
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("1_cwam6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Propellant" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_01k2d")
 frame_progress = 0.432842
@@ -46,10 +46,10 @@ speed_scale = 1.5
 [node name="Bullet" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 scale = Vector2(3, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-0.166667, -3.97364e-08)
 shape = SubResource("RectangleShape2D_pm23s")
 
@@ -67,5 +67,5 @@ stream = ExtResource("9_ngwx3")
 bus = &"Sound"
 
 [connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_area_2d_body_entered"]
