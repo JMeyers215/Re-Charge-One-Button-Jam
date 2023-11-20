@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="15_dnudt"]
 [ext_resource type="Texture2D" uid="uid://bjmae01mtlfg6" path="res://icon.svg" id="16_nku4e"]
 [ext_resource type="AudioStream" uid="uid://dbgkqvs2jtqdb" path="res://Sounds/OptionSelect.wav" id="17_lsoii"]
-[ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="18_1wwxb"]
+[ext_resource type="Script" path="res://Scripts/EnvScripts/EnvironmentSpawner.gd" id="18_1wwxb"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="19_e06rw"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="20_kgdxx"]
 

@@ -1,10 +1,17 @@
 extends Node2D
 
 @export var movingcloud : PackedScene
+@export var both_sides : bool = true
 var cloud_count : Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var i : int = 0
+	while i < 5:
+		var movingcloud = movingcloud.instantiate()
+		add_child(movingcloud)
+		movingcloud.global_position = Vector2(randi_range(0, 1280),randi_range(0,720))
+		movingcloud.speed = -movingcloud.speed
+		i += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,9 +22,12 @@ func _on_cloud_timer_timeout() -> void:
 		var movingcloud = movingcloud.instantiate()
 		add_child(movingcloud)
 		var side = randi_range(-1,1)
-		if side < 0:
-			side = "Left"
-		elif side >= 0:
+		if both_sides == true:
+			if side < 0:
+				side = "Left"
+			elif side >= 0:
+				side = "Right"
+		elif both_sides == false:
 			side = "Right"
 		
 		if side == "Right":

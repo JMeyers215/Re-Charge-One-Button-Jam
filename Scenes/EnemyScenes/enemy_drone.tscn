@@ -31,6 +31,7 @@ animations = [{
 size = Vector2(5.66667, 5.33333)
 
 [node name="EnemyDrone" type="Node2D" groups=["Enemy"]]
+scale = Vector2(3, 3)
 script = ExtResource("1_ro72j")
 enemy_bullet_scene = ExtResource("2_kgica")
 
@@ -45,6 +46,7 @@ speed_scale = 1.5
 
 [node name="Bullet" type="Timer" parent="."]
 wait_time = 5.0
+autostart = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
 scale = Vector2(3, 3)

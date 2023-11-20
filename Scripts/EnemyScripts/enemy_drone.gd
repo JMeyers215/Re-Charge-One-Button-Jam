@@ -20,16 +20,15 @@ func _process(delta: float) -> void:
 		translate(Vector2(-enemy_speed * delta,0))
 	if global_position.x < 1300:
 		fire_ready = true
-	if global_position.x < 50:
+	elif global_position.x < 50:
 		queue_free()
-	
-	if fire_ready == true:
-		$Bullet.start()
+
 
 func _on_bullet_timeout() -> void:
-	var enemy_bullet = enemy_bullet_scene.instantiate()
-	fire_bullet(enemy_bullet)
-	print("enemy shoot")
+	if fire_ready == true:
+		var enemy_bullet = enemy_bullet_scene.instantiate()
+		fire_bullet(enemy_bullet)
+		print("enemy shoot")
 
 func fire_bullet(enemy_bullet):
 	add_child(enemy_bullet)

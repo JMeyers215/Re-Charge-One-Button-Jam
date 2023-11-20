@@ -25,9 +25,9 @@ func _physics_process(delta: float) -> void:
 	move_ship()
 	$ChargeBar.value = charge_count
 	if ship_up == true && main.paused == false:
-		position.y -= ship_speed
+		position.y -= ship_speed * delta
 	elif ship_up == false && main.paused == false:
-		position.y += ship_speed
+		position.y += ship_speed * delta
 	
 	if charge_count == 23:
 		$PerfectSmall.start()

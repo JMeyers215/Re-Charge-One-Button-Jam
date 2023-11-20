@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dc6kwuwnpiefe"]
 
 [ext_resource type="Texture2D" uid="uid://dwofe7g88f8qr" path="res://Assets/EnvironmentAssets/cloud.png" id="1_8aa7d"]
-[ext_resource type="Script" path="res://Scripts/movingcloud.gd" id="2_ergob"]
+[ext_resource type="Script" path="res://Scripts/EnvScripts/movingcloud.gd" id="2_ergob"]
 
 [node name="MovingCloud" type="Sprite2D" groups=["Cloud"]]
 modulate = Color(1, 1, 1, 0.45098)

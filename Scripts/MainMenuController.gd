@@ -10,7 +10,20 @@ var key_ready : bool = false
 var new_key : InputEvent
 
 func _ready() -> void:
-	$"../TitleElements/TitleAnimation".play()
+	var input_event = InputEventKey.new()
+	var input_keycode : String = Global.keybind
+	input_event.keycode = OS.find_keycode_from_string(input_keycode)
+	InputMap.action_erase_events("one_button")
+	InputMap.action_add_event("one_button",input_event)
+	$"../CurrentKey/KeyCode".text = str(": ", input_event.as_text_keycode())
+	$"../TitleElements/TitleAnimation".play() 
+	music_volume = Global.music_option
+	sound_volume = Global.sound_option	
+	$Options/VolumeControls/MusicSlider.value = music_volume
+	$Options/VolumeControls/MusicSlider._on_value_changed(music_volume)
+	$Options/VolumeControls/AudioSlider.value = sound_volume
+	$Options/VolumeControls/AudioSlider._on_value_changed(sound_volume)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_released("one_button"):
@@ -43,6 +56,7 @@ func _physics_process(delta: float) -> void:
 			$Options.visible = true
 			$"../TitleElements".visible = false
 		elif select_counter == 30 && id_select == 3:
+			Global.save_game()
 			get_tree().quit()
 		if id_select == 4:
 			id_select = 1
@@ -78,7 +92,8 @@ func _physics_process(delta: float) -> void:
 				$Options/VolumeControls/MusicSlider.value = music_volume
 				$Options/VolumeControls/MusicSlider._on_value_changed(music_volume)
 				Global.music_option = music_volume
-		elif id_select == 2:
+				Global.save_game()
+		elif id_select == 2:  
 			if Input.is_action_pressed("one_button"):
 				sound_volume += 0.01
 				if sound_volume > 1:
@@ -86,6 +101,7 @@ func _physics_process(delta: float) -> void:
 				$Options/VolumeControls/AudioSlider.value = sound_volume
 				$Options/VolumeControls/AudioSlider._on_value_changed(sound_volume)
 				Global.sound_option = sound_volume
+				Global.save_game()
 		elif select_counter == 30 && id_select == 3:
 			remapping = true
 			$"../KeybindTimer".start()
@@ -126,7 +142,7 @@ func set_keybind(event):
 		remapping = false
 		key_ready = false
 		select_counter = 0
-		Global.keybind = new_key.as_text()
+		Global.keybind = new_key.as_text() 
 
 func _on_keybind_timer_timeout() -> void:
 	key_ready = true

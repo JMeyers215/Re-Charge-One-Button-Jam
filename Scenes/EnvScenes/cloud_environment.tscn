@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfjy35f48i3yw"]
 
 [ext_resource type="Texture2D" uid="uid://dwofe7g88f8qr" path="res://Assets/EnvironmentAssets/cloud.png" id="1_al3y2"]
-[ext_resource type="Script" path="res://Scripts/EnvCloud.gd" id="2_ky1i2"]
+[ext_resource type="Script" path="res://Scripts/EnvScripts/EnvCloud.gd" id="2_ky1i2"]
 
 [node name="CloudEnvironment" type="Node2D"]
 z_index = -6
