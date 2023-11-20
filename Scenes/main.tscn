@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/PlayerScenes/big_bullet.tscn" id="6_tmdik"]
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/PlayerScenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/PlayerScenes/perf_big_bullet.tscn" id="8_1jt8y"]
-[ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="8_7ds3b"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/EnemyManager.gd" id="8_7ds3b"]
 [ext_resource type="PackedScene" uid="uid://chgtvp3v07a54" path="res://Scenes/EnemyScenes/enemy_ship.tscn" id="13_dkyx5"]
 [ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="15_s4cyi"]
@@ -203,11 +203,11 @@ ship_speed = 1.5
 script = ExtResource("14_ixdbg")
 movingcloud = ExtResource("15_s4cyi")
 
+[node name="CloudEnvironment" parent="EnvironmentSpawner" instance=ExtResource("16_rgn0d")]
+
 [node name="CloudTimer" type="Timer" parent="EnvironmentSpawner"]
 wait_time = 5.0
 autostart = true
-
-[node name="CloudEnvironment" parent="." instance=ExtResource("16_rgn0d")]
 
 [node name="CurrentKey" type="Control" parent="."]
 layout_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://mitdgrjd8nwd"]
 
 [ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/Character Assets/SpaceShip.png" id="1_q1geo"]
-[ext_resource type="Script" path="res://Scripts/ship.gd" id="1_qn0sq"]
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/ship.gd" id="1_qn0sq"]
 [ext_resource type="Texture2D" uid="uid://dfwc7r8e0oqvl" path="res://Assets/Character Assets/SpaceShipPropellant1.png" id="2_vq5du"]
 [ext_resource type="PackedScene" uid="uid://i4xdqnql40ms" path="res://Scenes/PlayerScenes/charge_bar.tscn" id="5_gqt3p"]
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="5_udsu8"]
