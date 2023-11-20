@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Enemy
 
-@export var enemy_speed : int = 25
+@export var enemy_speed : int = 25    
 @export var fire_rate : float = 1
 @export var enemy_bullet_scene : PackedScene
 @export var health : int = 1

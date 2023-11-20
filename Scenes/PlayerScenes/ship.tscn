@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/Character Assets/SpaceShip.png" id="1_q1geo"]
 [ext_resource type="Script" path="res://Scripts/ship.gd" id="1_qn0sq"]
 [ext_resource type="Texture2D" uid="uid://dfwc7r8e0oqvl" path="res://Assets/Character Assets/SpaceShipPropellant1.png" id="2_vq5du"]
-[ext_resource type="PackedScene" uid="uid://i4xdqnql40ms" path="res://Scenes/charge_bar.tscn" id="5_gqt3p"]
+[ext_resource type="PackedScene" uid="uid://i4xdqnql40ms" path="res://Scenes/PlayerScenes/charge_bar.tscn" id="5_gqt3p"]
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="5_udsu8"]
 [ext_resource type="AudioStream" uid="uid://ro5kci76t2of" path="res://Sounds/DefiniteShot5.wav" id="6_iyig7"]
 [ext_resource type="AudioStream" uid="uid://cpql6n1e6jijn" path="res://Sounds/DefiniteShot4.wav" id="7_15w4d"]

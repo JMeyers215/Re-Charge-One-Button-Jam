@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
-[ext_resource type="PackedScene" uid="uid://nnpf1u6bswph" path="res://Scenes/ui_bar.tscn" id="2_knvlw"]
+[ext_resource type="PackedScene" uid="uid://nnpf1u6bswph" path="res://Scenes/UIScenes/ui_bar.tscn" id="2_knvlw"]
 [ext_resource type="Texture2D" uid="uid://caqtdrdwiaett" path="res://Assets/UI Assets/options icon.png" id="3_0jm1g"]
 [ext_resource type="Texture2D" uid="uid://bweqlg54ocpum" path="res://Assets/UI Assets/quitbutton.png" id="5_8w86k"]
 [ext_resource type="Texture2D" uid="uid://km866komc01f" path="res://Assets/UI Assets/MusicOption.png" id="5_54nla"]
-[ext_resource type="PackedScene" uid="uid://djej7ju5hnfj5" path="res://Scenes/volume_slider.tscn" id="6_mnts0"]
+[ext_resource type="PackedScene" uid="uid://djej7ju5hnfj5" path="res://Scenes/UIScenes/volume_slider.tscn" id="6_mnts0"]
 [ext_resource type="Texture2D" uid="uid://bughicd0oanuf" path="res://Assets/UI Assets/SoundOption.png" id="7_goluv"]
 [ext_resource type="Texture2D" uid="uid://dv3pfaa0g3vt5" path="res://Assets/UI Assets/ButtonImage.png" id="8_ekhkp"]
 [ext_resource type="Texture2D" uid="uid://cg1jo640r2g1b" path="res://Assets/UI Assets/Title.png" id="10_c2cod"]
@@ -18,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://bjmae01mtlfg6" path="res://icon.svg" id="16_nku4e"]
 [ext_resource type="AudioStream" uid="uid://dbgkqvs2jtqdb" path="res://Sounds/OptionSelect.wav" id="17_lsoii"]
 [ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="18_1wwxb"]
-[ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/moving_cloud.tscn" id="19_e06rw"]
-[ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/cloud_environment.tscn" id="20_kgdxx"]
+[ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="19_e06rw"]
+[ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="20_kgdxx"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
 
