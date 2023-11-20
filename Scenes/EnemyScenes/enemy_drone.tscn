@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chgtvp3v07a54"]
+[gd_scene load_steps=12 format=3 uid="uid://dt0dth5btcaop"]
 
 [ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="1_cwam6"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_ship.gd" id="1_ro72j"]
