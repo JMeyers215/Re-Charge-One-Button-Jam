@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chgtvp3v07a54"]
+[gd_scene load_steps=12 format=3 uid="uid://chgtvp3v07a54"]
 
 [ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="1_cwam6"]
 [ext_resource type="Script" path="res://Scripts/enemy_ship.gd" id="1_ro72j"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="2_tmnv7"]
 [ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="3_axxhr"]
 [ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="4_m0pi2"]
+[ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_invj2"]
+[ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="8_ljwwu"]
+[ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_ngwx3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01k2d"]
 animations = [{
@@ -50,6 +53,19 @@ scale = Vector2(3, 3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.166667, -3.97364e-08)
 shape = SubResource("RectangleShape2D_pm23s")
+
+[node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_invj2")
+volume_db = -1.0
+bus = &"Sound"
+
+[node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ljwwu")
+bus = &"Sound"
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ngwx3")
+bus = &"Sound"
 
 [connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

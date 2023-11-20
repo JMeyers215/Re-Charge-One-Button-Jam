@@ -1,16 +1,23 @@
 extends Node2D
 
-var enemy_speed : int = 1
-var fire_rate : float = 1
+class_name Enemy
+
+@export var enemy_speed : int = 25
+@export var fire_rate : float = 1
 @export var enemy_bullet_scene : PackedScene
+@export var health : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play()
+	$Bullet.wait_time /= fire_rate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	translate(Vector2(-enemy_speed * delta,0))
+	
+	if global_position.x < 50:
+		queue_free()
 
 func _on_bullet_timeout() -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()
@@ -20,8 +27,10 @@ func _on_bullet_timeout() -> void:
 func fire_bullet(enemy_bullet):
 	add_child(enemy_bullet)
 	enemy_bullet.position += Vector2(-15,0)
+	$EnemyShot.play()
 	print("enemy bullet")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
+		$EnemyHit.play()
 		print("enemy hit")

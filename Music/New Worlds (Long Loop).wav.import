@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kxhtp76w3trk"
+path="res://.godot/imported/New Worlds (Long Loop).wav-7842d65e73b05c55adb8e101bad924f0.sample"
+
+[deps]
+
+source_file="res://Music/New Worlds (Long Loop).wav"
+dest_files=["res://.godot/imported/New Worlds (Long Loop).wav-7842d65e73b05c55adb8e101bad924f0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

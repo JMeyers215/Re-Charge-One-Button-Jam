@@ -4,6 +4,12 @@ var unpause_counter : int = 0
 var pause_counter : int = 0
 @export var paused : bool = false
 
+func _ready() -> void:
+	var new_key
+	new_key = Global.keybind
+	$CurrentKey/KeyCode.text = str(": ", new_key)
+	pass
+
 func _input(event):
 	if Input.is_action_just_pressed("one_button") && paused == false:
 		pause_counter +=1

@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://mitdgrjd8nwd"]
+[gd_scene load_steps=16 format=3 uid="uid://mitdgrjd8nwd"]
 
 [ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/Character Assets/SpaceShip.png" id="1_q1geo"]
 [ext_resource type="Script" path="res://Scripts/ship.gd" id="1_qn0sq"]
 [ext_resource type="Texture2D" uid="uid://dfwc7r8e0oqvl" path="res://Assets/Character Assets/SpaceShipPropellant1.png" id="2_vq5du"]
 [ext_resource type="PackedScene" uid="uid://i4xdqnql40ms" path="res://Scenes/charge_bar.tscn" id="5_gqt3p"]
 [ext_resource type="Texture2D" uid="uid://b4jlown0godjj" path="res://Assets/Character Assets/SpaceShipPropellant4.png" id="5_udsu8"]
+[ext_resource type="AudioStream" uid="uid://ro5kci76t2of" path="res://Sounds/DefiniteShot5.wav" id="6_iyig7"]
+[ext_resource type="AudioStream" uid="uid://cpql6n1e6jijn" path="res://Sounds/DefiniteShot4.wav" id="7_15w4d"]
+[ext_resource type="AudioStream" uid="uid://dmrt4mnhr3yxj" path="res://Sounds/DefiniteShot2.wav" id="8_1as87"]
+[ext_resource type="AudioStream" uid="uid://v2btomxuvsve" path="res://Sounds/DefiniteShot3.wav" id="9_m6egu"]
+[ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="10_6nfjl"]
+[ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="10_e8i0n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2flj"]
 load_path = "res://.godot/imported/SpaceShipPropellant3.png-e42a1063d9f10d56e1ea92326ca6faf3.ctex"
@@ -69,6 +75,30 @@ one_shot = true
 [node name="PerfectLarge" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="SmallShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_iyig7")
+bus = &"Sound"
+
+[node name="BigShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_15w4d")
+bus = &"Sound"
+
+[node name="PerfSmallShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_1as87")
+bus = &"Sound"
+
+[node name="PerfBigShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_m6egu")
+bus = &"Sound"
+
+[node name="ShipHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_6nfjl")
+bus = &"Sound"
+
+[node name="ShipDestroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_e8i0n")
+bus = &"Sound"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -13,7 +13,6 @@ bullet_speed = -100
 bullet_size = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hpjay")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

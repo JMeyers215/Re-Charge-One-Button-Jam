@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=26 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="2_s5w2w"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/big_bullet.tscn" id="6_tmdik"]
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/perf_big_bullet.tscn" id="8_1jt8y"]
+[ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="8_7ds3b"]
 [ext_resource type="PackedScene" uid="uid://chgtvp3v07a54" path="res://Scenes/enemy_ship.tscn" id="13_dkyx5"]
 [ext_resource type="Script" path="res://Scripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/moving_cloud.tscn" id="15_s4cyi"]
@@ -37,6 +38,10 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vkjfk"]
 font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cg0yo"]
+font_size = 46
 font_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
@@ -179,9 +184,10 @@ label_settings = SubResource("LabelSettings_vkjfk")
 wait_time = 0.3
 
 [node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("8_7ds3b")
 
 [node name="EnemyShip" parent="EnemyManager" instance=ExtResource("13_dkyx5")]
-position = Vector2(1047, 277)
+position = Vector2(1203, 229)
 scale = Vector2(3, 3)
 
 [node name="Ship" parent="." instance=ExtResource("4_qmoeh")]
@@ -202,6 +208,26 @@ wait_time = 5.0
 autostart = true
 
 [node name="CloudEnvironment" parent="." instance=ExtResource("16_rgn0d")]
+
+[node name="CurrentKey" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CurrentButton" type="Sprite2D" parent="CurrentKey"]
+position = Vector2(52, 685)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e4wl0")
+
+[node name="KeyCode" type="Label" parent="CurrentKey"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 649.0
+offset_right = 275.0
+offset_bottom = 713.0
+text = ": Space"
+label_settings = SubResource("LabelSettings_cg0yo")
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]

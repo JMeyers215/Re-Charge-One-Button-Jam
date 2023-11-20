@@ -313,15 +313,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ButtonImage" type="Sprite2D" parent="MainMenuController/Rebind"]
-position = Vector2(556, 381)
+position = Vector2(570, 333)
 texture = ExtResource("8_ekhkp")
 
 [node name="Label" type="Label" parent="MainMenuController/Rebind"]
 layout_mode = 0
-offset_left = 656.0
-offset_top = 272.0
-offset_right = 775.0
-offset_bottom = 567.0
+offset_left = 670.0
+offset_top = 224.0
+offset_right = 789.0
+offset_bottom = 519.0
 text = "?"
 label_settings = SubResource("LabelSettings_qik5k")
 

@@ -90,6 +90,7 @@ func _physics_process(delta: float) -> void:
 			remapping = true
 			$"../KeybindTimer".start()
 			InputMap.action_erase_events("one_button")
+			$"../CurrentKey/KeyCode".text = str(": ")    
 			$Options.visible = false
 			$Buttons.visible = false
 			$Rebind.visible = true
@@ -125,6 +126,7 @@ func set_keybind(event):
 		remapping = false
 		key_ready = false
 		select_counter = 0
+		Global.keybind = new_key.as_text()
 
 func _on_keybind_timer_timeout() -> void:
 	key_ready = true

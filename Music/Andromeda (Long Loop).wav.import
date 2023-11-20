@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4si5vdmvsndh"
+path="res://.godot/imported/Andromeda (Long Loop).wav-6b7b2bbc0ce2589597b94df5e79b983b.sample"
+
+[deps]
+
+source_file="res://Music/Andromeda (Long Loop).wav"
+dest_files=["res://.godot/imported/Andromeda (Long Loop).wav-6b7b2bbc0ce2589597b94df5e79b983b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
