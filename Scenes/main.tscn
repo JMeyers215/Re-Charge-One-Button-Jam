@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=26 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/UIController.gd" id="2_s5w2w"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/EnvScripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="15_s4cyi"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="16_rgn0d"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/WaveManager.gd" id="17_8qe20"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -224,6 +225,9 @@ offset_right = 275.0
 offset_bottom = 713.0
 text = ": Space"
 label_settings = SubResource("LabelSettings_cg0yo")
+
+[node name="WaveManager" type="Node2D" parent="."]
+script = ExtResource("17_8qe20")
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]

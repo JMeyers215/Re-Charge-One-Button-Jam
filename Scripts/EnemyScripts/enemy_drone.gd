@@ -7,6 +7,7 @@ class_name Drone
 @export var fire_rate : float = 1
 @export var enemy_bullet_scene : PackedScene
 @export var health : int = 1
+@export var point_load : int = 1
 var fire_ready : bool = false
 
 # Called when the node enters the scene tree for the first time.

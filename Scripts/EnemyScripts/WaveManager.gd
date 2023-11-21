@@ -1,22 +1,19 @@
 extends Node2D
 
-var drone : Drone
-var elite : Elite
-var boss : Boss
+var wave_one : Array = []
+var wave_two : Array = []
+var wave_three : Array = []
+var wave_four: Array = []
+var wave_five : Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func spawn_drone():
-	pass
-
-func spawn_elite():
-	pass
-
-func spawn_boss():
+func enemies_defeated():
 	pass
