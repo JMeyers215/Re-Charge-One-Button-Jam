@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkuw76bg4at2b"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_drone.gd" id="1_l2xi2"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_elite.gd" id="1_850sp"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_3e1lo"]
-[ext_resource type="Texture2D" uid="uid://ce31gd5ba1bxg" path="res://Assets/Character Assets/EvilShip.png" id="3_xxwwp"]
-[ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="4_hrexw"]
-[ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="5_grk4c"]
-[ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="6_gti21"]
+[ext_resource type="Texture2D" uid="uid://bhii8a3v57j6n" path="res://Assets/EvilElite.png" id="2_oos33"]
+[ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/ElitePropellant1.png" id="3_a06h2"]
+[ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="4_m8w1o"]
+[ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="5_eupq5"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_1bf7v"]
 [ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="8_v13nd"]
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_ymr6k"]
@@ -14,48 +14,51 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hrexw")
+"texture": ExtResource("3_a06h2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_grk4c")
+"texture": ExtResource("4_m8w1o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_gti21")
+"texture": ExtResource("5_eupq5")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Elite Propellant",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm23s"]
-size = Vector2(5.66667, 5.33333)
+size = Vector2(10, 8)
 
 [node name="EnemyElite" type="Node2D" groups=["Enemy"]]
-script = ExtResource("1_l2xi2")
+scale = Vector2(3, 3)
+script = ExtResource("1_850sp")
 enemy_bullet_scene = ExtResource("2_3e1lo")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
-texture = ExtResource("3_xxwwp")
+texture = ExtResource("2_oos33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(17, 0)
+position = Vector2(30, 0)
 sprite_frames = SubResource("SpriteFrames_01k2d")
-frame_progress = 0.432842
+animation = &"Elite Propellant"
+frame_progress = 0.00586461
 speed_scale = 1.5
 
 [node name="Bullet" type="Timer" parent="."]
 wait_time = 5.0
+autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.166667, -3.97364e-08)
+position = Vector2(-0.333333, 0)
 shape = SubResource("RectangleShape2D_pm23s")
 
 [node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_1bf7v")
-volume_db = -1.0
+volume_db = -2.0
 bus = &"Sound"
 
 [node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
@@ -65,6 +68,12 @@ bus = &"Sound"
 [node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_ymr6k")
 bus = &"Sound"
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="Gun2" type="Node2D" parent="."]
+position = Vector2(0, 9)
 
 [connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

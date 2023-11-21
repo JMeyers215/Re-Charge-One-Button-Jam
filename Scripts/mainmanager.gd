@@ -10,7 +10,7 @@ func _ready() -> void:
 	$CurrentKey/KeyCode.text = str(": ", new_key)
 	pass
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("one_button") && paused == false:
 		pause_counter +=1
 		$UIController/PauseCounter/PauseCount.text = str("x ",pause_counter)
@@ -34,7 +34,8 @@ func _input(event):
 		unpause_counter = 0
 		$UIController/PauseCounter/PauseSymbol.visible = true
 		$UIController/PauseCounter/PlaySymbol.visible = false
-func _physics_process(delta):
+
+func _physics_process(_delta):
 	if paused == true:
 		$UIController/PausePanel.visible = true
 	elif paused == false:

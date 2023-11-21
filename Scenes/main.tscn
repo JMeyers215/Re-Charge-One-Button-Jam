@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=28 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/UIController.gd" id="2_s5w2w"]
@@ -16,11 +16,9 @@
 [ext_resource type="Script" path="res://Scripts/EnvScripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="15_s4cyi"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="16_rgn0d"]
-[ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="17_1hbme"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/WaveManager.gd" id="17_8qe20"]
 [ext_resource type="PackedScene" uid="uid://d3vkgbskbhlc3" path="res://Scenes/PlayerScenes/healthbar.tscn" id="18_k21m1"]
-[ext_resource type="PackedScene" uid="uid://dyetuf7f48rot" path="res://Scenes/PowerUpScenes/charge_power_up.tscn" id="19_6bahb"]
-[ext_resource type="PackedScene" uid="uid://bclkgckbfgtai" path="res://Scenes/PowerUpScenes/heal_power_up.tscn" id="20_6e87t"]
+[ext_resource type="PackedScene" uid="uid://dkuw76bg4at2b" path="res://Scenes/EnemyScenes/enemy_elite.tscn" id="19_rclbv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -242,20 +240,8 @@ label_settings = SubResource("LabelSettings_cg0yo")
 [node name="WaveManager" type="Node2D" parent="."]
 script = ExtResource("17_8qe20")
 
-[node name="ChargePowerUp" parent="." instance=ExtResource("19_6bahb")]
-position = Vector2(1236, 338)
-
-[node name="HealPowerUp" parent="." instance=ExtResource("20_6e87t")]
-position = Vector2(1261, 455)
-
-[node name="EnemyDrone" parent="." instance=ExtResource("17_1hbme")]
-position = Vector2(1257, 143)
-
-[node name="EnemyDrone2" parent="." instance=ExtResource("17_1hbme")]
-position = Vector2(1219, 586)
-
-[node name="EnemyDrone3" parent="." instance=ExtResource("17_1hbme")]
-position = Vector2(959, 282)
+[node name="EnemyElite" parent="." instance=ExtResource("19_rclbv")]
+position = Vector2(1191, 295)
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]

@@ -7,7 +7,7 @@ var main : Node
 func _ready() -> void:
 	main = get_node("/root/Main")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if main.paused == true:
 		hover(id_select)
 	
@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	elif select_counter == 30 && id_select == 2:
 		get_tree().quit()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("one_button") && main.paused == true:
 		select_counter = 0
 		$PausePanel/QuitBar.value = 0

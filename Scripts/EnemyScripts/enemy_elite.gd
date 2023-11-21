@@ -22,18 +22,21 @@ func _process(delta: float) -> void:
 		fire_ready = true
 	if global_position.x < 50:
 		queue_free()
-	
-	if fire_ready == true:
-		$Bullet.start()
 
 func _on_bullet_timeout() -> void:
-	var enemy_bullet = enemy_bullet_scene.instantiate()
-	fire_bullet(enemy_bullet)
-	print("enemy shoot")
+	if fire_ready == true:
+		var enemy_bullet = enemy_bullet_scene.instantiate()
+		var enemy_bullet_two = enemy_bullet_scene.instantiate()
+		fire_bullet(enemy_bullet, enemy_bullet_two)
+		print("enemy shoot")
 
-func fire_bullet(enemy_bullet):
+func fire_bullet(enemy_bullet, enemy_bullet_two):
+	var gun = get_node("Gun")
 	add_child(enemy_bullet)
-	enemy_bullet.position += Vector2(-15,0)
+	enemy_bullet.position += Vector2(-15,-10)
+	var gun_two = get_node("Gun2")
+	add_child(enemy_bullet_two)
+	enemy_bullet_two.position += Vector2(-15,10)
 	$EnemyShot.play()
 	print("enemy bullet")
 

@@ -57,7 +57,7 @@ func move_ship():
 	elif position.y <= 75:
 		ship_up = false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("one_button"):
 		if charge_count == 50 && $PerfectLarge.time_left == 0:
 			var big_b = big_bullet_scene.instantiate()

@@ -40,7 +40,7 @@ script = ExtResource("1_mh4me")
 
 [node name="ChargeAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sg8jf")
-frame_progress = 0.614943
+frame_progress = 0.0454292
 speed_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
