@@ -23,13 +23,13 @@ func _input(event):
 		
 		$UIController/PauseTimer.start()
 
-	if pause_counter == 3:
+	if pause_counter == 5:
 		paused = true
 		pause_counter = 0
 		$UIController/PauseCounter/PauseSymbol.visible = false
 		$UIController/PauseCounter/PlaySymbol.visible = true
 	
-	if unpause_counter == 3:
+	if unpause_counter == 5:
 		paused = false
 		unpause_counter = 0
 		$UIController/PauseCounter/PauseSymbol.visible = true

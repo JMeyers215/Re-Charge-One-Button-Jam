@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyetuf7f48rot"]
+
+[ext_resource type="Texture2D" uid="uid://c4f5me7fx1r4a" path="res://Assets/PowerUps/chargepowerup1.png" id="1_50la2"]
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/charge_power_up.gd" id="1_mh4me"]
+[ext_resource type="Texture2D" uid="uid://brq4dvvg5hbuy" path="res://Assets/PowerUps/chargepowerup2.png" id="2_1jq6r"]
+[ext_resource type="Texture2D" uid="uid://ylb2nn10oebn" path="res://Assets/PowerUps/chargepowerup3.png" id="3_6jivv"]
+[ext_resource type="Texture2D" uid="uid://ck6cp4v3rip5j" path="res://Assets/PowerUps/chargepowerup4.png" id="4_lkfaq"]
+[ext_resource type="Texture2D" uid="uid://bw2o1nu4rabb3" path="res://Assets/PowerUps/chargepowerup5.png" id="5_56ct0"]
+[ext_resource type="AudioStream" uid="uid://bjaxy6nesf8c5" path="res://Sounds/psz_ready.mp3" id="7_ojwd3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sg8jf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_50la2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jq6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6jivv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lkfaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_56ct0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myt5d"]
+size = Vector2(12, 12)
+
+[node name="ChargePowerUp" type="Node2D" groups=["PowerUp"]]
+scale = Vector2(4, 4)
+script = ExtResource("1_mh4me")
+
+[node name="ChargeAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sg8jf")
+frame_progress = 0.614943
+speed_scale = 2.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_myt5d")
+
+[node name="ChargeNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ojwd3")
+bus = &"Sound"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

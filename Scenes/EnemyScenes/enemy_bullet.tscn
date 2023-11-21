@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpjay"]
 size = Vector2(14, 4)
 
-[node name="EnemyBullet" type="Area2D" groups=["Bullet"]]
+[node name="EnemyBullet" type="Area2D" groups=["EnemyBullet"]]
 scale = Vector2(0.33, 0.33)
 script = ExtResource("1_auqkl")
 bullet_speed = -100
