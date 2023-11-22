@@ -10,7 +10,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
-		$HealNoise.play()
 		healthbar = get_node("../UIController/healthbar")
 		healthbar.value = 4
+		var ship_node = get_tree().get_first_node_in_group("Ship")
+		ship_node.heal_noise()
 		queue_free()

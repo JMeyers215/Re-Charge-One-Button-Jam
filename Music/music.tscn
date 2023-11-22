@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhrf28sfpf081"]
+
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="1_cafl7"]
+[ext_resource type="AudioStream" uid="uid://kxhtp76w3trk" path="res://Music/New Worlds (Long Loop).wav" id="1_f7wq2"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_f7wq2")
+autoplay = true
+bus = &"Music"
+script = ExtResource("1_cafl7")

@@ -2,7 +2,10 @@ extends Node2D
 
 var unpause_counter : int = 0
 var pause_counter : int = 0
-@export var paused : bool = false
+var paused : bool = false
+
+@export var health_spawn : PackedScene
+@export var power_up : PackedScene
 
 func _ready() -> void:
 	var new_key
@@ -48,3 +51,14 @@ func _on_pause_timer_timeout() -> void:
 		$UIController/PauseCounter/PauseCount.text = str("x ",unpause_counter)
 	elif paused == false:
 		$UIController/PauseCounter/PauseCount.text = str("x ",pause_counter)
+
+func spawn_power_up(enemy_pos):
+	var item = randi_range(1,100)
+	if item <= 33:
+		var health = health_spawn.instantiate()
+		add_child(health)
+		health.position = enemy_pos
+	elif item <= 50 && item > 33:
+		var charge = power_up.instantiate()
+		add_child(charge)
+		charge.position = enemy_pos

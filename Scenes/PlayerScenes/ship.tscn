@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://mitdgrjd8nwd"]
+[gd_scene load_steps=18 format=3 uid="uid://mitdgrjd8nwd"]
 
 [ext_resource type="Texture2D" uid="uid://di8luudourao5" path="res://Assets/Character Assets/SpaceShip.png" id="1_q1geo"]
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/ship.gd" id="1_qn0sq"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://v2btomxuvsve" path="res://Sounds/DefiniteShot3.wav" id="9_m6egu"]
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="10_6nfjl"]
 [ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="10_e8i0n"]
+[ext_resource type="AudioStream" uid="uid://boiijj2stt74o" path="res://Sounds/EnergetingCirclingUpload.wav" id="12_e0k87"]
+[ext_resource type="AudioStream" uid="uid://bjaxy6nesf8c5" path="res://Sounds/psz_ready.mp3" id="13_yef5c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2flj"]
 load_path = "res://.godot/imported/SpaceShipPropellant3.png-e42a1063d9f10d56e1ea92326ca6faf3.ctex"
@@ -104,6 +106,14 @@ bus = &"Sound"
 
 [node name="ShipDestroyed" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("10_e8i0n")
+bus = &"Sound"
+
+[node name="HealNoise" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("12_e0k87")
+bus = &"Sound"
+
+[node name="ChargeNoise" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("13_yef5c")
 bus = &"Sound"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

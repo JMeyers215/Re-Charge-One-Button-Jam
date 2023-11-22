@@ -13,14 +13,10 @@ func _process(delta: float) -> void:
 	
 
 func start_wave():
-	$WaveTimer.start()
 	pass
 
 func enemies_defeated():
 	if enemy_group.size() == 0:
-		$WaveTimer.time_left -= 30
-
-func _on_wave_timer_timeout() -> void:
-	wave_count += 1
-	start_wave()
+		wave_count += 1
+		start_wave()
 

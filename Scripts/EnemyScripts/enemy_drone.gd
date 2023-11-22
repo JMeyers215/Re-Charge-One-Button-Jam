@@ -13,6 +13,8 @@ var fire_ready : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Propellant.play()
+	randomize()
+	$Bullet.wait_time = randi_range(4,8)
 	$Bullet.wait_time /= fire_rate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,4 +54,6 @@ func destroy_enemy():
 	$".".visible = false
 
 func _on_death_timer_timeout() -> void:
+	var mainscene = get_node("/root/Main")
+	mainscene.spawn_power_up(position)
 	queue_free()

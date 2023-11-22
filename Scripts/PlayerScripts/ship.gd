@@ -117,7 +117,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func power_up():
 	$PowerUpTimer.start()
 	charge_power_up = true
+	$AudioManager/ChargeNoise.play()
 	print("powered up")
 
 func _on_power_up_timer_timeout() -> void:
 	charge_power_up = false
+
+func heal_noise():
+	$AudioManager/HealNoise.play()

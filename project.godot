@@ -19,6 +19,7 @@ config/icon="res://Logos/Logo 180x180.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+Music="*res://Music/music.tscn"
 
 [display]
 

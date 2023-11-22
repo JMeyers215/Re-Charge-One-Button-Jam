@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bclkgckbfgtai"]
+[gd_scene load_steps=9 format=3 uid="uid://bclkgckbfgtai"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/heal_power_up.gd" id="1_iset3"]
 [ext_resource type="Texture2D" uid="uid://be1wjewe6gkot" path="res://Assets/PowerUps/healpowerup1.png" id="1_proto"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d365qmke44pdk" path="res://Assets/PowerUps/healpowerup3.png" id="3_dtj3f"]
 [ext_resource type="Texture2D" uid="uid://bo06diswrpikh" path="res://Assets/PowerUps/healpowerup4.png" id="4_u376w"]
 [ext_resource type="Texture2D" uid="uid://btwdhcrh85evr" path="res://Assets/PowerUps/healpowerup5.png" id="5_ojo67"]
-[ext_resource type="AudioStream" uid="uid://boiijj2stt74o" path="res://Sounds/EnergetingCirclingUpload.wav" id="7_l0t3m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kjjk"]
 animations = [{
@@ -47,9 +46,5 @@ speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_lck2p")
-
-[node name="HealNoise" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_l0t3m")
-bus = &"Sound"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
