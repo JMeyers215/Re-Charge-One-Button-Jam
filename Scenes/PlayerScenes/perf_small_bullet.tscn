@@ -10,6 +10,7 @@ size = Vector2(10, 8)
 script = ExtResource("1_ojb6f")
 bullet_speed = 1000
 bullet_size = 2
+bullet_damage = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_tnbkv")

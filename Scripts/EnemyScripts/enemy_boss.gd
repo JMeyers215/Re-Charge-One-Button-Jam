@@ -39,4 +39,6 @@ func fire_bullet(enemy_bullet):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		$EnemyHit.play()
+		var bullet_damage = area.bullet_damage
+		health -= bullet_damage
 		print("enemy hit")

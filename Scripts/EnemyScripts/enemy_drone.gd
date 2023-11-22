@@ -6,7 +6,7 @@ class_name Drone
 @export var enemy_speed : int = 25    
 @export var fire_rate : float = 1
 @export var enemy_bullet_scene : PackedScene
-@export var health : int = 1
+@export var health : int = 2
 @export var point_load : int = 1
 var fire_ready : bool = false
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		translate(Vector2(-enemy_speed * delta,0))
 	if global_position.x < 1300:
 		fire_ready = true
-	elif global_position.x < 50:
+	elif global_position.x < -100:
 		queue_free()
 
 
@@ -40,4 +40,16 @@ func fire_bullet(enemy_bullet):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		$EnemyHit.play()
+		var bullet_damage = area.bullet_damage
+		health -= bullet_damage
+		if health <= 0:
+			destroy_enemy()
 		print("enemy hit")
+
+func destroy_enemy():
+	$DeathTimer.start()
+	$EnemyDestroyed.play()
+	$".".visible = false
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

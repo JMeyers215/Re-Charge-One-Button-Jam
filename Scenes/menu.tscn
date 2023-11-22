@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://djc01df5y0h4a"]
+[gd_scene load_steps=29 format=3 uid="uid://djc01df5y0h4a"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuController.gd" id="1_801on"]
 [ext_resource type="Texture2D" uid="uid://d3gq0g2j3uswd" path="res://Assets/UI Assets/exitbutton.png" id="2_3b3e0"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Scripts/EnvScripts/EnvironmentSpawner.gd" id="18_1wwxb"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="19_e06rw"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="20_kgdxx"]
+[ext_resource type="Texture2D" uid="uid://ckgwgxeqakiar" path="res://Assets/UI Assets/SkyBackground.png" id="21_kumkt"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_kglyt"]
 
@@ -407,6 +408,12 @@ autostart = true
 
 [node name="CloudEnvironment" parent="Environment" instance=ExtResource("20_kgdxx")]
 position = Vector2(-12, -28)
+
+[node name="SkyBackground" type="Sprite2D" parent="Environment"]
+z_index = -4096
+position = Vector2(593.5, 371)
+scale = Vector2(5.37125, 1.99167)
+texture = ExtResource("21_kumkt")
 
 [node name="MovingCloud" parent="." instance=ExtResource("19_e06rw")]
 position = Vector2(-192.5, 342)

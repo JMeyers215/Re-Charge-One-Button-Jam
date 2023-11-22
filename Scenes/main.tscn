@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="16_rgn0d"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/WaveManager.gd" id="17_8qe20"]
 [ext_resource type="PackedScene" uid="uid://d3vkgbskbhlc3" path="res://Scenes/PlayerScenes/healthbar.tscn" id="18_k21m1"]
-[ext_resource type="PackedScene" uid="uid://dkuw76bg4at2b" path="res://Scenes/EnemyScenes/enemy_elite.tscn" id="19_rclbv"]
+[ext_resource type="Texture2D" uid="uid://ckgwgxeqakiar" path="res://Assets/UI Assets/SkyBackground.png" id="19_c65ym"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -64,6 +64,7 @@ offset_top = 4.0
 offset_right = 73.0
 offset_bottom = 22.0
 scale = Vector2(2, 2)
+metadata/_edit_use_anchors_ = true
 
 [node name="PausePanel" type="Panel" parent="UIController"]
 visible = false
@@ -217,11 +218,19 @@ both_sides = false
 wait_time = 6.0
 autostart = true
 
+[node name="SkyBackground" type="Sprite2D" parent="EnvironmentSpawner"]
+z_index = -4096
+position = Vector2(645, 380)
+scale = Vector2(2.4, 1.66667)
+texture = ExtResource("19_c65ym")
+metadata/_edit_lock_ = true
+
 [node name="CurrentKey" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CurrentButton" type="Sprite2D" parent="CurrentKey"]
 position = Vector2(52, 685)
@@ -240,8 +249,9 @@ label_settings = SubResource("LabelSettings_cg0yo")
 [node name="WaveManager" type="Node2D" parent="."]
 script = ExtResource("17_8qe20")
 
-[node name="EnemyElite" parent="." instance=ExtResource("19_rclbv")]
-position = Vector2(1191, 295)
+[node name="WaveTimer" type="Timer" parent="WaveManager"]
+wait_time = 60.0
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]
+[connection signal="timeout" from="WaveManager/WaveTimer" to="WaveManager" method="_on_wave_timer_timeout"]
