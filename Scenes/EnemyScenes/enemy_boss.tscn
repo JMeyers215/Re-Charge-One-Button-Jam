@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bndbfjftpedfq"]
+[gd_scene load_steps=34 format=3 uid="uid://bndbfjftpedfq"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_drone.gd" id="1_xsrtu"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_boss.gd" id="1_jumtg"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_xrh7s"]
+[ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_be75w"]
 [ext_resource type="Texture2D" uid="uid://cimne5kq6nejp" path="res://Assets/LevelOneBoss/Level1Boss.png" id="3_c6sp0"]
 [ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/ElitePropellant1.png" id="4_o7v3b"]
 [ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="5_dfbag"]
@@ -11,6 +12,22 @@
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_orsv3"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/BossLaser.gd" id="10_oav1x"]
 [ext_resource type="Texture2D" uid="uid://csgbmjx2o8obr" path="res://Assets/LevelOneBoss/LaserSegment.png" id="11_3jwcv"]
+[ext_resource type="Texture2D" uid="uid://tgva5aiufhm5" path="res://Assets/LevelOneBoss/LaserStart.png" id="12_s20dx"]
+[ext_resource type="Texture2D" uid="uid://cby1w4gjll2bt" path="res://Assets/LevelOneBoss/LaserCharge9.png" id="13_b1b2x"]
+[ext_resource type="Texture2D" uid="uid://bhn77wmprnfod" path="res://Assets/LevelOneBoss/LaserCharge10.png" id="14_r8tua"]
+[ext_resource type="Texture2D" uid="uid://clb58o8rkjnu8" path="res://Assets/LevelOneBoss/LaserCharge11.png" id="15_23vgd"]
+[ext_resource type="Texture2D" uid="uid://j43rqa7kmpq5" path="res://Assets/LevelOneBoss/LaserCharge12.png" id="16_yyui6"]
+[ext_resource type="Texture2D" uid="uid://b724xwsamc7yr" path="res://Assets/LevelOneBoss/LaserCharge13.png" id="17_3g4oi"]
+[ext_resource type="Texture2D" uid="uid://d2vrv2oh8uv46" path="res://Assets/LevelOneBoss/LaserCharge14.png" id="18_c07e7"]
+[ext_resource type="Texture2D" uid="uid://sb3pyxopkvgn" path="res://Assets/LevelOneBoss/LaserCharge15.png" id="19_gyav1"]
+[ext_resource type="Texture2D" uid="uid://d4kgiggxe3kmf" path="res://Assets/LevelOneBoss/LaserCharge1.png" id="20_gq7kd"]
+[ext_resource type="Texture2D" uid="uid://cqwdqh1olttrl" path="res://Assets/LevelOneBoss/LaserCharge2.png" id="21_n2fx5"]
+[ext_resource type="Texture2D" uid="uid://dk2scs4tmj677" path="res://Assets/LevelOneBoss/LaserCharge3.png" id="22_fn8h2"]
+[ext_resource type="Texture2D" uid="uid://cqhl6nvhpjtxf" path="res://Assets/LevelOneBoss/LaserCharge4.png" id="23_j3xbs"]
+[ext_resource type="Texture2D" uid="uid://cb56ff5j5knfl" path="res://Assets/LevelOneBoss/LaserCharge5.png" id="24_fqqyn"]
+[ext_resource type="Texture2D" uid="uid://mbomkci8fpuq" path="res://Assets/LevelOneBoss/LaserCharge6.png" id="25_lf7y7"]
+[ext_resource type="Texture2D" uid="uid://dc2y0dypd0lxa" path="res://Assets/LevelOneBoss/LaserCharge7.png" id="26_3qn3h"]
+[ext_resource type="Texture2D" uid="uid://cntuovlpxpdo3" path="res://Assets/LevelOneBoss/LaserCharge8.png" id="27_ittam"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqyy4"]
 animations = [{
@@ -29,55 +46,121 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm23s"]
-size = Vector2(18.3333, 21.3333)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrtrn"]
 size = Vector2(40, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0o3c"]
-size = Vector2(592, 20)
+size = Vector2(601, 20)
 
-[node name="EnemyBoss" type="Node2D" node_paths=PackedStringArray("ship_sprite") groups=["Enemy"]]
-script = ExtResource("1_xsrtu")
-ship_sprite = NodePath("EvilShip")
+[sub_resource type="SpriteFrames" id="SpriteFrames_mc1lw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_b1b2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_r8tua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_23vgd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yyui6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3g4oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c07e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gyav1")
+}],
+"loop": true,
+"name": &"ChargeLoop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_gq7kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_n2fx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_fn8h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_j3xbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_fqqyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_lf7y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3qn3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ittam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b1b2x")
+}],
+"loop": false,
+"name": &"ChargeUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_c07e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gyav1")
+}],
+"loop": true,
+"name": &"FinalCharge",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm23s"]
+size = Vector2(18.3333, 21.3333)
+
+[node name="EnemyBoss" type="Node2D" groups=["Enemy"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_jumtg")
 enemy_bullet_scene = ExtResource("2_xrh7s")
+health = 2
+explosion = ExtResource("3_be75w")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("3_c6sp0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Propellant" type="AnimatedSprite2D" parent="."]
 position = Vector2(69, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
-frame_progress = 0.539812
+autoplay = "Elite Propellant"
+frame_progress = 0.463968
 speed_scale = 0.5
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(-0.333333, -27)
+
+[node name="Gun2" type="Node2D" parent="."]
+position = Vector2(0, 27)
 
 [node name="Bullet" type="Timer" parent="."]
 wait_time = 5.0
+autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(3, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.83333, 0)
-shape = SubResource("RectangleShape2D_pm23s")
-
-[node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_0jnkj")
-volume_db = -1.0
-bus = &"Sound"
-
-[node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_b5ew3")
-bus = &"Sound"
-
-[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_orsv3")
-bus = &"Sound"
+[node name="DestructionTimer" type="Timer" parent="."]
+wait_time = 10.0
 
 [node name="Laser" type="Area2D" parent="."]
+visible = false
 script = ExtResource("10_oav1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
@@ -88,16 +171,56 @@ shape = SubResource("RectangleShape2D_mrtrn")
 
 [node name="LaserProjectile" type="Area2D" parent="Laser"]
 visible = false
+position = Vector2(-7, 0)
 
 [node name="LaserSegment" type="Sprite2D" parent="Laser/LaserProjectile"]
 position = Vector2(-319.5, 0.249999)
 scale = Vector2(18.4688, 0.953125)
 texture = ExtResource("11_3jwcv")
 
+[node name="LaserStart" type="Sprite2D" parent="Laser/LaserProjectile"]
+position = Vector2(-8, 0.250001)
+scale = Vector2(1, 0.953125)
+texture = ExtResource("12_s20dx")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserProjectile"]
-position = Vector2(-320, 0)
+position = Vector2(-315.5, 0)
 shape = SubResource("RectangleShape2D_x0o3c")
 
+[node name="LaserTimer" type="Timer" parent="Laser/LaserProjectile"]
+
+[node name="ChargeAnimation" type="AnimatedSprite2D" parent="Laser"]
+visible = false
+position = Vector2(-16, 0)
+sprite_frames = SubResource("SpriteFrames_mc1lw")
+animation = &"ChargeUp"
+speed_scale = 2.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2.83333, 0)
+shape = SubResource("RectangleShape2D_pm23s")
+
+[node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0jnkj")
+volume_db = -1.0
+bus = &"Sound"
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_orsv3")
+bus = &"Sound"
+
+[node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b5ew3")
+bus = &"Sound"
+
 [connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]
+[connection signal="area_entered" from="Laser" to="Laser" method="_on_area_entered"]
+[connection signal="timeout" from="Laser/ChargeTimer" to="Laser" method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="Laser/LaserProjectile/LaserTimer" to="Laser" method="_on_laser_timer_timeout"]
+[connection signal="animation_finished" from="Laser/ChargeAnimation" to="Laser" method="_on_charge_animation_animation_finished"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]

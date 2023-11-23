@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkuw76bg4at2b"]
+[gd_scene load_steps=13 format=3 uid="uid://dkuw76bg4at2b"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_elite.gd" id="1_850sp"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_3e1lo"]
 [ext_resource type="Texture2D" uid="uid://bhii8a3v57j6n" path="res://Assets/EvilElite.png" id="2_oos33"]
 [ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/ElitePropellant1.png" id="3_a06h2"]
+[ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_fdvqo"]
 [ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="4_m8w1o"]
 [ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="5_eupq5"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_1bf7v"]
@@ -36,14 +37,16 @@ script = ExtResource("1_850sp")
 enemy_speed = 50
 fire_rate = 0.5
 enemy_bullet_scene = ExtResource("2_3e1lo")
+explosion = ExtResource("3_fdvqo")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("2_oos33")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Propellant" type="AnimatedSprite2D" parent="."]
 position = Vector2(30, 0)
 sprite_frames = SubResource("SpriteFrames_01k2d")
 animation = &"Elite Propellant"
+autoplay = "Elite Propellant"
 frame_progress = 0.082472
 speed_scale = 1.5
 

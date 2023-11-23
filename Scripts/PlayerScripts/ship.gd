@@ -37,12 +37,13 @@ func _physics_process(delta: float) -> void:
 	if charge_count > 50:
 			charge_count = 50
 	move_ship()
-	$ChargeBar.value = charge_count
+	
 	if ship_up == true && main.paused == false:
 		position.y -= ship_speed * delta
 	elif ship_up == false && main.paused == false:
 		position.y += ship_speed * delta
 	
+	$ChargeBar.value = charge_count
 	if charge_count == 23:
 		$PerfectSmall.start()
 	elif charge_count == 48:
