@@ -1,7 +1,5 @@
 extends Area2D
 
-class_name Bullet
-
 @export var bullet_speed : int = 1
 @export var bullet_size : int = 1
 @export var bullet_damage : int = 1
@@ -19,7 +17,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("EnemyBullet") or area.is_in_group("Enemy"):
-		print("bullet hit")
+	if area.is_in_group("Bullet") or area.is_in_group("Ship"):
+		print("enemy bullet hit")
 		queue_free()
 	

@@ -6,7 +6,8 @@
 [node name="L1W3" type="Node2D"]
 
 [node name="EnemyElite" parent="." instance=ExtResource("2_04t5b")]
-position = Vector2(1491, 318)
+position = Vector2(838, 315)
+enemy_speed = 25
 
 [node name="EnemyDrone" parent="." instance=ExtResource("1_g6ope")]
 position = Vector2(389, 93)

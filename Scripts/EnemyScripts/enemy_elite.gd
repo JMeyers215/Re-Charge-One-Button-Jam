@@ -8,11 +8,13 @@ class_name Elite
 @export var health : int = 10
 @export var point_load : int = 1
 var fire_ready : bool = false
+var mainscene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play()
 	$Bullet.wait_time /= fire_rate
+	mainscene = get_node("/root/Main")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,6 +24,11 @@ func _process(delta: float) -> void:
 		fire_ready = true
 	if global_position.x < 50:
 		queue_free()
+	
+	if mainscene.paused == true:
+		$Bullet.paused = true
+	elif mainscene.paused == false:
+		$Bullet.paused = false
 
 func _on_bullet_timeout() -> void:
 	if fire_ready == true:
@@ -55,7 +62,6 @@ func destroy_enemy():
 	$".".visible = false
 
 func _on_death_timer_timeout() -> void:
-	var mainscene = get_node("/root/Main")
 	mainscene.spawn_power_up(global_position)
 	var wave_manager = get_node("/root/Main/WaveManager")
 	wave_manager.enemies_defeated()

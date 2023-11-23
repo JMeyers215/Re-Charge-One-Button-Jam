@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://dvfuhgle7ic5q"]
+[gd_scene load_steps=2 format=3 uid="uid://dvfuhgle7ic5q"]
+
+[ext_resource type="PackedScene" uid="uid://bndbfjftpedfq" path="res://Scenes/EnemyScenes/enemy_boss.tscn" id="1_4o305"]
 
 [node name="L1W5" type="Node2D"]
+
+[node name="EnemyBoss" parent="." instance=ExtResource("1_4o305")]
+position = Vector2(1245, 367)

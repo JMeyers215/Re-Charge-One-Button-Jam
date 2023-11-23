@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb6eeb5442fp7"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/bullet.gd" id="1_auqkl"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemybullet.gd" id="1_0jag1"]
 [ext_resource type="Texture2D" uid="uid://cpy44r58m0i6q" path="res://Assets/Character Assets/evilbullet.png" id="2_phrw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpjay"]
@@ -8,7 +8,7 @@ size = Vector2(14, 4)
 
 [node name="EnemyBullet" type="Area2D" groups=["EnemyBullet"]]
 scale = Vector2(0.33, 0.33)
-script = ExtResource("1_auqkl")
+script = ExtResource("1_0jag1")
 bullet_speed = -100
 bullet_size = 2
 

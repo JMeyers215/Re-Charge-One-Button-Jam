@@ -1,10 +1,14 @@
 extends Node2D
 
+var mainscene
+
 func _ready() -> void:
 	$ChargeAnimation.play()
+	mainscene = get_node("/root/Main")
 
 func _physics_process(delta: float) -> void:
-	translate(Vector2(-50 * delta,0))
+	if mainscene.paused == false:
+		translate(Vector2(-50 * delta,0))
 	if global_position.x < -50:
 		queue_free()
 
