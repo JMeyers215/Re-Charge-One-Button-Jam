@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgyem"]
-size = Vector2(16, 14)
+size = Vector2(9, 14)
 
 [node name="Ship" type="Node2D" groups=["Ship"]]
 script = ExtResource("1_qn0sq")
@@ -68,7 +68,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7, 0)
+position = Vector2(10.5, 0)
 shape = SubResource("RectangleShape2D_lgyem")
 
 [node name="PerfectSmall" type="Timer" parent="."]

@@ -33,6 +33,7 @@ size = Vector2(10, 8)
 [node name="EnemyElite" type="Node2D" groups=["Enemy"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_850sp")
+enemy_speed = 50
 fire_rate = 0.5
 enemy_bullet_scene = ExtResource("2_3e1lo")
 

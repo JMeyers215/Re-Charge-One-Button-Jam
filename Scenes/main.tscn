@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=34 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/UIController.gd" id="2_s5w2w"]
@@ -20,6 +20,11 @@
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/WaveManager.gd" id="17_8qe20"]
 [ext_resource type="PackedScene" uid="uid://d3vkgbskbhlc3" path="res://Scenes/PlayerScenes/healthbar.tscn" id="18_k21m1"]
 [ext_resource type="Texture2D" uid="uid://ckgwgxeqakiar" path="res://Assets/UI Assets/SkyBackground.png" id="19_c65ym"]
+[ext_resource type="PackedScene" uid="uid://dmwatwts7jgjj" path="res://Scenes/WaveScenes/LevelOne/l_1w_1.tscn" id="21_55qhs"]
+[ext_resource type="PackedScene" uid="uid://b1j62sbuj3i80" path="res://Scenes/WaveScenes/LevelOne/l_1w_2.tscn" id="22_2oslh"]
+[ext_resource type="PackedScene" uid="uid://702ff4j2sbht" path="res://Scenes/WaveScenes/LevelOne/l_1w_3.tscn" id="23_0yfwr"]
+[ext_resource type="PackedScene" uid="uid://brsxw14isk2g0" path="res://Scenes/WaveScenes/LevelOne/l_1w_4.tscn" id="24_sboom"]
+[ext_resource type="PackedScene" uid="uid://dvfuhgle7ic5q" path="res://Scenes/WaveScenes/LevelOne/l_1w_5.tscn" id="25_vs1sq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -247,7 +252,13 @@ text = ": Space"
 label_settings = SubResource("LabelSettings_cg0yo")
 
 [node name="WaveManager" type="Node2D" parent="."]
+position = Vector2(1282, 0)
 script = ExtResource("17_8qe20")
+wave_one = ExtResource("21_55qhs")
+wave_two = ExtResource("22_2oslh")
+wave_three = ExtResource("23_0yfwr")
+wave_four = ExtResource("24_sboom")
+wave_five = ExtResource("25_vs1sq")
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]

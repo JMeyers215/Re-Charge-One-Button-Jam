@@ -5,6 +5,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	translate(Vector2(-50 * delta,0))
+	if global_position.x < -50:
+		queue_free()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):

@@ -55,4 +55,8 @@ func destroy_enemy():
 	$".".visible = false
 
 func _on_death_timer_timeout() -> void:
+	var mainscene = get_node("/root/Main")
+	mainscene.spawn_power_up(global_position)
+	var wave_manager = get_node("/root/Main/WaveManager")
+	wave_manager.enemies_defeated()
 	queue_free()

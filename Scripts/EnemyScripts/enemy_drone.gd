@@ -21,10 +21,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if global_position.y < 600:
 		translate(Vector2(-enemy_speed * delta,0))
+	
+	
 	if global_position.x < 1300:
 		fire_ready = true
-	elif global_position.x < -100:
+	
+	
+	if global_position.x < -100:
 		queue_free()
+		var wave_manager = get_node("/root/Main/WaveManager")
+		wave_manager.enemies_defeated()
 
 
 func _on_bullet_timeout() -> void:
@@ -55,5 +61,7 @@ func destroy_enemy():
 
 func _on_death_timer_timeout() -> void:
 	var mainscene = get_node("/root/Main")
-	mainscene.spawn_power_up(position)
+	mainscene.spawn_power_up(global_position)
 	queue_free()
+	var wave_manager = get_node("/root/Main/WaveManager")
+	wave_manager.enemies_defeated()

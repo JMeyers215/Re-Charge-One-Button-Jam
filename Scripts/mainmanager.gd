@@ -54,11 +54,11 @@ func _on_pause_timer_timeout() -> void:
 
 func spawn_power_up(enemy_pos):
 	var item = randi_range(1,100)
-	if item <= 33:
+	if item <= 15:
 		var health = health_spawn.instantiate()
 		add_child(health)
-		health.position = enemy_pos
-	elif item <= 50 && item > 33:
+		health.global_position = enemy_pos
+	elif item <= 30 && item > 15:
 		var charge = power_up.instantiate()
 		add_child(charge)
-		charge.position = enemy_pos
+		charge.global_position = enemy_pos

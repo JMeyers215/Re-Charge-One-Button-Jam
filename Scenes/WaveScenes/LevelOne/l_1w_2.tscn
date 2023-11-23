@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1j62sbuj3i80"]
+
+[ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="1_t8qlg"]
+
+[node name="L1W2" type="Node2D"]
+
+[node name="EnemyDrone" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(335, 90)
+
+[node name="EnemyDrone2" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(350, 317)
+
+[node name="EnemyDrone3" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(653, 186)
+
+[node name="EnemyDrone4" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(343, 550)
+
+[node name="EnemyDrone5" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(943, 81)
+
+[node name="EnemyDrone6" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(958, 308)
+
+[node name="EnemyDrone7" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(951, 541)
+
+[node name="EnemyDrone8" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(660, 436)
+
+[node name="EnemyDrone9" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1225, 192)
+
+[node name="EnemyDrone10" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1232, 442)
+
+[node name="EnemyDrone11" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1473, 90)
+
+[node name="EnemyDrone12" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1488, 317)
+
+[node name="EnemyDrone13" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1481, 550)
+
+[node name="EnemyDrone14" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1755, 201)
+
+[node name="EnemyDrone15" parent="." instance=ExtResource("1_t8qlg")]
+position = Vector2(1762, 451)

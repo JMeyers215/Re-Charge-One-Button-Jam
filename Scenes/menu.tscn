@@ -89,6 +89,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
 icon_alignment = 1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="MainMenuController/Buttons/Play"]
