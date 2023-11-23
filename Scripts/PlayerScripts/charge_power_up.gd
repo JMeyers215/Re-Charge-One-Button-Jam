@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if mainscene.paused == false:
-		translate(Vector2(-50 * delta,0))
+		translate(Vector2(-25 * delta,0))
 	if global_position.x < -50:
 		queue_free()
 

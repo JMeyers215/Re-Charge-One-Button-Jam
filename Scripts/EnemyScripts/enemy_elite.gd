@@ -51,7 +51,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		$EnemyHit.play()
 		var bullet_damage = area.bullet_damage
-		health -= bullet_damage
+		area.bullet_reduce(health)
+		if bullet_damage > 0:
+			health -= bullet_damage
 		if health <= 0:
 			destroy_enemy()
 		print("enemy hit")

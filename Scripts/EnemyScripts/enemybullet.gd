@@ -3,6 +3,7 @@ extends Area2D
 @export var bullet_speed : int = 1
 @export var bullet_size : int = 1
 @export var bullet_damage : int = 1
+@export var health : int = 1
 var mainscene
 
 func _ready() -> void:

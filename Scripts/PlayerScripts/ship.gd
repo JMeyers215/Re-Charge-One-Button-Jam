@@ -50,6 +50,9 @@ func _physics_process(delta: float) -> void:
 		
 	if $PerfectSmall.time_left > 0 || $PerfectLarge.time_left > 0 :
 		$ChargeBar.texture_over = perf_texture
+	
+	if main.paused == true:
+		$PowerUpTimer.paused == true
 
 func move_ship():
 	if position.y >= 600:
@@ -111,7 +114,7 @@ func _on_perfect_small_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyBullet"):
 		$AudioManager/ShipHit.play()
-		healthbar.value -= 1
+		healthbar.value -= area.bullet_damage
 		print("hit")
 
 func power_up():

@@ -17,9 +17,14 @@ func _process(delta: float) -> void:
 		translate(Vector2(bullet_speed * delta,0))
 	if global_position.x > 1280 || global_position.x < 0:
 		queue_free()
+	
+	if bullet_damage <= 0:
+		queue_free() 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyBullet") or area.is_in_group("Enemy"):
 		print("bullet hit")
-		queue_free()
-	
+
+func bullet_reduce(health):
+	print("damage reduce")
+	bullet_damage -= health
