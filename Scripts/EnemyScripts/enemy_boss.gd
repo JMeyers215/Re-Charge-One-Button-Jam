@@ -50,7 +50,6 @@ func fire_bullet():
 	enemy_bullet.global_position += Vector2(-15, -80)
 	enemy_bullet.scale = Vector2(1.5,1.5)
 	
-	
 	var enemy_bullet_two = enemy_bullet_scene.instantiate()
 	get_parent().add_child(enemy_bullet_two)
 	enemy_bullet_two.global_position = global_position
@@ -71,6 +70,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func destroy_boss():
 	dying = true
 	$Propellant.visible = false
+	$Laser.visible = false
+	$Laser/LaserProjectile/CollisionShape2D.set_deferred("disabled", true)
 	$DestructionTimer.start()
 	$ExplosionTimer.start()
 	if $DestructionTimer.time_left == 2:
@@ -92,13 +93,14 @@ func _on_explosion_timer_timeout() -> void:
 	$EnemyDestroyed.play()
 
 func _on_laser_check_timeout() -> void:
-	if fire_ready == true:
+	if fire_ready == true && dying == false:
 		charging_laser = true
 		laser.visible = true
 		$Laser/CollisionShape2D.set_deferred("disabled", false)
 		$LaserCheck.stop()
 
 func _on_laser_timer_timeout() -> void:
+	
 	$LaserCheck.start()
 	print("laser check started")
 	charging_laser = false

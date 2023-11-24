@@ -15,7 +15,7 @@ var mainscene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	$Bullet.wait_time = randi_range(4,8)
+	$Bullet.wait_time = randi_range(4,20)
 	$Bullet.wait_time /= fire_rate
 	mainscene = get_node("/root/Main")
 
@@ -62,6 +62,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func destroy_enemy():
 	$DeathTimer.start()
 	$EnemyDestroyed.play()
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	var explosion_scene = explosion.instantiate()
 	get_parent().add_child(explosion_scene)
 	explosion_scene.global_position = global_position

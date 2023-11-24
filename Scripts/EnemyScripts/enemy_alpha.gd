@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 		var wave_manager = get_node("/root/Main/WaveManager")
 		wave_manager.enemies_defeated()
 
-
 func _on_bullet_timeout() -> void:
 	if fire_ready == true:
 		var enemy_bullet = alpha_bullet_scene.instantiate()
@@ -44,28 +43,20 @@ func _on_bullet_timeout() -> void:
 
 
 func fire_bullet(enemy_bullet, enemy_bullet_two):
-	var gun = get_node("Gun")
 	add_child(enemy_bullet)
 	enemy_bullet.position += Vector2(-15,0)
-	enemy_bullet.bullet_speed = -enemy_bullet.bullet_speed
-	var gun_two = get_node("Gun2")
+	enemy_bullet.rotation_degrees = 135
+	enemy_bullet.vertical_speed = -enemy_bullet.vertical_speed
+	
 	add_child(enemy_bullet_two)
 	enemy_bullet_two.position += Vector2(-15,0)
+	enemy_bullet_two.rotation_degrees = 225
 	$EnemyShot.play()
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Bullet"):
-		$EnemyHit.play()
-		var bullet_damage = area.bullet_damage
-		area.bullet_reduce(health)
-		if bullet_damage > 0:
-			health -= bullet_damage
-		if health <= 0:
-			destroy_enemy()
 
 func destroy_enemy():
 	$DeathTimer.start()
 	$EnemyDestroyed.play()
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	var explosion_scene = alpha_explosion.instantiate()
 	get_parent().add_child(explosion_scene)
 	explosion_scene.global_position = global_position
@@ -76,3 +67,14 @@ func _on_death_timer_timeout() -> void:
 	queue_free()
 	var wave_manager = get_node("/root/Main/WaveManager")
 	wave_manager.enemies_defeated()
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Bullet"):
+		$EnemyHit.play()
+		var bullet_damage = area.bullet_damage
+		area.bullet_reduce(health)
+		if bullet_damage > 0:
+			health -= bullet_damage
+		if health <= 0:
+			destroy_enemy()

@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_elite.gd" id="1_850sp"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_3e1lo"]
-[ext_resource type="Texture2D" uid="uid://bhii8a3v57j6n" path="res://Assets/EvilElite.png" id="2_oos33"]
-[ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/ElitePropellant1.png" id="3_a06h2"]
 [ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_fdvqo"]
-[ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="4_m8w1o"]
-[ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="5_eupq5"]
+[ext_resource type="Texture2D" uid="uid://bhii8a3v57j6n" path="res://Assets/Enemy Assets/EvilElite.png" id="4_jt471"]
+[ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/Enemy Assets/ElitePropellant1.png" id="5_l585s"]
+[ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/Enemy Assets/ElitePropellant2.png" id="6_f1ttp"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_1bf7v"]
+[ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/Enemy Assets/ElitePropellant3.png" id="7_oq6ds"]
 [ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="8_v13nd"]
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_ymr6k"]
 
@@ -15,13 +15,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_a06h2")
+"texture": ExtResource("5_l585s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_m8w1o")
+"texture": ExtResource("6_f1ttp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_eupq5")
+"texture": ExtResource("7_oq6ds")
 }],
 "loop": true,
 "name": &"Elite Propellant",
@@ -40,7 +40,7 @@ enemy_bullet_scene = ExtResource("2_3e1lo")
 explosion = ExtResource("3_fdvqo")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
-texture = ExtResource("2_oos33")
+texture = ExtResource("4_jt471")
 
 [node name="Propellant" type="AnimatedSprite2D" parent="."]
 position = Vector2(30, 0)

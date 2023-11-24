@@ -7,8 +7,9 @@
 size = Vector2(14, 4)
 
 [node name="AlphaBullet" type="Area2D" groups=["EnemyBullet"]]
-scale = Vector2(0.33, 0.33)
 script = ExtResource("1_on80o")
+bullet_speed = -100
+vertical_speed = -100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hpjay")

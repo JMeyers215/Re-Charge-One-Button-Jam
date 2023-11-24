@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_kgica"]
 [ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="2_tmnv7"]
 [ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="3_axxhr"]
-[ext_resource type="Texture2D" uid="uid://bnr45j82lon1k" path="res://Assets/EvilShip.png" id="3_f8nag"]
 [ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_iv0nh"]
+[ext_resource type="Texture2D" uid="uid://bnr45j82lon1k" path="res://Assets/Enemy Assets/EvilShip.png" id="4_3sdoy"]
 [ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="4_m0pi2"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_invj2"]
 [ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="8_ljwwu"]
@@ -35,11 +35,12 @@ size = Vector2(5.33333, 5.33333)
 scale = Vector2(3, 3)
 script = ExtResource("1_ro72j")
 enemy_speed = 50
+fire_rate = 0.25
 enemy_bullet_scene = ExtResource("2_kgica")
 explosion = ExtResource("3_iv0nh")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
-texture = ExtResource("3_f8nag")
+texture = ExtResource("4_3sdoy")
 
 [node name="Propellant" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 0)
@@ -49,7 +50,7 @@ frame_progress = 0.432842
 speed_scale = 1.5
 
 [node name="Bullet" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 autostart = true
 
 [node name="Hurtbox" type="Area2D" parent="."]

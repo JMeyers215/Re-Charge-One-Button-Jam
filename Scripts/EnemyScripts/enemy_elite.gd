@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		translate(Vector2(-enemy_speed * delta,0))
 	if global_position.x < 1300:
 		fire_ready = true
-	if global_position.x < 50:
+	if global_position.x < -100:
 		queue_free()
 	
 	if mainscene.paused == true:
@@ -58,6 +58,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func destroy_enemy():
 	$DeathTimer.start()
 	$EnemyDestroyed.play()
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	var explosion_scene = explosion.instantiate()
 	get_parent().add_child(explosion_scene)
 	explosion_scene.global_position = global_position

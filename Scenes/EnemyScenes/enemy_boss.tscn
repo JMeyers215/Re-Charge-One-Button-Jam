@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_be75w"]
 [ext_resource type="Texture2D" uid="uid://cimne5kq6nejp" path="res://Assets/LevelOneBoss/Level1Boss.png" id="3_c6sp0"]
 [ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="4_4olyf"]
-[ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/ElitePropellant1.png" id="4_o7v3b"]
-[ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="5_dfbag"]
-[ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="6_1l7tf"]
+[ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/Enemy Assets/ElitePropellant1.png" id="6_b8mot"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_0jnkj"]
+[ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/Enemy Assets/ElitePropellant2.png" id="7_fkcwj"]
+[ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/Enemy Assets/ElitePropellant3.png" id="8_h6sj2"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/LaserProjectile.gd" id="9_esmaj"]
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_orsv3"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/BossLaser.gd" id="10_oav1x"]
@@ -35,13 +35,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_o7v3b")
+"texture": ExtResource("6_b8mot")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_dfbag")
+"texture": ExtResource("7_fkcwj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_1l7tf")
+"texture": ExtResource("8_h6sj2")
 }],
 "loop": true,
 "name": &"Elite Propellant",
@@ -176,6 +176,7 @@ wait_time = 20.0
 autostart = true
 
 [node name="Laser" type="Area2D" parent="." groups=["Enemy"]]
+visible = false
 script = ExtResource("10_oav1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
