@@ -15,6 +15,7 @@ var charge_power_up : bool = false
 #movement variables
 @export var ship_speed : float = 1.0
 var ship_up : bool = false
+var dying : bool = false
 
 #UI and Game Handling
 @export var healthbar : TextureProgressBar
@@ -31,7 +32,7 @@ func _ready() -> void:
 	main = get_node("/root/Main")
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("one_button") && main.paused == false:
+	if Input.is_action_pressed("one_button") && main.paused == false && dying == false:
 		if charge_power_up == true:
 			charge_count += 3
 		else:
@@ -41,9 +42,9 @@ func _physics_process(delta: float) -> void:
 			charge_count = 50
 	move_ship()
 	
-	if ship_up == true && main.paused == false:
+	if ship_up == true && main.paused == false && dying == false:
 		position.y -= ship_speed * delta
-	elif ship_up == false && main.paused == false:
+	elif ship_up == false && main.paused == false && dying == false:
 		position.y += ship_speed * delta
 	
 	$ChargeBar.value = charge_count
@@ -57,9 +58,6 @@ func _physics_process(delta: float) -> void:
 	
 	if main.paused == true:
 		$PowerUpTimer.paused == true
-	
-	if healthbar.value <= 0:
-		game_over()
 
 func move_ship():
 	if position.y >= 600:
@@ -118,6 +116,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyBullet"):
 		$AudioManager/ShipHit.play()
 		healthbar.value -= area.bullet_damage
+		if healthbar.value <= 0:
+			game_over()
 
 func power_up():
 	$PowerUpTimer.start()
@@ -131,14 +131,17 @@ func heal_noise():
 	$AudioManager/HealNoise.play()
 
 func game_over():
-	main.paused = true
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	$DestroyTimer.start()
 	$ExplosionTimer.start()
+	dying = true
 
 func _on_explosion_timer_timeout() -> void:
 	var explosion_scene = explosion.instantiate()
-	add_child(explosion_scene)
-	explosion_scene.global_position = global_position + Vector2(randi_range(-50,50),randi_range(-80,80))
+	get_parent().add_child(explosion_scene)
+	explosion_scene.global_position = global_position + Vector2(randi_range(0,45),randi_range(-14,14))
+	explosion_scene.scale = Vector2(2,2)
+	$AudioManager/ShipDestroyed.play()
 
 func _on_destroy_timer_timeout() -> void:
 	main.game_over = true

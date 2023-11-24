@@ -147,7 +147,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
 autoplay = "Elite Propellant"
-frame_progress = 0.398676
+frame_progress = 0.283497
 speed_scale = 0.5
 
 [node name="Gun" type="Node2D" parent="."]

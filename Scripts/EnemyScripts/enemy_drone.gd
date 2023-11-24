@@ -43,6 +43,7 @@ func _on_bullet_timeout() -> void:
 		var enemy_bullet = enemy_bullet_scene.instantiate()
 		fire_bullet(enemy_bullet)
 
+
 func fire_bullet(enemy_bullet):
 	add_child(enemy_bullet)
 	enemy_bullet.position += Vector2(-15,0)

@@ -61,7 +61,7 @@ shape = SubResource("RectangleShape2D_pm23s")
 
 [node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_invj2")
-volume_db = -1.0
+volume_db = -5.0
 bus = &"Sound"
 
 [node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]

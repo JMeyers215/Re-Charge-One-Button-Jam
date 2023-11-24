@@ -18,8 +18,6 @@ func _process(delta: float) -> void:
 	
 
 func start_wave():
-	print("new wave")
-	print(wave_count)
 	var wave
 	if wave_count == 1:
 		wave = wave_one.instantiate()
@@ -35,8 +33,6 @@ func start_wave():
 	add_child(wave)
 
 func enemies_defeated():
-	print("check")
-	print(enemy_group.size())
 	if enemy_group.size()-1 == 0:
 		wave_count += 1
 		start_wave()
