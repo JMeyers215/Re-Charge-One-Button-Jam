@@ -147,7 +147,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
 autoplay = "Elite Propellant"
-frame_progress = 0.208204
+frame_progress = 0.398676
 speed_scale = 0.5
 
 [node name="Gun" type="Node2D" parent="."]
@@ -176,7 +176,6 @@ wait_time = 20.0
 autostart = true
 
 [node name="Laser" type="Area2D" parent="." groups=["Enemy"]]
-visible = false
 script = ExtResource("10_oav1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]

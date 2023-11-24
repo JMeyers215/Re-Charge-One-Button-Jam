@@ -23,6 +23,9 @@ var paused : bool = false
 var perf_texture : Texture = preload("res://Assets/UI Assets/ProgressBarOverPerfect.png")
 var normal_texture : Texture = preload("res://Assets/UI Assets/ProgressBarOver.png")
 
+#EXPLOSIONS!!!
+@export var explosion : PackedScene
+
 func _ready() -> void:
 	$AnimatedSprite2D.play()
 	main = get_node("/root/Main")
@@ -54,6 +57,9 @@ func _physics_process(delta: float) -> void:
 	
 	if main.paused == true:
 		$PowerUpTimer.paused == true
+	
+	if healthbar.value <= 0:
+		game_over()
 
 func move_ship():
 	if position.y >= 600:
@@ -123,3 +129,17 @@ func _on_power_up_timer_timeout() -> void:
 
 func heal_noise():
 	$AudioManager/HealNoise.play()
+
+func game_over():
+	main.paused = true
+	$DestroyTimer.start()
+	$ExplosionTimer.start()
+
+func _on_explosion_timer_timeout() -> void:
+	var explosion_scene = explosion.instantiate()
+	add_child(explosion_scene)
+	explosion_scene.global_position = global_position + Vector2(randi_range(-50,50),randi_range(-80,80))
+
+func _on_destroy_timer_timeout() -> void:
+	main.game_over = true
+	queue_free()

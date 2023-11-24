@@ -3,7 +3,7 @@ extends Node2D
 var unpause_counter : int = 0
 var pause_counter : int = 0
 var paused : bool = false
-
+var game_over : bool = false
 @export var health_spawn : PackedScene
 @export var power_up : PackedScene
 

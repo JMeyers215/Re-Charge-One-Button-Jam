@@ -133,7 +133,7 @@ func _physics_process(delta: float) -> void:
 			$Options/QuitBar.visible = true
 
 func set_keybind(event):
-	var new_key = event
+	new_key = event
 	if event is InputEventKey && event.pressed:
 		InputMap.action_add_event("one_button",new_key)
 		$"../CurrentKey/KeyCode".text = str(": ", new_key.as_text())

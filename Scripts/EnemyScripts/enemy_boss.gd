@@ -42,11 +42,6 @@ func move_ship():
 func _on_bullet_timeout() -> void:
 	if fire_ready == true && mainscene.paused == false && dying == false && charging_laser == false:
 		fire_bullet()
-	print(fire_ready)
-	print(mainscene.paused)
-	print(dying)
-	print(charging_laser)
-	print("Bullet Timeout")
 
 func fire_bullet():
 	var enemy_bullet = enemy_bullet_scene.instantiate()
@@ -54,7 +49,6 @@ func fire_bullet():
 	enemy_bullet.global_position = global_position
 	enemy_bullet.global_position += Vector2(-15, -80)
 	enemy_bullet.scale = Vector2(1.5,1.5)
-	print("enemy_bullet created", enemy_bullet.position)
 	
 	
 	var enemy_bullet_two = enemy_bullet_scene.instantiate()
@@ -62,7 +56,6 @@ func fire_bullet():
 	enemy_bullet_two.global_position = global_position
 	enemy_bullet_two.global_position += Vector2(-15, 80)
 	enemy_bullet_two.scale = Vector2(1.5,1.5)
-	print("enemy_bullet_two created", enemy_bullet_two.position)
 	$EnemyShot.play()
 	print("fire bullet called")
 

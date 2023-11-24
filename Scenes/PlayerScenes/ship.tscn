@@ -116,6 +116,10 @@ bus = &"Sound"
 stream = ExtResource("13_yef5c")
 bus = &"Sound"
 
+[node name="DestroyTimer" type="Timer" parent="."]
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="PerfectSmall" to="." method="_on_perfect_small_timeout"]

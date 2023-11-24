@@ -6,6 +6,3 @@ func _ready() -> void:
 	stream = preload("res://Music/New Worlds (Long Loop).wav")
 	autoplay = true
 	play()
-  
-func _process(delta: float) -> void:
-	pass

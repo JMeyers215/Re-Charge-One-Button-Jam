@@ -254,12 +254,12 @@ label_settings = SubResource("LabelSettings_cg0yo")
 [node name="WaveManager" type="Node2D" parent="."]
 position = Vector2(1282, 0)
 script = ExtResource("17_8qe20")
-wave_count = 5
 wave_one = ExtResource("21_55qhs")
 wave_two = ExtResource("22_2oslh")
 wave_three = ExtResource("23_0yfwr")
 wave_four = ExtResource("24_sboom")
 wave_five = ExtResource("25_vs1sq")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]
