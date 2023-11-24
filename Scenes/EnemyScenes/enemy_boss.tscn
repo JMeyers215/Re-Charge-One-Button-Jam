@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bndbfjftpedfq"]
+[gd_scene load_steps=35 format=3 uid="uid://bndbfjftpedfq"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_boss.gd" id="1_jumtg"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_xrh7s"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="5_dfbag"]
 [ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="6_1l7tf"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_0jnkj"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/LaserProjectile.gd" id="9_esmaj"]
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_orsv3"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/BossLaser.gd" id="10_oav1x"]
 [ext_resource type="Texture2D" uid="uid://csgbmjx2o8obr" path="res://Assets/LevelOneBoss/LaserSegment.png" id="11_3jwcv"]
@@ -127,12 +128,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm23s"]
 size = Vector2(18.3333, 21.3333)
 
-[node name="EnemyBoss" type="Node2D" groups=["Enemy"]]
+[node name="EnemyBoss" type="Node2D" node_paths=PackedStringArray("laser") groups=["Enemy"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_jumtg")
 enemy_bullet_scene = ExtResource("2_xrh7s")
 health = 2
 explosion = ExtResource("3_be75w")
+laser = NodePath("Laser")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("3_c6sp0")
@@ -143,7 +145,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
 autoplay = "Elite Propellant"
-frame_progress = 0.00833604
+frame_progress = 0.765091
 speed_scale = 0.5
 
 [node name="Gun" type="Node2D" parent="."]
@@ -156,6 +158,10 @@ position = Vector2(0, 27)
 wait_time = 5.0
 autostart = true
 
+[node name="LaserCheck" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [node name="ExplosionTimer" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -163,7 +169,7 @@ wait_time = 0.5
 wait_time = 8.0
 one_shot = true
 
-[node name="Laser" type="Area2D" parent="."]
+[node name="Laser" type="Area2D" parent="." groups=["Enemy"]]
 visible = false
 script = ExtResource("10_oav1x")
 
@@ -173,9 +179,13 @@ shape = SubResource("RectangleShape2D_mrtrn")
 
 [node name="ChargeTimer" type="Timer" parent="Laser"]
 
-[node name="LaserProjectile" type="Area2D" parent="Laser"]
+[node name="FinalChargetimer" type="Timer" parent="Laser"]
+one_shot = true
+
+[node name="LaserProjectile" type="Area2D" parent="Laser" groups=["EnemyBullet"]]
 visible = false
 position = Vector2(-7, 0)
+script = ExtResource("9_esmaj")
 
 [node name="LaserSegment" type="Sprite2D" parent="Laser/LaserProjectile"]
 position = Vector2(-319.5, 0.249999)
@@ -192,6 +202,8 @@ position = Vector2(-315.5, 0)
 shape = SubResource("RectangleShape2D_x0o3c")
 
 [node name="LaserTimer" type="Timer" parent="Laser/LaserProjectile"]
+wait_time = 3.0
+one_shot = true
 
 [node name="ChargeAnimation" type="AnimatedSprite2D" parent="Laser"]
 visible = false
@@ -221,10 +233,14 @@ stream = ExtResource("28_by8yl")
 bus = &"Sound"
 
 [connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
+[connection signal="timeout" from="LaserCheck" to="." method="_on_laser_check_timeout"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
 [connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]
 [connection signal="area_entered" from="Laser" to="Laser" method="_on_area_entered"]
+[connection signal="visibility_changed" from="Laser" to="Laser" method="_on_visibility_changed"]
 [connection signal="timeout" from="Laser/ChargeTimer" to="Laser" method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="Laser/FinalChargetimer" to="Laser" method="_on_final_chargetimer_timeout"]
+[connection signal="timeout" from="Laser/LaserProjectile/LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="timeout" from="Laser/LaserProjectile/LaserTimer" to="Laser" method="_on_laser_timer_timeout"]
 [connection signal="animation_finished" from="Laser/ChargeAnimation" to="Laser" method="_on_charge_animation_animation_finished"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]

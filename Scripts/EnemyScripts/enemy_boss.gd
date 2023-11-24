@@ -7,17 +7,17 @@ class_name Boss
 @export var enemy_bullet_scene : PackedScene
 @export var health : int = 1
 @export var explosion : PackedScene
+@export var laser : Area2D
 var fire_ready : bool = false
 var ship_up : bool = false
 var dying : bool = false
+var charging_laser : bool = false
 var mainscene
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Bullet.wait_time /= fire_rate
 	mainscene = get_node("/root/Main")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if global_position.x > 1050 && mainscene.paused == false:
 		translate(Vector2(-enemy_speed * delta,0))
@@ -37,11 +37,10 @@ func move_ship():
 		ship_up = false
 
 func _on_bullet_timeout() -> void:
-	if fire_ready == true && mainscene.paused == false && dying == false:
+	if fire_ready == true && mainscene.paused == false && dying == false && charging_laser == false:
 		var enemy_bullet = enemy_bullet_scene.instantiate()
 		var enemy_bullet_two = enemy_bullet_scene.instantiate()
 		fire_bullet(enemy_bullet, enemy_bullet_two)
-		print("enemy shoot")
 
 func fire_bullet(enemy_bullet, enemy_bullet_two):
 	var gun = get_node("Gun")
@@ -53,7 +52,6 @@ func fire_bullet(enemy_bullet, enemy_bullet_two):
 	enemy_bullet_two.global_position += global_position + Vector2(-15,80)
 	enemy_bullet_two.scale = Vector2(1.5,1.5)
 	$EnemyShot.play()
-	print("enemy bullet")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
@@ -86,3 +84,13 @@ func _on_explosion_timer_timeout() -> void:
 	add_child(explosion_scene)
 	explosion_scene.global_position = global_position + Vector2(randi_range(-50,50),randi_range(-80,80))
 	$EnemyDestroyed.play()
+
+func _on_laser_check_timeout() -> void:
+	charging_laser = true
+	laser.visible = true
+	$LaserCheck.stop()
+
+func _on_laser_timer_timeout() -> void:
+	$LaserCheck.start()
+	print("laser check started")
+	charging_laser = false

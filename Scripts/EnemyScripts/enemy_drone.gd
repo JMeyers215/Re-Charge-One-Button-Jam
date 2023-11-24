@@ -42,13 +42,11 @@ func _on_bullet_timeout() -> void:
 	if fire_ready == true:
 		var enemy_bullet = enemy_bullet_scene.instantiate()
 		fire_bullet(enemy_bullet)
-		print("enemy shoot")
 
 func fire_bullet(enemy_bullet):
 	add_child(enemy_bullet)
 	enemy_bullet.position += Vector2(-15,0)
 	$EnemyShot.play()
-	print("enemy bullet")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
@@ -59,7 +57,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			health -= bullet_damage
 		if health <= 0:
 			destroy_enemy()
-		print("enemy hit")
 
 func destroy_enemy():
 	$DeathTimer.start()
