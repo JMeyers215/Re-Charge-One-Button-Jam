@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpcmrwppowwek"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_alpha.gd" id="1_vw7lf"]
+[ext_resource type="Texture2D" uid="uid://bl8qdp5q21hm1" path="res://Assets/Character Assets/EvilAlpha.png" id="2_3g8qt"]
+[ext_resource type="PackedScene" uid="uid://b4n5ouptxe63a" path="res://Scenes/EnemyScenes/alpha_bullet.tscn" id="2_elwbq"]
+[ext_resource type="Texture2D" uid="uid://het0orge6o5e" path="res://Assets/Character Assets/EvilPropellant1.png" id="2_rnvd5"]
+[ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_eq6q4"]
+[ext_resource type="Texture2D" uid="uid://c2gwceqnefqoo" path="res://Assets/Character Assets/EvilPropellant2.png" id="3_m6775"]
+[ext_resource type="Texture2D" uid="uid://ddbs0yfv2qiil" path="res://Assets/Character Assets/EvilPropellant3.png" id="4_4ecs4"]
+[ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="5_t8ypp"]
+[ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="6_utjxo"]
+[ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="7_i65fh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2c3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rnvd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m6775")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ecs4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp57u"]
+size = Vector2(5.33333, 5.33333)
+
+[node name="EnemyAlpha" type="Node2D" groups=["Enemy"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_vw7lf")
+enemy_speed = 75
+fire_rate = 2.0
+alpha_bullet_scene = ExtResource("2_elwbq")
+health = 3
+alpha_explosion = ExtResource("3_eq6q4")
+
+[node name="AlphaShip" type="Sprite2D" parent="."]
+texture = ExtResource("2_3g8qt")
+
+[node name="Propellant" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 0)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_r2c3q")
+autoplay = "default"
+frame_progress = 0.928239
+speed_scale = 2.0
+
+[node name="Bullet" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(5.82801e-07, -3.97364e-08)
+shape = SubResource("RectangleShape2D_tp57u")
+
+[node name="EnemyShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_t8ypp")
+volume_db = -5.0
+bus = &"Sound"
+
+[node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_utjxo")
+bus = &"Sound"
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_i65fh")
+volume_db = -1.0
+bus = &"Sound"
+
+[node name="DeathTimer" type="Timer" parent="."]

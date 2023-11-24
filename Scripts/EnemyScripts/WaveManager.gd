@@ -6,6 +6,9 @@ extends Node2D
 @export var wave_three : PackedScene
 @export var wave_four : PackedScene
 @export var wave_five : PackedScene
+@export var wave_six : PackedScene
+@export var wave_seven : PackedScene
+@export var wave_eight : PackedScene
 var enemy_group
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +32,12 @@ func start_wave():
 		wave = wave_four.instantiate()
 	elif wave_count == 5:
 		wave = wave_five.instantiate()
+	elif wave_count == 6:
+		wave = wave_six.instantiate()
+	elif wave_count == 7:
+		wave = wave_seven.instantiate()
+	elif wave_count == 8:
+		wave = wave_eight.instantiate()
 	
 	add_child(wave)
 

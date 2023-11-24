@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=37 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/UIController.gd" id="2_s5w2w"]
@@ -25,6 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://702ff4j2sbht" path="res://Scenes/WaveScenes/LevelOne/l_1w_3.tscn" id="23_0yfwr"]
 [ext_resource type="PackedScene" uid="uid://brsxw14isk2g0" path="res://Scenes/WaveScenes/LevelOne/l_1w_4.tscn" id="24_sboom"]
 [ext_resource type="PackedScene" uid="uid://dvfuhgle7ic5q" path="res://Scenes/WaveScenes/LevelOne/l_1w_5.tscn" id="25_vs1sq"]
+[ext_resource type="PackedScene" uid="uid://cvyte367ouax3" path="res://Scenes/WaveScenes/LevelOne/l_1w_6.tscn" id="26_15o7k"]
+[ext_resource type="PackedScene" uid="uid://j8pqclo1mww4" path="res://Scenes/WaveScenes/LevelOne/l_1w_7.tscn" id="27_tlsu3"]
+[ext_resource type="PackedScene" uid="uid://c3bu0jxn1sfid" path="res://Scenes/WaveScenes/LevelOne/l_1w_8.tscn" id="28_hdbua"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -259,6 +262,9 @@ wave_two = ExtResource("22_2oslh")
 wave_three = ExtResource("23_0yfwr")
 wave_four = ExtResource("24_sboom")
 wave_five = ExtResource("25_vs1sq")
+wave_six = ExtResource("26_15o7k")
+wave_seven = ExtResource("27_tlsu3")
+wave_eight = ExtResource("28_hdbua")
 metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]

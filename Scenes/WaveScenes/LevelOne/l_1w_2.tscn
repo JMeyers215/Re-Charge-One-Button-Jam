@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1j62sbuj3i80"]
+[gd_scene load_steps=3 format=3 uid="uid://b1j62sbuj3i80"]
 
 [ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="1_t8qlg"]
+[ext_resource type="PackedScene" uid="uid://cpcmrwppowwek" path="res://Scenes/EnemyScenes/enemy_alpha.tscn" id="2_28j1f"]
 
 [node name="L1W2" type="Node2D"]
 
@@ -48,3 +49,12 @@ position = Vector2(1755, 201)
 
 [node name="EnemyDrone15" parent="." instance=ExtResource("1_t8qlg")]
 position = Vector2(1762, 451)
+
+[node name="EnemyAlpha" parent="." instance=ExtResource("2_28j1f")]
+position = Vector2(657, 315)
+
+[node name="EnemyAlpha2" parent="." instance=ExtResource("2_28j1f")]
+position = Vector2(1235, 319)
+
+[node name="EnemyAlpha3" parent="." instance=ExtResource("2_28j1f")]
+position = Vector2(1760, 326)

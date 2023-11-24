@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhii8a3v57j6n"
-path="res://.godot/imported/EvilElite.png-a53d66225ee2036cb97cf79d2c7e2570.ctex"
+path="res://.godot/imported/EvilElite.png-9de3e2a9e42dee4cf9ee635dbf869844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EvilElite.png"
-dest_files=["res://.godot/imported/EvilElite.png-a53d66225ee2036cb97cf79d2c7e2570.ctex"]
+source_file="res://Assets/Enemy Assets/EvilElite.png"
+dest_files=["res://.godot/imported/EvilElite.png-9de3e2a9e42dee4cf9ee635dbf869844.ctex"]
 
 [params]
 

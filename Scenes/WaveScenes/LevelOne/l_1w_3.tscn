@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://702ff4j2sbht"]
+[gd_scene load_steps=4 format=3 uid="uid://702ff4j2sbht"]
 
 [ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="1_g6ope"]
 [ext_resource type="PackedScene" uid="uid://dkuw76bg4at2b" path="res://Scenes/EnemyScenes/enemy_elite.tscn" id="2_04t5b"]
+[ext_resource type="PackedScene" uid="uid://cpcmrwppowwek" path="res://Scenes/EnemyScenes/enemy_alpha.tscn" id="3_c1klu"]
 
 [node name="L1W3" type="Node2D"]
 
@@ -38,3 +39,15 @@ position = Vector2(1225, 192)
 
 [node name="EnemyDrone10" parent="." instance=ExtResource("1_g6ope")]
 position = Vector2(1232, 442)
+
+[node name="EnemyAlpha" parent="." instance=ExtResource("3_c1klu")]
+position = Vector2(1079, 200)
+
+[node name="EnemyAlpha2" parent="." instance=ExtResource("3_c1klu")]
+position = Vector2(1096, 451)
+
+[node name="EnemyAlpha3" parent="." instance=ExtResource("3_c1klu")]
+position = Vector2(206, 205)
+
+[node name="EnemyAlpha4" parent="." instance=ExtResource("3_c1klu")]
+position = Vector2(205, 460)

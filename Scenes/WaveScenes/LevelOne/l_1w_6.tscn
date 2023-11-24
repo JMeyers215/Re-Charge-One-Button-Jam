@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvyte367ouax3"]
+
+[ext_resource type="PackedScene" uid="uid://cpcmrwppowwek" path="res://Scenes/EnemyScenes/enemy_alpha.tscn" id="1_6snlx"]
+[ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="2_57o37"]
+
+[node name="L1W6" type="Node2D"]
+
+[node name="EnemyAlpha" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(264, 79)
+
+[node name="EnemyAlpha2" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(458, 656)
+
+[node name="EnemyAlpha3" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(640, 81)
+
+[node name="EnemyAlpha4" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(834, 658)
+
+[node name="EnemyAlpha5" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(975, 81)
+
+[node name="EnemyAlpha6" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(1169, 658)
+
+[node name="EnemyAlpha7" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(1312, 79)
+
+[node name="EnemyAlpha8" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(1506, 656)
+
+[node name="EnemyAlpha9" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(1631, 81)
+
+[node name="EnemyAlpha10" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(1825, 658)
+
+[node name="EnemyAlpha11" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(2012, 89)
+
+[node name="EnemyAlpha12" parent="." instance=ExtResource("1_6snlx")]
+position = Vector2(2206, 666)
+
+[node name="EnemyDrone" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(450, 227)
+
+[node name="EnemyDrone2" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(258, 528)
+
+[node name="EnemyDrone3" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(823, 168)
+
+[node name="EnemyDrone4" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(631, 469)
+
+[node name="EnemyDrone5" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(1174, 223)
+
+[node name="EnemyDrone6" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(982, 524)
+
+[node name="EnemyDrone7" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(1479, 169)
+
+[node name="EnemyDrone8" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(1287, 470)
+
+[node name="EnemyDrone9" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(1862, 247)
+
+[node name="EnemyDrone10" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(1670, 548)
+
+[node name="EnemyDrone11" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(2175, 182)
+
+[node name="EnemyDrone12" parent="." instance=ExtResource("2_57o37")]
+position = Vector2(1983, 483)
