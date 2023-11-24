@@ -1,6 +1,6 @@
 extends Node2D
 
-var wave_count : int = 1
+@export var wave_count : int = 1
 @export var wave_one : PackedScene
 @export var wave_two : PackedScene
 @export var wave_three : PackedScene

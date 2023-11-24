@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://bndbfjftpedfq"]
+[gd_scene load_steps=36 format=3 uid="uid://bndbfjftpedfq"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/enemy_boss.gd" id="1_jumtg"]
 [ext_resource type="PackedScene" uid="uid://bb6eeb5442fp7" path="res://Scenes/EnemyScenes/enemy_bullet.tscn" id="2_xrh7s"]
 [ext_resource type="PackedScene" uid="uid://blwb5kc6qkmlb" path="res://Assets/Explosion/Explosion.tscn" id="3_be75w"]
 [ext_resource type="Texture2D" uid="uid://cimne5kq6nejp" path="res://Assets/LevelOneBoss/Level1Boss.png" id="3_c6sp0"]
+[ext_resource type="PackedScene" uid="uid://dt0dth5btcaop" path="res://Scenes/EnemyScenes/enemy_drone.tscn" id="4_4olyf"]
 [ext_resource type="Texture2D" uid="uid://cl3eh10eyurxg" path="res://Assets/ElitePropellant1.png" id="4_o7v3b"]
 [ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="5_dfbag"]
 [ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="6_1l7tf"]
@@ -135,6 +136,7 @@ enemy_bullet_scene = ExtResource("2_xrh7s")
 health = 40
 explosion = ExtResource("3_be75w")
 laser = NodePath("Laser")
+drone = ExtResource("4_4olyf")
 
 [node name="EvilShip" type="Sprite2D" parent="."]
 texture = ExtResource("3_c6sp0")
@@ -145,7 +147,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
 autoplay = "Elite Propellant"
-frame_progress = 0.673944
+frame_progress = 0.208204
 speed_scale = 0.5
 
 [node name="Gun" type="Node2D" parent="."]
@@ -159,7 +161,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="LaserCheck" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 20.0
 autostart = true
 
 [node name="ExplosionTimer" type="Timer" parent="."]
@@ -169,7 +171,12 @@ wait_time = 0.5
 wait_time = 8.0
 one_shot = true
 
+[node name="DroneTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
 [node name="Laser" type="Area2D" parent="." groups=["Enemy"]]
+visible = false
 script = ExtResource("10_oav1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
@@ -236,6 +243,7 @@ bus = &"Sound"
 [connection signal="timeout" from="LaserCheck" to="." method="_on_laser_check_timeout"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
 [connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]
+[connection signal="timeout" from="DroneTimer" to="." method="_on_drone_timer_timeout"]
 [connection signal="area_entered" from="Laser" to="Laser" method="_on_area_entered"]
 [connection signal="visibility_changed" from="Laser" to="Laser" method="_on_visibility_changed"]
 [connection signal="timeout" from="Laser/ChargeTimer" to="Laser" method="_on_charge_timer_timeout"]

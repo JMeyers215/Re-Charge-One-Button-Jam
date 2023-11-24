@@ -8,6 +8,7 @@ class_name Boss
 @export var health : int = 1
 @export var explosion : PackedScene
 @export var laser : Area2D
+@export var drone : PackedScene
 var fire_ready : bool = false
 var ship_up : bool = false
 var dying : bool = false
@@ -40,20 +41,30 @@ func move_ship():
 
 func _on_bullet_timeout() -> void:
 	if fire_ready == true && mainscene.paused == false && dying == false && charging_laser == false:
-		var enemy_bullet = enemy_bullet_scene.instantiate()
-		var enemy_bullet_two = enemy_bullet_scene.instantiate()
-		fire_bullet(enemy_bullet, enemy_bullet_two)
+		fire_bullet()
+	print(fire_ready)
+	print(mainscene.paused)
+	print(dying)
+	print(charging_laser)
+	print("Bullet Timeout")
 
-func fire_bullet(enemy_bullet, enemy_bullet_two):
-	var gun = get_node("Gun")
+func fire_bullet():
+	var enemy_bullet = enemy_bullet_scene.instantiate()
 	get_parent().add_child(enemy_bullet)
-	enemy_bullet.global_position += global_position + Vector2(-15,-80)
+	enemy_bullet.global_position = global_position
+	enemy_bullet.global_position += Vector2(-15, -80)
 	enemy_bullet.scale = Vector2(1.5,1.5)
-	var gun_two = get_node("Gun2")
+	print("enemy_bullet created", enemy_bullet.position)
+	
+	
+	var enemy_bullet_two = enemy_bullet_scene.instantiate()
 	get_parent().add_child(enemy_bullet_two)
-	enemy_bullet_two.global_position += global_position + Vector2(-15,80)
+	enemy_bullet_two.global_position = global_position
+	enemy_bullet_two.global_position += Vector2(-15, 80)
 	enemy_bullet_two.scale = Vector2(1.5,1.5)
+	print("enemy_bullet_two created", enemy_bullet_two.position)
 	$EnemyShot.play()
+	print("fire bullet called")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
@@ -91,9 +102,21 @@ func _on_laser_check_timeout() -> void:
 	if fire_ready == true:
 		charging_laser = true
 		laser.visible = true
+		$Laser/CollisionShape2D.set_deferred("disabled", false)
 		$LaserCheck.stop()
 
 func _on_laser_timer_timeout() -> void:
 	$LaserCheck.start()
 	print("laser check started")
 	charging_laser = false
+
+func _on_drone_timer_timeout() -> void:
+	var drone_scene = drone.instantiate()
+	get_parent().add_child(drone_scene)
+	randomize()
+	var top_or_bottom = randi_range(0,1)
+	
+	if top_or_bottom == 1:
+		drone_scene.global_position = Vector2(1250, 600)
+	else:
+		drone_scene.global_position = Vector2(1250, 150)

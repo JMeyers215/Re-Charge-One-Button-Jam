@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if mainscene.paused == false:
 		translate(Vector2(bullet_speed * delta,0))
-	if global_position.x > 1280 || global_position.x < 0:
+	if global_position.x > 1500 || global_position.x < -200:
 		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:

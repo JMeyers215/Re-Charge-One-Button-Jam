@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=34 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/UIController.gd" id="2_s5w2w"]
@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://702ff4j2sbht" path="res://Scenes/WaveScenes/LevelOne/l_1w_3.tscn" id="23_0yfwr"]
 [ext_resource type="PackedScene" uid="uid://brsxw14isk2g0" path="res://Scenes/WaveScenes/LevelOne/l_1w_4.tscn" id="24_sboom"]
 [ext_resource type="PackedScene" uid="uid://dvfuhgle7ic5q" path="res://Scenes/WaveScenes/LevelOne/l_1w_5.tscn" id="25_vs1sq"]
-[ext_resource type="PackedScene" uid="uid://bndbfjftpedfq" path="res://Scenes/EnemyScenes/enemy_boss.tscn" id="26_0uenl"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -255,14 +254,12 @@ label_settings = SubResource("LabelSettings_cg0yo")
 [node name="WaveManager" type="Node2D" parent="."]
 position = Vector2(1282, 0)
 script = ExtResource("17_8qe20")
+wave_count = 5
 wave_one = ExtResource("21_55qhs")
 wave_two = ExtResource("22_2oslh")
 wave_three = ExtResource("23_0yfwr")
 wave_four = ExtResource("24_sboom")
 wave_five = ExtResource("25_vs1sq")
-
-[node name="EnemyBoss" parent="." instance=ExtResource("26_0uenl")]
-position = Vector2(1278, 332)
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]
