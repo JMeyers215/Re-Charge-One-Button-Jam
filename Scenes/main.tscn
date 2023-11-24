@@ -262,7 +262,7 @@ wave_four = ExtResource("24_sboom")
 wave_five = ExtResource("25_vs1sq")
 
 [node name="EnemyBoss" parent="." instance=ExtResource("26_0uenl")]
-position = Vector2(1263, 170)
+position = Vector2(1278, 332)
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]
 [connection signal="timeout" from="EnvironmentSpawner/CloudTimer" to="EnvironmentSpawner" method="_on_cloud_timer_timeout"]

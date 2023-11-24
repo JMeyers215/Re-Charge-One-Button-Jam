@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ivhh8nmvytpd" path="res://Assets/ElitePropellant2.png" id="5_dfbag"]
 [ext_resource type="Texture2D" uid="uid://c2ivk1u0ucbho" path="res://Assets/ElitePropellant3.png" id="6_1l7tf"]
 [ext_resource type="AudioStream" uid="uid://dg55vl7x8opay" path="res://Sounds/DefiniteShot.wav" id="7_0jnkj"]
-[ext_resource type="AudioStream" uid="uid://1x4bywne5h6w" path="res://Sounds/laserexp2.mp3" id="8_b5ew3"]
 [ext_resource type="AudioStream" uid="uid://bj5njjahf6mv8" path="res://Sounds/AccessDeniedNow.wav" id="9_orsv3"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/BossLaser.gd" id="10_oav1x"]
 [ext_resource type="Texture2D" uid="uid://csgbmjx2o8obr" path="res://Assets/LevelOneBoss/LaserSegment.png" id="11_3jwcv"]
@@ -28,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://mbomkci8fpuq" path="res://Assets/LevelOneBoss/LaserCharge6.png" id="25_lf7y7"]
 [ext_resource type="Texture2D" uid="uid://dc2y0dypd0lxa" path="res://Assets/LevelOneBoss/LaserCharge7.png" id="26_3qn3h"]
 [ext_resource type="Texture2D" uid="uid://cntuovlpxpdo3" path="res://Assets/LevelOneBoss/LaserCharge8.png" id="27_ittam"]
+[ext_resource type="AudioStream" uid="uid://dxmt0gxnvrbxa" path="res://Sounds/FunkyExplosion.wav" id="28_by8yl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqyy4"]
 animations = [{
@@ -143,7 +143,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
 autoplay = "Elite Propellant"
-frame_progress = 0.463968
+frame_progress = 0.00833604
 speed_scale = 0.5
 
 [node name="Gun" type="Node2D" parent="."]
@@ -156,8 +156,12 @@ position = Vector2(0, 27)
 wait_time = 5.0
 autostart = true
 
+[node name="ExplosionTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [node name="DestructionTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
+one_shot = true
 
 [node name="Laser" type="Area2D" parent="."]
 visible = false
@@ -213,10 +217,11 @@ stream = ExtResource("9_orsv3")
 bus = &"Sound"
 
 [node name="EnemyDestroyed" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_b5ew3")
+stream = ExtResource("28_by8yl")
 bus = &"Sound"
 
 [connection signal="timeout" from="Bullet" to="." method="_on_bullet_timeout"]
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
 [connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]
 [connection signal="area_entered" from="Laser" to="Laser" method="_on_area_entered"]
 [connection signal="timeout" from="Laser/ChargeTimer" to="Laser" method="_on_charge_timer_timeout"]
