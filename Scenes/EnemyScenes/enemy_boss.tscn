@@ -132,7 +132,7 @@ size = Vector2(18.3333, 21.3333)
 scale = Vector2(3, 3)
 script = ExtResource("1_jumtg")
 enemy_bullet_scene = ExtResource("2_xrh7s")
-health = 2
+health = 40
 explosion = ExtResource("3_be75w")
 laser = NodePath("Laser")
 
@@ -145,7 +145,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oqyy4")
 animation = &"Elite Propellant"
 autoplay = "Elite Propellant"
-frame_progress = 0.765091
+frame_progress = 0.673944
 speed_scale = 0.5
 
 [node name="Gun" type="Node2D" parent="."]
@@ -170,7 +170,6 @@ wait_time = 8.0
 one_shot = true
 
 [node name="Laser" type="Area2D" parent="." groups=["Enemy"]]
-visible = false
 script = ExtResource("10_oav1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
@@ -200,6 +199,7 @@ texture = ExtResource("12_s20dx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/LaserProjectile"]
 position = Vector2(-315.5, 0)
 shape = SubResource("RectangleShape2D_x0o3c")
+disabled = true
 
 [node name="LaserTimer" type="Timer" parent="Laser/LaserProjectile"]
 wait_time = 3.0

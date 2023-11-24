@@ -20,12 +20,14 @@ func fire_laser():
 	$ChargeTimer.stop()
 	$LaserProjectile.visible = true
 	$LaserProjectile/LaserTimer.start()
+	$LaserProjectile/CollisionShape2D.set_deferred("disabled",false)
 	laser_stage = 1
 
 func _on_laser_timer_timeout() -> void:
 	$LaserProjectile.visible = false
 	$ChargeAnimation.visible = false
 	$".".visible = false
+	$LaserProjectile/CollisionShape2D.set_deferred("disabled",true)
 	laser_stage = 1
 
 func _on_charge_animation_animation_finished() -> void:
