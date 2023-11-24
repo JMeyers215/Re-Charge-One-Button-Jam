@@ -8,6 +8,7 @@ func _process(delta: float) -> void:
 		laser_stage = 1
 		health = 5
 		$ChargeTimer.stop()
+		$CollisionShape2D.set_deferred("disabled", true)
 		$ChargeAnimation.visible = false
 		$".".visible = false
 		$"../LaserCheck".start()

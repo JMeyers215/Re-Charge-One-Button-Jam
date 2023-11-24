@@ -21,8 +21,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if global_position.x > 1050 && mainscene.paused == false:
 		translate(Vector2(-enemy_speed * delta,0))
+		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	elif global_position.x <= 1050 && dying == false:
 		fire_ready = true
+		$Hitbox/CollisionShape2D.set_deferred("disabled", false)
 	
 	move_ship()
 	if ship_up == true && mainscene.paused == false && global_position.x <= 1050 && dying == false:
@@ -86,9 +88,10 @@ func _on_explosion_timer_timeout() -> void:
 	$EnemyDestroyed.play()
 
 func _on_laser_check_timeout() -> void:
-	charging_laser = true
-	laser.visible = true
-	$LaserCheck.stop()
+	if fire_ready == true:
+		charging_laser = true
+		laser.visible = true
+		$LaserCheck.stop()
 
 func _on_laser_timer_timeout() -> void:
 	$LaserCheck.start()
