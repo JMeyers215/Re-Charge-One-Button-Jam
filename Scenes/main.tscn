@@ -314,6 +314,7 @@ offset_top = 10.0
 offset_right = 1225.0
 offset_bottom = 50.0
 grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseSymbol" parent="UIController/PauseCounter" instance=ExtResource("3_dnsx3")]
 position = Vector2(25, 13)
@@ -332,6 +333,7 @@ offset_right = 171.0
 offset_bottom = 35.0
 text = "X 0"
 label_settings = SubResource("LabelSettings_i44qq")
+metadata/_edit_use_anchors_ = true
 
 [node name="PlaySymbol" type="MeshInstance2D" parent="UIController/PauseCounter"]
 visible = false
@@ -350,6 +352,7 @@ offset_bottom = 27.0
 text = ":5"
 label_settings = SubResource("LabelSettings_n7inj")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="UIController/PauseCounter"]
 layout_mode = 0
@@ -359,6 +362,7 @@ offset_right = 96.0
 offset_bottom = 29.0
 text = ":"
 label_settings = SubResource("LabelSettings_vkjfk")
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseTimer" type="Timer" parent="UIController"]
 wait_time = 0.25
@@ -411,10 +415,12 @@ offset_right = 275.0
 offset_bottom = 713.0
 text = ": Space"
 label_settings = SubResource("LabelSettings_cg0yo")
+metadata/_edit_use_anchors_ = true
 
 [node name="WaveManager" type="Node2D" parent="."]
 position = Vector2(1282, 0)
 script = ExtResource("17_8qe20")
+wave_count = 5
 wave_one = ExtResource("21_55qhs")
 wave_two = ExtResource("22_2oslh")
 wave_three = ExtResource("23_0yfwr")
