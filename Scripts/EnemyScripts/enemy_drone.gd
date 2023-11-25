@@ -15,11 +15,12 @@ var mainscene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	$Bullet.wait_time = randi_range(4,20)
+	$Bullet.wait_time = randi_range(4,8)
 	$Bullet.wait_time /= fire_rate
+	$Bullet.start()
 	mainscene = get_node("/root/Main")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'delta' is the elapsed time since t he previous frame.
 func _process(delta: float) -> void:
 	if mainscene.paused == false:
 		translate(Vector2(-enemy_speed * delta,0))

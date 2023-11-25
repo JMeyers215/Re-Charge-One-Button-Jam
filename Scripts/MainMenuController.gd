@@ -23,7 +23,6 @@ func _ready() -> void:
 	$Options/VolumeControls/MusicSlider._on_value_changed(music_volume)
 	$Options/VolumeControls/AudioSlider.value = sound_volume
 	$Options/VolumeControls/AudioSlider._on_value_changed(sound_volume)
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_released("one_button"):

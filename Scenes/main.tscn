@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b3fvxggvrhmvu"]
+[gd_scene load_steps=40 format=3 uid="uid://b3fvxggvrhmvu"]
 
 [ext_resource type="Script" path="res://Scripts/mainmanager.gd" id="1_hfepg"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/UIController.gd" id="2_s5w2w"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/PlayerScenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/PlayerScenes/perf_big_bullet.tscn" id="8_1jt8y"]
 [ext_resource type="Texture2D" uid="uid://cakx306f2af5h" path="res://Assets/UI Assets/leaderboard-trophy-icon-32.png" id="10_iviv8"]
+[ext_resource type="Texture2D" uid="uid://e33uji0vddd2" path="res://Assets/UI Assets/White_flag_waving.svg.png" id="11_r2evi"]
 [ext_resource type="Script" path="res://Scripts/EnvScripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="15_s4cyi"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="16_rgn0d"]
@@ -29,13 +30,19 @@
 [ext_resource type="PackedScene" uid="uid://cvyte367ouax3" path="res://Scenes/WaveScenes/LevelOne/l_1w_6.tscn" id="26_15o7k"]
 [ext_resource type="PackedScene" uid="uid://j8pqclo1mww4" path="res://Scenes/WaveScenes/LevelOne/l_1w_7.tscn" id="27_tlsu3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cie0f"]
+bg_color = Color(0.92549, 0.92549, 0.92549, 0.486275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3av85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8qyn"]
+bg_color = Color(1, 1, 1, 0.423529)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpjbb"]
 texture = SubResource("CanvasTexture_drykd")
-modulate_color = Color(1, 1, 1, 0.537255)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3av85"]
+modulate_color = Color(0.258824, 0.258824, 0.258824, 0.537255)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i44qq"]
 font_size = 20
@@ -85,7 +92,7 @@ offset_left = -740.0
 offset_top = 119.0
 offset_right = 2081.0
 offset_bottom = 558.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_vpjbb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cie0f")
 
 [node name="PauseSymbol" parent="UIController/PausePanel" instance=ExtResource("3_dnsx3")]
 position = Vector2(1333, 99)
@@ -154,7 +161,7 @@ offset_left = -740.0
 offset_top = 119.0
 offset_right = 2081.0
 offset_bottom = 558.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_vpjbb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8qyn")
 
 [node name="Leaderboard-trophy-icon-32" type="Sprite2D" parent="UIController/WinPanel"]
 position = Vector2(1369, 127)
@@ -219,6 +226,76 @@ scale = Vector2(270.625, 144)
 mesh = SubResource("BoxMesh_3av85")
 
 [node name="ExitBar" parent="UIController/WinPanel" instance=ExtResource("5_rowb4")]
+visible = false
+layout_mode = 0
+offset_left = 1466.0
+offset_top = 397.0
+offset_right = 1530.0
+offset_bottom = 437.0
+scale = Vector2(2, 2)
+
+[node name="DeathPanel" type="Panel" parent="UIController"]
+visible = false
+z_index = 4
+layout_mode = 1
+offset_left = -740.0
+offset_top = 119.0
+offset_right = 2081.0
+offset_bottom = 558.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vpjbb")
+
+[node name="WhiteFlagWaving_svg" type="Sprite2D" parent="UIController/DeathPanel"]
+position = Vector2(1375, 118)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_r2evi")
+
+[node name="QuitButton" type="Button" parent="UIController/DeathPanel"]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 260.0
+offset_right = 2114.0
+offset_bottom = 780.0
+scale = Vector2(0.25, 0.25)
+focus_mode = 0
+button_mask = 0
+icon = ExtResource("3_57pow")
+icon_alignment = 1
+
+[node name="QuitHover" type="MeshInstance2D" parent="UIController/DeathPanel"]
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
+z_index = -1
+position = Vector2(1222, 325)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_3av85")
+
+[node name="QuitBar" parent="UIController/DeathPanel" instance=ExtResource("5_rowb4")]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 398.0
+offset_right = 1220.0
+offset_bottom = 438.0
+scale = Vector2(2, 2)
+
+[node name="ExitButton" type="Button" parent="UIController/DeathPanel"]
+layout_mode = 0
+offset_left = 1401.0
+offset_top = 260.0
+offset_right = 2421.0
+offset_bottom = 780.0
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("4_ov8yf")
+icon_alignment = 1
+
+[node name="ExitHover" type="MeshInstance2D" parent="UIController/DeathPanel"]
+visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
+z_index = -1
+position = Vector2(1528, 324)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_3av85")
+
+[node name="ExitBar" parent="UIController/DeathPanel" instance=ExtResource("5_rowb4")]
 visible = false
 layout_mode = 0
 offset_left = 1466.0

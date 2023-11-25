@@ -46,7 +46,7 @@ func start_wave():
 	add_child(wave)
 
 func enemies_defeated():
-	if enemy_group.size()-1 == 0 && wave_count <= 8:
+	if enemy_group.size()-1 == 0 && wave_count <= 8 && main.game_over == false:
 		wave_count += 1
 		start_wave()
 

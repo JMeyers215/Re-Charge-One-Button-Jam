@@ -35,7 +35,7 @@ size = Vector2(5.33333, 5.33333)
 scale = Vector2(3, 3)
 script = ExtResource("1_ro72j")
 enemy_speed = 50
-fire_rate = 0.25
+fire_rate = 0.5
 enemy_bullet_scene = ExtResource("2_kgica")
 explosion = ExtResource("3_iv0nh")
 
@@ -50,8 +50,7 @@ frame_progress = 0.432842
 speed_scale = 1.5
 
 [node name="Bullet" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
+wait_time = 5.0
 
 [node name="Hurtbox" type="Area2D" parent="."]
 scale = Vector2(3, 3)

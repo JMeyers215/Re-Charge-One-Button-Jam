@@ -51,6 +51,11 @@ func _physics_process(_delta):
 		$UIController/WinPanel.visible = true
 	elif game_win == false:
 		$UIController/WinPanel.visible = false
+	
+	if game_over == true:
+		$UIController/DeathPanel.visible = true
+	elif game_over == false:
+		$UIController/DeathPanel.visible = false
 
 func _on_pause_timer_timeout() -> void:
 	pause_counter = 0
@@ -66,7 +71,7 @@ func spawn_power_up(enemy_pos):
 		var health = health_spawn.instantiate()
 		add_child(health)
 		health.global_position = enemy_pos
-	elif item <= 30 && item > 15:
+	elif item <= 25 && item > 15:
 		var charge = power_up.instantiate()
 		add_child(charge)
 		charge.global_position = enemy_pos

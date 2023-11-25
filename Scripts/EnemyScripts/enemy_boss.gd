@@ -72,6 +72,7 @@ func destroy_boss():
 	$Propellant.visible = false
 	$Laser.visible = false
 	$Laser/LaserProjectile/CollisionShape2D.set_deferred("disabled", true)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	$DestructionTimer.start()
 	$ExplosionTimer.start()
 	if $DestructionTimer.time_left == 2:
@@ -85,6 +86,8 @@ func _on_destruction_timer_timeout() -> void:
 	explosion_scene.global_position = global_position
 	explosion_scene.scale = Vector2(8,8)
 	queue_free()
+	var wave_manager = get_node("/root/Main/WaveManager")
+	wave_manager.enemies_defeated()
 
 func _on_explosion_timer_timeout() -> void:
 	var explosion_scene = explosion.instantiate()
@@ -100,7 +103,6 @@ func _on_laser_check_timeout() -> void:
 		$LaserCheck.stop()
 
 func _on_laser_timer_timeout() -> void:
-	
 	$LaserCheck.start()
 	print("laser check started")
 	charging_laser = false
