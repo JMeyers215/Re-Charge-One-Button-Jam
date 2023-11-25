@@ -32,7 +32,7 @@ func _ready() -> void:
 	main = get_node("/root/Main")
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("one_button") && main.paused == false && dying == false:
+	if Input.is_action_pressed("one_button") && main.paused == false && dying == false && main.game_win == false:
 		if charge_power_up == true:
 			charge_count += 3
 		else:
@@ -42,10 +42,19 @@ func _physics_process(delta: float) -> void:
 			charge_count = 50
 	move_ship()
 	
-	if ship_up == true && main.paused == false && dying == false:
+	if ship_up == true && main.paused == false && dying == false && main.game_win == false:
 		position.y -= ship_speed * delta
-	elif ship_up == false && main.paused == false && dying == false:
+	elif ship_up == false && main.paused == false && dying == false && main.game_win == false:
 		position.y += ship_speed * delta
+	
+	if main.game_win == true:
+		if global_position.y > 380 && global_position.y != 360:
+			global_position.y -= ship_speed * delta
+		elif global_position.y < 350 && global_position.y != 360:
+			global_position.y += ship_speed * delta
+		elif global_position.y < 380 || global_position.y > 350:
+			global_position.y = 360
+			translate(Vector2(ship_speed * delta,0))
 	
 	$ChargeBar.value = charge_count
 	if charge_count == 23:

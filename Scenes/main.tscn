@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dlhp7ortcy23p" path="res://Scenes/PlayerScenes/big_bullet.tscn" id="6_tmdik"]
 [ext_resource type="PackedScene" uid="uid://meupnn5yoa3" path="res://Scenes/PlayerScenes/perf_small_bullet.tscn" id="7_r11nv"]
 [ext_resource type="PackedScene" uid="uid://cyq6yqc5jch0g" path="res://Scenes/PlayerScenes/perf_big_bullet.tscn" id="8_1jt8y"]
+[ext_resource type="Texture2D" uid="uid://cakx306f2af5h" path="res://Assets/UI Assets/leaderboard-trophy-icon-32.png" id="10_iviv8"]
 [ext_resource type="Script" path="res://Scripts/EnvScripts/EnvironmentSpawner.gd" id="14_ixdbg"]
 [ext_resource type="PackedScene" uid="uid://dc6kwuwnpiefe" path="res://Scenes/EnvScenes/moving_cloud.tscn" id="15_s4cyi"]
 [ext_resource type="PackedScene" uid="uid://dfjy35f48i3yw" path="res://Scenes/EnvScenes/cloud_environment.tscn" id="16_rgn0d"]
@@ -27,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://dvfuhgle7ic5q" path="res://Scenes/WaveScenes/LevelOne/l_1w_5.tscn" id="25_vs1sq"]
 [ext_resource type="PackedScene" uid="uid://cvyte367ouax3" path="res://Scenes/WaveScenes/LevelOne/l_1w_6.tscn" id="26_15o7k"]
 [ext_resource type="PackedScene" uid="uid://j8pqclo1mww4" path="res://Scenes/WaveScenes/LevelOne/l_1w_7.tscn" id="27_tlsu3"]
-[ext_resource type="PackedScene" uid="uid://c3bu0jxn1sfid" path="res://Scenes/WaveScenes/LevelOne/l_1w_8.tscn" id="28_hdbua"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drykd"]
 
@@ -138,6 +138,87 @@ scale = Vector2(270.625, 144)
 mesh = SubResource("BoxMesh_3av85")
 
 [node name="ExitBar" parent="UIController/PausePanel" instance=ExtResource("5_rowb4")]
+visible = false
+layout_mode = 0
+offset_left = 1466.0
+offset_top = 397.0
+offset_right = 1530.0
+offset_bottom = 437.0
+scale = Vector2(2, 2)
+
+[node name="WinPanel" type="Panel" parent="UIController"]
+visible = false
+z_index = 4
+layout_mode = 1
+offset_left = -740.0
+offset_top = 119.0
+offset_right = 2081.0
+offset_bottom = 558.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vpjbb")
+
+[node name="Leaderboard-trophy-icon-32" type="Sprite2D" parent="UIController/WinPanel"]
+position = Vector2(1369, 127)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_iviv8")
+
+[node name="Leaderboard-trophy-icon-33" type="Sprite2D" parent="UIController/WinPanel"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(1322, 138)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_iviv8")
+
+[node name="Leaderboard-trophy-icon-34" type="Sprite2D" parent="UIController/WinPanel"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(1409, 137)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_iviv8")
+
+[node name="QuitButton" type="Button" parent="UIController/WinPanel"]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 260.0
+offset_right = 2114.0
+offset_bottom = 780.0
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("3_57pow")
+icon_alignment = 1
+
+[node name="QuitHover" type="MeshInstance2D" parent="UIController/WinPanel"]
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
+z_index = -1
+position = Vector2(1222, 325)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_3av85")
+
+[node name="QuitBar" parent="UIController/WinPanel" instance=ExtResource("5_rowb4")]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 398.0
+offset_right = 1220.0
+offset_bottom = 438.0
+scale = Vector2(2, 2)
+
+[node name="ExitButton" type="Button" parent="UIController/WinPanel"]
+layout_mode = 0
+offset_left = 1401.0
+offset_top = 260.0
+offset_right = 2421.0
+offset_bottom = 780.0
+scale = Vector2(0.25, 0.25)
+button_mask = 0
+icon = ExtResource("4_ov8yf")
+icon_alignment = 1
+
+[node name="ExitHover" type="MeshInstance2D" parent="UIController/WinPanel"]
+visible = false
+modulate = Color(0.823529, 0.301961, 0.12549, 1)
+z_index = -1
+position = Vector2(1528, 324)
+scale = Vector2(270.625, 144)
+mesh = SubResource("BoxMesh_3av85")
+
+[node name="ExitBar" parent="UIController/WinPanel" instance=ExtResource("5_rowb4")]
 visible = false
 layout_mode = 0
 offset_left = 1466.0
@@ -264,7 +345,6 @@ wave_four = ExtResource("24_sboom")
 wave_five = ExtResource("25_vs1sq")
 wave_six = ExtResource("26_15o7k")
 wave_seven = ExtResource("27_tlsu3")
-wave_eight = ExtResource("28_hdbua")
 metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="UIController/PauseTimer" to="." method="_on_pause_timer_timeout"]

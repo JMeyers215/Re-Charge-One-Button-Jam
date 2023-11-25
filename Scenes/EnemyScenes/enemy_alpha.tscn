@@ -48,7 +48,7 @@ position = Vector2(15, 0)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_r2c3q")
 autoplay = "default"
-frame_progress = 0.405146
+frame_progress = 0.722808
 speed_scale = 2.0
 
 [node name="Bullet" type="Timer" parent="."]

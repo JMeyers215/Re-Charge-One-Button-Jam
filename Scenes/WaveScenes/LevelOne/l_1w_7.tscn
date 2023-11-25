@@ -9,6 +9,7 @@
 
 [node name="EnemyBoss" parent="." instance=ExtResource("1_5anxv")]
 position = Vector2(1451, 353)
+health = 60
 
 [node name="EnemyElite" parent="." instance=ExtResource("2_int03")]
 position = Vector2(243, 186)
@@ -29,7 +30,37 @@ position = Vector2(253, 324)
 position = Vector2(400, 72)
 
 [node name="EnemyAlpha2" parent="." instance=ExtResource("4_270dk")]
-position = Vector2(426, 615)
+position = Vector2(426, 580)
+
+[node name="EnemyAlpha5" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(2281, 79)
+
+[node name="EnemyAlpha6" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(2324, 559)
+
+[node name="EnemyAlpha7" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(3280, 93)
+
+[node name="EnemyAlpha8" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(3306, 527)
+
+[node name="EnemyAlpha9" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(4386, 98)
+
+[node name="EnemyAlpha10" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(4412, 532)
+
+[node name="EnemyAlpha11" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(5248, 105)
+
+[node name="EnemyAlpha12" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(5268, 579)
+
+[node name="EnemyAlpha13" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(6211, 112)
+
+[node name="EnemyAlpha14" parent="." instance=ExtResource("4_270dk")]
+position = Vector2(6231, 586)
 
 [node name="EnemyDrone4" parent="." instance=ExtResource("3_mvfg6")]
 position = Vector2(353, 390)
@@ -62,4 +93,4 @@ position = Vector2(1210, 191)
 position = Vector2(1318, 76)
 
 [node name="EnemyAlpha4" parent="." instance=ExtResource("4_270dk")]
-position = Vector2(1340, 622)
+position = Vector2(1357, 559)

@@ -8,8 +8,8 @@ extends Node2D
 @export var wave_five : PackedScene
 @export var wave_six : PackedScene
 @export var wave_seven : PackedScene
-@export var wave_eight : PackedScene
 @onready var music = get_node("/root/Music")
+@onready var main = get_node("/root/Main")
 var enemy_group
 
 # Called when the node enters the scene tree for the first time.
@@ -37,16 +37,16 @@ func start_wave():
 		wave = wave_six.instantiate()
 	elif wave_count == 7:
 		wave = wave_seven.instantiate()
-	elif wave_count == 8:
-		wave = wave_eight.instantiate()
 		music.stream = preload("res://Music/Nebula (Loop).wav")
 		music.autoplay = true
 		music.play()
-	
+	elif wave_count == 8:
+		main._game_win()
+		main.game_win = true
 	add_child(wave)
 
 func enemies_defeated():
-	if enemy_group.size()-1 == 0:
+	if enemy_group.size()-1 == 0 && wave_count <= 8:
 		wave_count += 1
 		start_wave()
 

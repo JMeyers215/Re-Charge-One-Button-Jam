@@ -4,13 +4,16 @@ var unpause_counter : int = 0
 var pause_counter : int = 0
 var paused : bool = false
 var game_over : bool = false
+var game_win : bool = false
 @export var health_spawn : PackedScene
 @export var power_up : PackedScene
+@onready var music = get_node("/root/Music")
 
 func _ready() -> void:
 	var new_key
 	new_key = Global.keybind
 	$CurrentKey/KeyCode.text = str(": ", new_key)
+	music = get_node("/root/Music")
 	pass
 
 func _input(_event):
@@ -43,6 +46,11 @@ func _physics_process(_delta):
 		$UIController/PausePanel.visible = true
 	elif paused == false:
 		$UIController/PausePanel.visible = false
+	
+	if game_win == true:
+		$UIController/WinPanel.visible = true
+	elif game_win == false:
+		$UIController/WinPanel.visible = false
 
 func _on_pause_timer_timeout() -> void:
 	pause_counter = 0
@@ -62,3 +70,11 @@ func spawn_power_up(enemy_pos):
 		var charge = power_up.instantiate()
 		add_child(charge)
 		charge.global_position = enemy_pos
+
+func _game_win():
+	game_win = true
+	print("game won")
+	print(game_win)
+	music.stream = preload("res://Music/Horizon (Long Loop).wav")
+	music.autoplay = true
+	music.play()
