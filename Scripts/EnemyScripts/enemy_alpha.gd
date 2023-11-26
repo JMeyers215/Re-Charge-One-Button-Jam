@@ -7,6 +7,8 @@ extends Node2D
 @export var health : int = 2
 @export var point_load : int = 1
 @export var alpha_explosion : PackedScene
+var hurt_texture : Texture = preload("res://Assets/Character Assets/EvilAlphahurt.png")
+var norm_texture : Texture = preload("res://Assets/Character Assets/EvilAlpha.png")
 var fire_ready : bool = false
 var mainscene
 
@@ -72,9 +74,15 @@ func _on_death_timer_timeout() -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		$EnemyHit.play()
+		$AlphaShip.texture = hurt_texture
+		$DamageTimer.start()
 		var bullet_damage = area.bullet_damage
 		area.bullet_reduce(health)
 		if bullet_damage > 0:
 			health -= bullet_damage
 		if health <= 0:
 			destroy_enemy()
+
+
+func _on_damage_timer_timeout() -> void:
+	$AlphaShip.texture = norm_texture

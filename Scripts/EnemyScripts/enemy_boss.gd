@@ -9,6 +9,8 @@ class_name Boss
 @export var explosion : PackedScene
 @export var laser : Area2D
 @export var drone : PackedScene
+var hurt_texture : Texture = preload("res://Assets/LevelOneBoss/Level1Bosshurt.png")
+var norm_texture : Texture = preload("res://Assets/LevelOneBoss/Level1Boss.png")
 var fire_ready : bool = false
 var ship_up : bool = false
 var dying : bool = false
@@ -61,6 +63,8 @@ func fire_bullet():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		$EnemyHit.play()
+		$EvilShip.texture = hurt_texture
+		$DamageTimer.start()
 		var bullet_damage = area.bullet_damage
 		health -= bullet_damage
 		if health <= 0:
@@ -117,3 +121,7 @@ func _on_drone_timer_timeout() -> void:
 		drone_scene.global_position = Vector2(1250, 600)
 	else:
 		drone_scene.global_position = Vector2(1250, 150)
+
+
+func _on_damage_timer_timeout() -> void:
+	$EvilShip.texture = norm_texture

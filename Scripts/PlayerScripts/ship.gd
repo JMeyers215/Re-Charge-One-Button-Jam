@@ -27,6 +27,9 @@ var normal_texture : Texture = preload("res://Assets/UI Assets/ProgressBarOver.p
 #EXPLOSIONS!!!
 @export var explosion : PackedScene
 
+#ship textures
+var hurt_texture : Texture = preload("res://Assets/Character Assets/SpaceShiphurt.png")
+var norm_texture : Texture = preload("res://Assets/Character Assets/SpaceShip.png")
 func _ready() -> void:
 	$AnimatedSprite2D.play()
 	main = get_node("/root/Main")
@@ -124,6 +127,8 @@ func _on_perfect_small_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyBullet"):
 		$AudioManager/ShipHit.play()
+		$SpaceShip.texture = hurt_texture
+		$DamageTimer.start()
 		healthbar.value -= area.bullet_damage
 		if healthbar.value <= 0:
 			game_over()
@@ -155,3 +160,6 @@ func _on_explosion_timer_timeout() -> void:
 func _on_destroy_timer_timeout() -> void:
 	main.game_over = true
 	queue_free()
+
+func _on_damage_timer_timeout() -> void:
+	$SpaceShip.texture = norm_texture

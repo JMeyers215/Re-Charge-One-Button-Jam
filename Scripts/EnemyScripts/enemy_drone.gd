@@ -9,6 +9,8 @@ class_name Drone
 @export var health : int = 2
 @export var point_load : int = 1
 @export var explosion : PackedScene
+var norm_texture : Texture = preload("res://Assets/Enemy Assets/EvilShip.png")
+var hurt_texture : Texture = preload("res://Assets/Enemy Assets/EvilShiphurt.png")
 var fire_ready : bool = false
 var mainscene
 
@@ -53,6 +55,8 @@ func fire_bullet(enemy_bullet):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		$EnemyHit.play()
+		$EvilShip.texture = hurt_texture
+		$DamageTimer.start()
 		var bullet_damage = area.bullet_damage
 		area.bullet_reduce(health)
 		if bullet_damage > 0:
@@ -74,3 +78,7 @@ func _on_death_timer_timeout() -> void:
 	queue_free()
 	var wave_manager = get_node("/root/Main/WaveManager")
 	wave_manager.enemies_defeated()
+
+
+func _on_damage_timer_timeout() -> void:
+	$EvilShip.texture = norm_texture
